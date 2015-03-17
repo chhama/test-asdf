@@ -34,6 +34,10 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/') }}">Home</a></li>
+					<li><a href="{{ url('category') }}">Category</a></li>
+					<li><a href="{{ url('post') }}">Post</a></li>
+					<li><a href="{{ url('albumcat') }}">Album Category</a></li>
+					<li><a href="{{ url('album') }}">Album</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

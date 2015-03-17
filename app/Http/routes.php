@@ -19,3 +19,8 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::resource('category','CategoryController');
+Route::resource('post','PostController');
+Route::resource('albumcat','AlbumCatController');
+Route::resource('album','AlbumController');
