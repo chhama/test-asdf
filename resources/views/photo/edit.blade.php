@@ -50,18 +50,13 @@
 						</div>
 						<div class="form-group">
 							<div class="col-md-4 col-md-offset-4">
-								<img src="{{ asset($photo->directory.$photoById->photo_file )}}" class="img-thumbnail">
-							</div>
-							<div class="col-md-4">
 								<button type="submit" class="btn btn-success">
 									Update
 								</button>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="col-md-8 col-md-offset-4">
-								
-							</div>
+						<div class="col-md-12" >
+							<img src="{{ asset($photo->directory.$photoById->photo_file )}}" class="img-thumbnail">
 						</div>
 					{!! Form::close() !!}
 				</div>

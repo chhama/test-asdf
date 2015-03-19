@@ -8,30 +8,30 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">List Album</div>
 				<div class="panel-body">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-hover" style="margin-bottom:0px;">
+					<table class="table table-hover">
 					<thead>
 					  <tr>
 					    <th height="38" align="center" class="col-md-1 text-center">#</th>
 					    <th height="38" align="left" class="col-md-3">Name</th>
 					    <th height="38" align="left" class="col-md-2">Album Category</th>
 					    <th height="38" align="left" class="col-md-4 text-center">Cover Photo</th>
-					    <th align="left" class="action text-center" class="col-md-2">Control</th>
+					    <th align="left" class="action text-center col-md-2">Control</th>
 					  </tr>
 					  </thead>
 					  <tbody>
 					@foreach($albumAll as $album)
-						<tr bgcolor="">
-					    <td height="25" align="center" class="text-center">{{ $index++ }}</td>
-					    <td height="25" align="left">{{ $album->name }}&nbsp;</td>
-					    <td height="25" align="left">{{ $album->albumcat->name }}&nbsp;</td>
-					    <td height="25" align="left" bgcolor=""><div class="col-md-12"><a href="{{ URL::route('photo.index','album_id='.$album->id) }}"><img src="{{ asset($album->directory.$album->cover.'') }}" class="img-thumbnail"></a></div>&nbsp;</td>
-					    <td align="left" class="action text-center">
+					<tr bgcolor="">
+					    <td height="25" align="center" class="col-md-1 text-center">{{ $index++ }}</td>
+					    <td height="25" align="left" class="col-md-3">{{ $album->name }}&nbsp;</td>
+					    <td height="25" align="left" class="col-md-2">{{ $album->albumcat->name }}&nbsp;</td>
+					    <td height="25" align="left" class="col-md-4 text-center"><a href="{{ URL::route('photo.index','album_id='.$album->id) }}"><img src="{{ asset($album->directory.$album->cover) }}" class="img-thumbnail" style="width:200px"></a>&nbsp;</td>
+					    <td align="left" class="action text-center col-md-2">
 					    	{!! Form::open(array('url'=>route('album.destroy', array($album->id)),'method'=>'delete')) !!}
 								<a href="{{route('album.edit', array($album->id))}}" class="btn btn-xs btn-success tooltip-top" title="Edit prod"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
 								<button type="submit" onclick="return confirm ('<?php echo ('Are you sure') ?>');" name="id" class="btn btn-xs btn-danger tooltip-top" title="Remove Album" value="{{$album->id}}"><i class="glyphicon glyphicon-trash"></i></button>
 							{!!Form::close() !!}
 					    </td>
-					    </tr>
+					</tr>
 					    
 					@endforeach
 					</tbody>
