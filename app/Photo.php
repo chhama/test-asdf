@@ -2,16 +2,22 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Album extends Model {
+class Photo extends Model {
 
 	protected $fillable = [
 		'album_cat_id',
+		'album_id',
 		'name',
-		'cover',
+		'photo_file',
 		'directory'
 	];
 
 	public function albumcat(){
 		return $this->belongsTo('App\AlbumCat','album_cat_id');
 	}
+
+	public function album(){
+		return $this->belongsTo('App\Album','album_id');
+	}
+
 }

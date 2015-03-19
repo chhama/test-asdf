@@ -4,6 +4,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class AlbumCat extends Model {
 
-	protected $fillable = ['name'];
+	protected $fillable = [
+		'name',
+		'directory'
+	];
 
 }

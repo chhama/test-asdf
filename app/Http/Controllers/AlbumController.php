@@ -48,14 +48,19 @@ class AlbumController extends Controller {
 
 		$input 	= $request->all();
 		$album 	= New Album();
+
+		$albumCatDir = AlbumCat::find($input['album_cat_id']);
+		$albumDir = $albumCatDir->directory.uniqid().'/';
+		mkdir($albumDir);
+
 		if($request->hasFile('cover')){
-			$destinationPath = "upload/";
 			$extension = $request->file('cover')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			$request->file('cover')->move($destinationPath, $fileName);
+			$request->file('cover')->move($albumDir, $fileName);
 			$album->cover	= $fileName;
 		}
 
+		$album->directory 	= $albumDir;
 		$album->name 		= $input['name'];
 		$album->album_cat_id = $input['album_cat_id'];
 		$album->save();
@@ -99,8 +104,7 @@ class AlbumController extends Controller {
 	public function update($id, Request $request)
 	{
 		$rules	= [
-			'name' 	=> 'required',
-			'album_cat_id' => 'required'
+			'name' 	=> 'required'
 		];
 		$this->validate($request, $rules);
 
@@ -108,10 +112,9 @@ class AlbumController extends Controller {
 		$album 	= Album::find($id);
 
 		if($request->hasFile('cover')){
-			$destinationPath = "upload/";
 			$extension = $request->file('cover')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			$request->file('cover')->move($destinationPath, $fileName);
+			$request->file('cover')->move($album->directory, $fileName);
 			$album->cover	= $fileName;
 		}
 

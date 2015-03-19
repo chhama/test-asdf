@@ -18,6 +18,7 @@ class CreateAlbumsTable extends Migration {
 			$table->integer('album_cat_id');
 			$table->string('name');
 			$table->string('cover');
+			$table->string('directory');
 			$table->timestamps();
 		});
 	}
