@@ -27,13 +27,13 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">National Health Mission</a>
+				<a class="navbar-brand" href=<?php $_SERVER['DOCUMENT_ROOT']; ?>>National Health Mission</a>
 			</div>
 		
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active" data-menuanchor="page1"><a href="#main">Home</a></li>
+					<li data-menuanchor="page1"><a href="#main">Home</a></li>
 					<li data-menuanchor="society"><a href="#society">Society</a></li>
 					<li data-menuanchor="guideline"><a href="#guideline">Guideline</a></li>
 					<li data-menuanchor="gallery"><a href="#gallery">Photo Gallery</a></li>
