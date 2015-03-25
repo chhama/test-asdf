@@ -32,4 +32,6 @@ Route::group(['middleware' => 'auth'], function()
 	Route::resource('district','DistrictController');
 	Route::resource('hospitalcategory','HospitalCategoryController');
 	Route::resource('hospital','HospitalController');
+	Route::resource('staff','StaffController');
+	Route::resource('posting','PostingController');
 });

@@ -53,6 +53,7 @@
 					<li><a href="{{ url('district') }}">District</a></li>
 					<li><a href="{{ url('hospitalcategory') }}">Hospital / Center Category</a></li>
 					<li><a href="{{ url('hospital') }}">Hospital / Center</a></li>
+					<li><a href="{{ url('staff') }}">Staff</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
