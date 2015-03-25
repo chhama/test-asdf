@@ -13,7 +13,6 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -22,9 +21,11 @@ Route::controllers([
 
 Route::group(['middleware' => 'auth'], function()
 {
+	Route::get('home', 'HomeController@index');
     Route::resource('category','CategoryController');
 	Route::resource('post','PostController');
 	Route::resource('albumcat','AlbumCatController');
 	Route::resource('album','AlbumController');
 	Route::resource('photo','PhotoController');
+	Route::resource('user','UserController');
 });
