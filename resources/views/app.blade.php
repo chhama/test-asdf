@@ -49,6 +49,10 @@
 					<li><a href="{{ url('post') }}">Post</a></li>
 					<li><a href="{{ url('albumcat') }}">Album Category</a></li>
 					<li><a href="{{ url('album') }}">Album</a></li>
+					<li><a href="{{ url('designation') }}">Designation</a></li>
+					<li><a href="{{ url('district') }}">District</a></li>
+					<li><a href="{{ url('hospitalcategory') }}">Hospital / Center Category</a></li>
+					<li><a href="{{ url('hospital') }}">Hospital / Center</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -59,6 +63,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
+								<li><a href="{{ route('user.show',Auth::user()->id) }}">Profile</a></li>
 								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
 							</ul>
 						</li>

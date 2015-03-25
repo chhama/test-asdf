@@ -59,7 +59,8 @@ class UserController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$userById	= User::find($id);
+		return view('user.profile',compact('userById'));
 	}
 
 	/**
@@ -88,19 +89,26 @@ class UserController extends Controller {
 		$rules	= [
 			'name' => 'required|max:255',
 			'email' => 'required|email|max:255|unique:users,email,'.$id,
-			'role' => 'required',
 		];
 		if($request['password'] != '') {
 			$rules = ['password' => 'required|confirmed|min:6'];
 			$request['password'] = bcrypt($request['password']);
 		}
 
+		if($request['role'] != '')
+			$rules = ['role' => 'required'];
+
 		$this->validate($request, $rules);
 
 		$user = User::find($id);
 		$user->update($request->except('_token'));
 
-		return redirect('user');
+		if($request['role'] == '') {
+			return redirect('/user/'.$id);
+		} else {
+			return redirect('user');
+		}
+		
 	}
 
 	/**
