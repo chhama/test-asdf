@@ -18,5 +18,21 @@ class Posting extends Model {
 		'order_upto'
 	];
 
+	public function designation(){
+		return $this->belongsTo('App\Designation','designation_id');
+	}
+
+	public function hospitalCategory(){
+		return $this->belongsTo('App\HospitalCategory','hospital_category_id');
+	}
+
+	public function hospital(){
+		return $this->belongsTo('App\Hospital','hospital_id');
+	}
+
+	public function district(){
+		return $this->belongsTo('App\District','district_id');
+	}
+
 
 }

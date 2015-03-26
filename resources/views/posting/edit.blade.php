@@ -49,39 +49,39 @@
 				<div class="panel-heading"><strong>Add Posting</strong></div>
 				<div class="panel-body">
 					<div class="col-md-12">
-					{!! Form::open(['route'=>'posting.store','class'=>'form-horizontal']) !!}
+					{!! Form::model($postingById, ['route'=>['posting.update',$postingById->id],'method'=>'patch','class'=>'form-horizontal']) !!}
 					{!! Form::hidden('staff_id',$_GET['staff_id']) !!}
 						<div class="form-group">
 							{!! Form::label('District','',['class'=>'control-label'])!!}
-							{!! Form::select('district_id',[''=>'']+$districtAll,'',['class'=>'form-control','id'=>'district_id']) !!}
+							{!! Form::select('district_id',$districtAll,$postingById->district_id,['class'=>'form-control','id'=>'district_id']) !!}
 							@if($errors->has('district_id'))
 								<span class="text-danger">{{$errors->first('district_id')}}</span>
 							@endif
 						</div>
 						<div class="form-group">
 							{!! Form::label('Category','',['class'=>'control-label'])!!}
-							{!! Form::select('hospital_category_id',[''=>'']+$hospitalCategoryAll,'',['class'=>'form-control','id'=>'hospital_category_id']) !!}
+							{!! Form::select('hospital_category_id',$hospitalCategoryAll,$postingById->hospital_category_id,['class'=>'form-control','id'=>'hospital_category_id']) !!}
 							@if($errors->has('hospital_category_id'))
 								<span class="text-danger">{{$errors->first('hospital_category_id')}}</span>
 							@endif
 						</div>
 						<div class="form-group">
 							{!! Form::label('Hospital/Centre','',['class'=>'control-label'])!!}
-							{!! Form::select('hospital_id',[''=>''],'',['class'=>'form-control','id'=>'hospital_id']) !!}
+							{!! Form::select('hospital_id',$hospitalAll,$postingById->hospital_id,['class'=>'form-control','id'=>'hospital_id']) !!}
 							@if($errors->has('hospital_id'))
 								<span class="text-danger">{{$errors->first('hospital_id')}}</span>
 							@endif
 						</div>
 						<div class="form-group">
 							{!! Form::label('Designation','',['class'=>'control-label'])!!}
-							{!! Form::select('designation_id',[''=>'']+$designationAll,'',['class'=>'form-control']) !!}
+							{!! Form::select('designation_id',$designationAll,$postingById->designation_id,['class'=>'form-control']) !!}
 							@if($errors->has('designation_id'))
 								<span class="text-danger">{{$errors->first('designation_id')}}</span>
 							@endif
 						</div>
 						<div class="form-group">
 							{!! Form::label('Status','',['class'=>'control-label'])!!}
-							{!! Form::select('status',$status,'',['class'=>'form-control']) !!}
+							{!! Form::select('status',$status,$postingById->status,['class'=>'form-control']) !!}
 							@if($errors->has('status'))
 								<span class="text-danger">{{$errors->first('status')}}</span>
 							@endif
@@ -121,10 +121,9 @@
 								<span class="text-danger">{{$errors->first('order_renumeration')}}</span>
 							@endif
 						</div>
-			
 						<div class="form-group">
 							<button type="submit" class="btn btn-success">
-								Save
+								Update
 							</button>
 						</div>
 					{!! Form::close() !!}

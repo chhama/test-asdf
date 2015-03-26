@@ -49,12 +49,18 @@ class PostingController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		$rules	= ['name'=>'required','sex'=>'required'];
+		$rules	= [
+			'designation_id'=>'required',
+			'district_id'=>'required',
+			'hospital_category_id'=>'required',
+			'hospital_id'=>'required',
+			'status'=>'required',
+		];
 		$this->validate($request, $rules);
 
 		Posting::create($request->except('_token'));
 
-		return redirect('posting');
+		return redirect("posting?staff_id=".$request['staff_id']);
 	}
 
 	/**
@@ -76,12 +82,17 @@ class PostingController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$sex = ['Male'=>'Male','Female'=>'Female'];
-		$postingAll	= Posting::orderBy('name')->paginate();
+		$staff_id = $_GET['staff_id'];
+		$status = [''=>'','Current Post'=>'Current Post','Previous Post'=>'Previous Post'];
 		$postingById	= Posting::find($id);
+		$postingAll		= Posting::where('staff_id','=',$staff_id)->orderBy('status')->paginate();
+		$districtAll	= District::orderBy('name')->lists('name','id');
+		$hospitalCategoryAll	= HospitalCategory::orderBy('name')->lists('name','id');
+		$hospitalAll	= Hospital::orderBy('name')->lists('name','id');
+		$designationAll	= Designation::orderBy('name')->lists('name','id');
 		$index = $postingAll->perPage() * ($postingAll->currentPage()-1) + 1;
 
-		return view('posting.edit',compact('postingById','postingAll','index','sex')); 
+		return view('posting.edit',compact('postingAll','postingById','index','status','staff_id','districtAll','hospitalCategoryAll','hospitalAll','designationAll'));  
 	}
 
 	/**
@@ -92,13 +103,20 @@ class PostingController extends Controller {
 	 */
 	public function update($id, Request $request)
 	{
-		$rules	= ['name'=>'required','sex'=>'required'];
+		$rules	= [
+			'designation_id'=>'required',
+			'district_id'=>'required',
+			'hospital_category_id'=>'required',
+			'hospital_id'=>'required',
+			'status'=>'required',
+		];
+		
 		$this->validate($request, $rules);
 
 		$posting = Posting::find($id);
 		$posting->update($request->except('_token'));
 
-		return redirect('posting');
+		return redirect("posting?staff_id=".$request['staff_id']);
 	}
 
 	/**
@@ -111,6 +129,16 @@ class PostingController extends Controller {
 	{
 		Posting::destroy($id);
 		return redirect('posting');
+	}
+
+	public function hospitalByCat(){
+		
+		$hospital_category_id = $_GET['catId'];
+		$hospitalByCat = Hospital::where('hospital_category_id','=',$hospital_category_id)->lists('name','id');
+		echo "<option></option>";
+		foreach ($hospitalByCat as $id => $name) {
+			echo "<option value='$id'>$name</option>";
+		}
 	}
 
 }
