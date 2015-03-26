@@ -39,21 +39,42 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Laravel</a>
+				<a class="navbar-brand" href="{{ url('/') }}" target="_blank">Laravel</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}" target="_blank">LiveSite</a></li>
-					<li><a href="{{ url('category') }}">Category</a></li>
-					<li><a href="{{ url('post') }}">Post</a></li>
-					<li><a href="{{ url('albumcat') }}">Album Category</a></li>
-					<li><a href="{{ url('album') }}">Album</a></li>
-					<li><a href="{{ url('designation') }}">Designation</a></li>
-					<li><a href="{{ url('district') }}">District</a></li>
-					<li><a href="{{ url('hospitalcategory') }}">Hospital / Center Category</a></li>
-					<li><a href="{{ url('hospital') }}">Hospital / Center</a></li>
-					<li><a href="{{ url('staff') }}">Staff</a></li>
+					<li><a href="{{ url('/home') }}">Dashboard </a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Post <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('category') }}">Category</a></li>
+							<li><a href="{{ url('post') }}">Post</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Photo <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('albumcat') }}">Album Category</a></li>
+							<li><a href="{{ url('album') }}">Album</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hospital / Centre <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('district') }}">District</a></li>
+							<li><a href="{{ url('hospitalcategory') }}">Hospital / Center Category</a></li>
+							<li><a href="{{ url('hospital') }}">Hospital / Center</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Human Resource <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('designation') }}">Designation</a></li>
+							<li><a href="{{ url('staff') }}">Staff</a></li>
+						</ul>
+					</li>
+					
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
