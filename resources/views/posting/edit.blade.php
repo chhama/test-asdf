@@ -46,7 +46,7 @@
 		</div>
 		<div class="col-md-3">
 			<div class="panel panel-default">
-				<div class="panel-heading"><strong>Add Posting</strong></div>
+				<div class="panel-heading"><strong>Edit Posting</strong></div>
 				<div class="panel-body">
 					<div class="col-md-12">
 					{!! Form::model($postingById, ['route'=>['posting.update',$postingById->id],'method'=>'patch','class'=>'form-horizontal']) !!}

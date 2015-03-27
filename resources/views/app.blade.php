@@ -71,7 +71,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Human Resource <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="{{ url('designation') }}">Designation</a></li>
-							<li><a href="{{ url('staff') }}">Staff</a></li>
+							<li><a href="{{ url('staff') }}">Staff Record</a></li>
 						</ul>
 					</li>
 					
