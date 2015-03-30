@@ -19,6 +19,7 @@ class CreateHospitalsTable extends Migration {
 			$table->integer('hospital_category_id');
 			$table->string('name');
 			$table->string('type');
+			$table->text('description');
 			$table->timestamps();
 		});
 	}

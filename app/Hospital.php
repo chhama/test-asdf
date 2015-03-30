@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hospital extends Model {
 
-	protected $fillable = ['district_id','hospital_category_id','name','type'];
+	protected $fillable = ['district_id','hospital_category_id','name','type','description'];
 
 	public function district(){
 		return $this->belongsTo('App\District','district_id');

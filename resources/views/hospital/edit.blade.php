@@ -77,6 +77,13 @@
 							@endif
 						</div>
 						<div class="form-group">
+							{!! Form::label('Description','',['class'=>'control-label'])!!}
+							{!! Form::textarea('description',null,['class'=>'form-control']) !!}
+							@if($errors->has('description'))
+								<span class="text-danger">{{$errors->first('description')}}</span>
+							@endif
+						</div>
+						<div class="form-group">
 							<button type="submit" class="btn btn-success">
 								Update
 							</button>

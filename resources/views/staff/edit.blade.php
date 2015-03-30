@@ -47,12 +47,19 @@
 				<div class="panel-heading"><strong>Add Staff</strong></div>
 				<div class="panel-body">
 					<div class="col-md-12">
-					{!! Form::model($staffById, ['route'=>['staff.update',$staffById->id],'method'=>'patch','class'=>'form-horizontal']) !!}
+					{!! Form::model($staffById, ['route'=>['staff.update',$staffById->id],'method'=>'patch','class'=>'form-horizontal' ,'enctype'=>'multipart/form-data']) !!}
 						<div class="form-group">
 							{!! Form::label('Name','',['class'=>'control-label'])!!}
 							{!! Form::text('name',null,['class'=>'form-control']) !!}
 							@if($errors->has('name'))
 								<span class="text-danger">{{$errors->first('name')}}</span>
+							@endif
+						</div>
+						<div class="form-group">
+							{!! Form::label('photo','',['class'=>'control-label']) !!}
+							{!! Form::file('photo',['class'=>'form-control']) !!}
+							@if($errors->has('photo'))
+								<span class="text-danger">{{$errors->first('photo')}}</span>
 							@endif
 						</div>
 						<div class="form-group">
