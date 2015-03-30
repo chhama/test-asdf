@@ -58,6 +58,7 @@ class PhotoController extends Controller {
 			$photo->photo_file	= $fileName;
 		}
 
+		$photo->user_id			= \Auth::user()->id;
 		$photo->directory 		= $albumDir->directory;
 		$photo->name 			= $input['name'];
 		$photo->album_cat_id 	= $input['album_cat_id'];

@@ -7,6 +7,7 @@ class Photo extends Model {
 	protected $fillable = [
 		'album_cat_id',
 		'album_id',
+		'user_id',
 		'name',
 		'photo_file',
 		'directory'

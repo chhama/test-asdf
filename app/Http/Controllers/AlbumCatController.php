@@ -44,6 +44,7 @@ class AlbumCatController extends Controller {
 		$dir = uniqid();
 		mkdir('upload/'.$dir);
 		$request['directory'] = 'upload/'.$dir.'/';
+		$request['user_id'] = \Auth::user()->id;
 		AlbumCat::create($request->except('_token'));
 
 		return redirect('albumcat');
@@ -87,6 +88,7 @@ class AlbumCatController extends Controller {
 		$this->validate($request, $rules);
 
 		$albumCat = AlbumCat::find($id);
+		$request['user_id'] = \Auth::user()->id;
 		$albumCat->update($request->except('_token'));
 
 		return redirect('albumcat');
