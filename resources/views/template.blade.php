@@ -39,6 +39,7 @@
 					<li data-menuanchor="gallery"><a href="#gallery">Photo Gallery</a></li>
 					<li data-menuanchor="hr"><a href="#hr">Human Resources</a></li>
 					<li data-menuanchor="contacts"><a href="#contacts">Contacts</a></li>
+					<li data-menuanchor="helpline"><a href="#helpline">Helpline</a></li>
 				</ul>
 				
 				<ul class="nav navbar-nav navbar-right">

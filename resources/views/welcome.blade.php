@@ -37,6 +37,13 @@ The health system approaches, its goals and strategies are mentioned in the conc
 	    		<p>Oh! And its compatible with old browsers such as IE 8 or Opera 12!</p>
 	    	</div>
 	    </div></div>
+	    <div class="section pp-section pp-table pp-easing" id="section6" data-anchor="helpline" style="z-index: 1;  background-image:url('../images/helpline.jpeg');  background-repeat: no-repeat; background-size: 100% 100%; background-color: rgb(151, 53, 104);"><div class="pp-tableCell" style="height:100%">
+	    	<div class="intro">
+	    		<h1>Compatible</h1>
+	    		<p>Designed to work on tablet and mobile devices.</p>
+	    		<p>Oh! And its compatible with old browsers such as IE 8 or Opera 12!</p>
+	    	</div>
+	    </div></div>
 	</div>
 @stop
 @section('footscript')
