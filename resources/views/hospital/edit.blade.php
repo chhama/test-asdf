@@ -47,7 +47,7 @@
 				<div class="panel-heading"><strong>Edit Hospital</strong></div>
 				<div class="panel-body">
 					<div class="col-md-12">
-					{!! Form::model($hospitalById, ['route'=>['hospital.update',$hospitalById->id],'method'=>'patch','class'=>'form-horizontal']) !!}
+					{!! Form::model($hospitalById, ['route'=>['hospital.update',$hospitalById->id],'method'=>'patch','class'=>'form-horizontal','enctype'=>'multipart/form-data']) !!}
 						<div class="form-group">
 							{!! Form::label('Name','',['class'=>'control-label'])!!}
 							{!! Form::text('name',null,['class'=>'form-control']) !!}
@@ -82,6 +82,30 @@
 							@if($errors->has('description'))
 								<span class="text-danger">{{$errors->first('description')}}</span>
 							@endif
+						</div>
+						<div class="form-group">
+							{!! Form::label('Photo 1','',['class'=>'control-label']) !!}
+							{!! Form::file('photo1',['class'=>'form-control']) !!}
+							@if($errors->has('photo1'))
+								<span class="text-danger">{{$errors->first('photo1')}}</span>
+							@endif
+							<img src="{{ $hospitalById->photo1 }}" class="img-thumbnail">
+						</div>
+						<div class="form-group">
+							{!! Form::label('photo 2','',['class'=>'control-label']) !!}
+							{!! Form::file('photo2',['class'=>'form-control']) !!}
+							@if($errors->has('photo2'))
+								<span class="text-danger">{{$errors->first('photo2')}}</span>
+							@endif
+							<img src="{{ $hospitalById->photo2 }}" class="img-thumbnail">
+						</div>
+						<div class="form-group">
+							{!! Form::label('photo 3','',['class'=>'control-label']) !!}
+							{!! Form::file('photo3',['class'=>'form-control']) !!}
+							@if($errors->has('photo3'))
+								<span class="text-danger">{{$errors->first('photo3')}}</span>
+							@endif
+							<img src="{{ $hospitalById->photo3 }}" class="img-thumbnail">
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-success">

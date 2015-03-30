@@ -61,7 +61,7 @@
 							@if($errors->has('photo'))
 								<span class="text-danger">{{$errors->first('photo')}}</span>
 							@endif
-							<img src="/{{ $staffById->photo }}" class="img-thumbnail">
+							<img src="{{ $staffById->photo }}" class="img-thumbnail">
 						</div>
 						<div class="form-group">
 							{!! Form::label('Fathers Name','',['class'=>'control-label'])!!}
