@@ -42,9 +42,26 @@ class StaffController extends Controller {
 		$rules	= ['name'=>'required','sex'=>'required'];
 		$this->validate($request, $rules);
 
-		Staff::create($request->except('_token'));
+		$staff = New Staff();
+		if($request->hasFile('photo')){
+			$extension = $request->file('photo')->getClientOriginalExtension();
+			$fileName = "_".uniqid().".".$extension;
+			$request->file('photo')->move('staff/', $fileName);
+			$staff->photo	= '/staff/'.$fileName;
+		}
+		$staff->name = $request['name'];
+		$staff->fathers_name = $request['fathers_name'];
+		$staff->sex = $request['sex'];
+		$staff->qualification = $request['qualification'];
+		$staff->dob = $request['dob'];
+		$staff->address = $request['address'];
+		$staff->phone = $request['phone'];
+		$staff->doj = $request['doj'];
+		$staff->remark = $request['remark'];
+		$staff->save();
+		//Staff::create($request->except('_token'));
 
-		return redirect('staff');
+		return redirect('staffrecord');
 	}
 
 	/**
@@ -86,9 +103,24 @@ class StaffController extends Controller {
 		$this->validate($request, $rules);
 
 		$staff = Staff::find($id);
-		$staff->update($request->except('_token'));
+		if($request->hasFile('photo')){
+			$extension = $request->file('photo')->getClientOriginalExtension();
+			$fileName = "_".uniqid().".".$extension;
+			$request->file('photo')->move('staff/', $fileName);
+			$staff->photo	= '/staff/'.$fileName;
+		}
+		$staff->name = $request['name'];
+		$staff->fathers_name = $request['fathers_name'];
+		$staff->sex = $request['sex'];
+		$staff->qualification = $request['qualification'];
+		$staff->dob = $request['dob'];
+		$staff->address = $request['address'];
+		$staff->phone = $request['phone'];
+		$staff->doj = $request['doj'];
+		$staff->remark = $request['remark'];
+		$staff->save();
 
-		return redirect('staff');
+		return redirect('staffrecord');
 	}
 
 	/**
@@ -100,7 +132,7 @@ class StaffController extends Controller {
 	public function destroy($id)
 	{
 		Staff::destroy($id);
-		return redirect('staff');
+		return redirect('staffrecord');
 	}
 
 }

@@ -28,8 +28,8 @@
 					    <td height="25" align="left">{{ $staff->address }}&nbsp;</td>
 					    <td height="25" class="text-center">{{ $staff->doj }}&nbsp;</td>
 					    <td align="left" class="action text-center">
-					    	{!! Form::open(array('url'=>route('staff.destroy', array($staff->id)),'method'=>'delete')) !!}
-								<a href="{{route('staff.edit', array($staff->id))}}" class="btn btn-xs btn-success tooltip-top" title="Edit staff" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
+					    	{!! Form::open(array('url'=>route('staffrecord.destroy', array($staff->id)),'method'=>'delete')) !!}
+								<a href="{{route('staffrecord.edit', array($staff->id))}}" class="btn btn-xs btn-success tooltip-top" title="Edit staff" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
 								<button type="submit" onclick="return confirm ('<?php echo ('Are you sure') ?>');" name="id" class="btn btn-xs btn-danger tooltip-top" title="Remove staff" value="{{$staff->id}}" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-trash"></i></button>
 							{!!Form::close() !!}
 					    </td>
@@ -47,7 +47,7 @@
 				<div class="panel-heading"><strong>Add Staff</strong></div>
 				<div class="panel-body">
 					<div class="col-md-12">
-					{!! Form::model($staffById, ['route'=>['staff.update',$staffById->id],'method'=>'patch','class'=>'form-horizontal' ,'enctype'=>'multipart/form-data']) !!}
+					{!! Form::model($staffById, ['route'=>['staffrecord.update',$staffById->id],'method'=>'patch','class'=>'form-horizontal' ,'enctype'=>'multipart/form-data']) !!}
 						<div class="form-group">
 							{!! Form::label('Name','',['class'=>'control-label'])!!}
 							{!! Form::text('name',null,['class'=>'form-control']) !!}
@@ -61,6 +61,7 @@
 							@if($errors->has('photo'))
 								<span class="text-danger">{{$errors->first('photo')}}</span>
 							@endif
+							<img src="/{{ $staffById->photo }}" class="img-thumbnail">
 						</div>
 						<div class="form-group">
 							{!! Form::label('Fathers Name','',['class'=>'control-label'])!!}
