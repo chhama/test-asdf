@@ -556,7 +556,7 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
                         
                         <ol type='1'>
                             @foreach($mandatories as $mandatory)
-                                <li> <a href="{{ URL::route('page.show',$mandatory->id)}}">{{ $mandatory->title }}</a></li>
+                                <li> <a href="{{ URL::route('page.index',['id'=>$mandatory->id])}}">{{ $mandatory->title }}</a></li>
                             @endforeach
                         </ol>
 

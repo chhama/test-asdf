@@ -51,117 +51,60 @@
     <header>
         
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                            <span class="fa fa-bars fa-lg"></span>
-                        </button>
-                        <a class="navbar-brand" href={{$_SERVER['PHP_SELF']}}>
-                            <h2>National Health Mission</h2>
-                        </a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#stateprofile">State Profile</a>
-                            </li>
-                            <li><a href="#about">About Us</a>
-                            </li>
-                            <li><a href="#reviews">State PIP</a>
-                            </li>
-                            <li><a href="#screens">Programmes</a>
-                            </li>
-                            <li><a href="#disclosure">Mandatory Disclosure</a>
-                            </li>
-                            <li><a href="#support">Contacts</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- /.navbar-collapse -->
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="fa fa-bars fa-lg"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                        <h2>National Health Mission</h2>
+                    </a>
                 </div>
-                <!-- /.container-->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/#stateprofile">State Profile</a>
+                        </li>
+                        <li><a href="/#about">About Us</a>
+                        </li>
+                        <li><a href="/#reviews">State PIP</a>
+                        </li>
+                        <li><a href="/#screens">Programmes</a>
+                        </li>
+                        <li><a href="/#disclosure">Mandatory Disclosure</a>
+                        </li>
+                        <li><a href="/#support">Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-->
         </nav>
 
         
         <!--RevSlider-->
         <div class="tp-container lowcon">
-            <div class="tp-banner" >
-                
-
-                        
-        </div>
-
-            </header>
-
-        <div class="container" style="margin-top:10px">
-            <ul class="nav nav-tabs" role='tablist' data-tabs='tabs'>
-            <li class=""><a href="#order" data-toggle="tab">Government Order</a></li>
-            <li class="active"><a href="#ads" data-toggle="tab">Advertisement</a></li>
-            <li class=""><a href="#tender" data-toggle="tab">Tender</a></li>
-            <li class=""><a href="#training" data-toggle="tab">Trainings</a></li>
-            <li class=""><a href="#mis" data-toggle="tab">MIS Report</a></li>
-            <li class=""><a href="#activities" data-toggle="tab">Activities under NHM</a></li>
-            <li class=""><a href="#charter" data-toggle="tab">Citizen Charter</a></li>
-            <li class=""><a href="#notice" data-toggle="tab">Notifications</a></li>
-            <li class=""><a href="#iec" data-toggle="tab">IEC/BCC</a></li>
-
-
-            </ul>
-            
-            <div id='myTab' class="tab-content">
-                <div class="tab-pane " id='order'>  
-                    <p>
-                    Orderlist
-                    </p>
-                </div>
-
-                <div class="tab-pane  active in" id='ads'>  
-                    Advertisement List:
-                    <ul>
-                        <li>First</li>
-                        <li>Second</li>
-                    </ul>
-                </div>
-
-                <div class="tab-pane " id='tender'>  
-                    Tender
-                    <ul>
-                        <li>First</li>
-                        <li>Second</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-
-
-
+     </header>
 
     <div class="wrapper">
         <section id="disclosure">
             <div class="container">
                 <div class="section-heading scrollpoint sp-effect3">
-                    <h1>Mandatory Disclosure</h1>
+                    <h1>{{ $page->title }}</h1>
                     <div class="divider"></div>
                 </div>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 scrollpoint sp-effect2">
-
-                        saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                        {{ $page->body }}
                     </div>
                 </div>
             </div>
         </section>
-
-        
-
-                
-
-            </div>
-        </section>
+    </div>
 
         <!-- Modal -->
 
@@ -192,10 +135,10 @@
     <script>
         $(document).ready(function() {
             appMaster.preLoader();
-$('#myTab a').click(function (e) {
-  e.preventDefault();
-  $(this).tab('show');
-});
+            $('#myTab a').click(function (e) {
+              e.preventDefault();
+              $(this).tab('show');
+            });
         });
 
 

@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class PageController extends Controller {
 
@@ -14,7 +15,9 @@ class PageController extends Controller {
 	 */
 	public function index()
 	{
-		return view('page.show');
+		$id = $_GET['id'];
+		$page = Post::find($id);
+		return view('page.show',compact('page'));
 	}
 
 	/**
@@ -45,7 +48,8 @@ class PageController extends Controller {
 	 */
 	public function show($id)
 	{
-		
+		$page = Post::find($id);
+		return view('page.show',compact('page'));
 	}
 
 	/**
