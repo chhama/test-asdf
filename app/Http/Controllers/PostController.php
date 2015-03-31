@@ -48,8 +48,23 @@ class PostController extends Controller {
 		];
 		$this->validate($request, $rules);
 
-		$request->user_id = '1';
-		Post::create($request->except('_token'));
+		$post = New Post();
+		if($request->hasFile('icon')){
+			$extension = $request->file('icon')->getClientOriginalExtension();
+			$fileName = "_".uniqid().".".$extension;
+			$request->file('icon')->move('upload/post_icon/', $fileName);
+			$post->icon	= '/upload/post_icon/'.$fileName;
+		}
+		$post->category_id = $request['category_id'];
+		$post->user_id = \Auth::user()->id;
+		$post->title = $request['title'];
+		$post->body = $request['body'];
+		$post->highlight = $request['highlight'];
+		$post->download = $request['download'];
+		$post->save();
+
+		//$request->user_id = '1';
+		//Post::create($request->except('_token'));
 
 		return redirect('post');
 	}
@@ -94,7 +109,20 @@ class PostController extends Controller {
 		$this->validate($request, $rules);
 
 		$post = Post::find($id);
-		$post->update($request->except('_token'));
+		if($request->hasFile('icon')){
+			$extension = $request->file('icon')->getClientOriginalExtension();
+			$fileName = "_".uniqid().".".$extension;
+			$request->file('icon')->move('upload/post_icon/', $fileName);
+			$post->icon	= '/upload/post_icon/'.$fileName;
+		}
+		$post->category_id = $request['category_id'];
+		$post->user_id = \Auth::user()->id;
+		$post->title = $request['title'];
+		$post->body = $request['body'];
+		$post->highlight = $request['highlight'];
+		$post->download = $request['download'];
+		$post->save();
+		//$post->update($request->except('_token'));
 
 		return redirect('post');
 	}

@@ -20,6 +20,8 @@ class CreatePostsTable extends Migration {
 			$table->text('title');
 			$table->text('body');
 			$table->string('highlight');
+			$table->string('icon');
+			$table->string('download');
 			$table->timestamps();
 		});
 	}

@@ -480,6 +480,18 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
 
                 </div>
                 <div class="slider filtering scrollpoint sp-effect5" >
+                    <?php
+                        $nrhmplus = App\Post::where('category_id','=',13)->orderBy('id','desc')->paginate();
+                    ?>
+                    @foreach($nrhmplus as $nrhmp)
+                        <div class="one">
+                        <a data-toggle="modal" data-target="#myModal">
+                            <img src="images/freeze/screens/rch.jpg" alt=""></a>
+                            <h4><a href="{{ URL::route('page.index',['id'=>$nrhmp->id])}}">{{ $nrhmp->title}}</a></h4>
+                        </div>
+                    @endforeach
+                    
+
                     <div class="one">
                      <a data-toggle="modal" data-target="#myModal">
                         <img src="images/freeze/screens/rch.jpg" alt=""></a>
@@ -551,9 +563,8 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 scrollpoint sp-effect2">
                         <?php
-                        $mandatories = App\Post::where('category_id','=',1)->orderBy('id','desc')->paginate();
+                            $mandatories = App\Post::where('category_id','=',12)->orderBy('id','desc')->paginate();
                         ?>
-                        
                         <ol type='1'>
                             @foreach($mandatories as $mandatory)
                                 <li> <a href="{{ URL::route('page.index',['id'=>$mandatory->id])}}">{{ $mandatory->title }}</a></li>

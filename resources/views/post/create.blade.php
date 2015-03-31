@@ -6,7 +6,7 @@
 		<div class="panel panel-default">
 			<div class="panel-heading"><strong>Add Post</strong></div>
 			<div class="panel-body">
-				{!! Form::open(['route'=>'post.store','class'=>'form-horizontal']) !!}
+				{!! Form::open(['route'=>'post.store','class'=>'form-horizontal','enctype'=>'multipart/form-data']) !!}
 				{!! Form::hidden('user_id',Auth::user()->id,'') !!}
 				<div class="form-group">
 					<div class="col-md-6">
@@ -39,6 +39,22 @@
 						{!! Form::textarea('body',null,['class'=>'form-control','id'=>'redactorContent']) !!}
 						@if($errors->has('body'))
 							<span class="text-danger">{{$errors->first('body')}}</span>
+						@endif
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-6">
+						{!! Form::label('Download Link Eg: "/upload/download/filename"','',['class'=>'control-label'])!!}
+						{!! Form::text('download','',['class'=>'form-control']) !!}
+						@if($errors->has('download'))
+							<span class="text-danger">{{$errors->first('download')}}</span>
+						@endif
+					</div>
+					<div class="col-md-6">
+						{!! Form::label('Icon','',['class'=>'control-label'])!!}
+						{!! Form::file('icon',['class'=>'form-control']) !!}
+						@if($errors->has('icon'))
+							<span class="text-danger">{{$errors->first('icon')}}</span>
 						@endif
 					</div>
 				</div>

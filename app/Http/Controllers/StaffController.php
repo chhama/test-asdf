@@ -46,8 +46,8 @@ class StaffController extends Controller {
 		if($request->hasFile('photo')){
 			$extension = $request->file('photo')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			$request->file('photo')->move('staff/', $fileName);
-			$staff->photo	= '/staff/'.$fileName;
+			$request->file('photo')->move('upload/staff/', $fileName);
+			$staff->photo	= '/upload/staff/'.$fileName;
 		}
 		$staff->name = $request['name'];
 		$staff->fathers_name = $request['fathers_name'];
@@ -106,8 +106,8 @@ class StaffController extends Controller {
 		if($request->hasFile('photo')){
 			$extension = $request->file('photo')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			$request->file('photo')->move('staff/', $fileName);
-			$staff->photo	= '/staff/'.$fileName;
+			$request->file('photo')->move('upload/staff/', $fileName);
+			$staff->photo	= '/upload/staff/'.$fileName;
 		}
 		$staff->name = $request['name'];
 		$staff->fathers_name = $request['fathers_name'];

@@ -44,6 +44,25 @@
 					</div>
 				</div>
 				<div class="form-group">
+					<div class="col-md-6">
+						{!! Form::label('Download Link    Eg: "/upload/download/filename"','',['class'=>'control-label'])!!}
+						{!! Form::text('download',null,['class'=>'form-control']) !!}
+						@if($errors->has('download'))
+							<span class="text-danger">{{$errors->first('download')}}</span>
+						@endif
+					</div>
+					<div class="col-md-5">
+						{!! Form::label('Icon','',['class'=>'control-label'])!!}
+						{!! Form::file('icon',['class'=>'form-control']) !!}
+						@if($errors->has('icon'))
+							<span class="text-danger">{{$errors->first('icon')}}</span>
+						@endif
+					</div>
+					<div class="col-md-1">
+						<img src="{{ $postById->icon }}" class="img-thumbnail">
+					</div>
+				</div>
+				<div class="form-group">
 					<div class="col-md-12">
 						<button type="submit" class="btn btn-success">
 							Save

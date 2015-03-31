@@ -50,20 +50,20 @@ class HospitalController extends Controller {
 		if($request->hasFile('photo1')){
 			$extension = $request->file('photo1')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			$request->file('photo1')->move('hospital/', $fileName);
-			$hospital->photo1	= '/hospital/'.$fileName;
+			$request->file('photo1')->move('upload/hospital/', $fileName);
+			$hospital->photo1	= '/upload//hospital/'.$fileName;
 		}
 		if($request->hasFile('photo2')){
 			$extension = $request->file('photo2')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			$request->file('photo2')->move('hospital/', $fileName);
-			$hospital->photo2	= '/hospital/'.$fileName;
+			$request->file('photo2')->move('upload/hospital/', $fileName);
+			$hospital->photo2	= '/upload/hospital/'.$fileName;
 		}
 		if($request->hasFile('photo3')){
 			$extension = $request->file('photo3')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			$request->file('photo3')->move('hospital/', $fileName);
-			$hospital->photo3	= '/hospital/'.$fileName;
+			$request->file('photo3')->move('upload/hospital/', $fileName);
+			$hospital->photo3	= '/upload/hospital/'.$fileName;
 		}
 
 		$hospital->name = $request['name'];
@@ -123,20 +123,20 @@ class HospitalController extends Controller {
 		if($request->hasFile('photo1')){
 			$extension = $request->file('photo1')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			$request->file('photo1')->move('hospital/', $fileName);
-			$hospital->photo1	= '/hospital/'.$fileName;
+			$request->file('photo1')->move('upload/hospital/', $fileName);
+			$hospital->photo1	= '/upload/hospital/'.$fileName;
 		}
 		if($request->hasFile('photo2')){
 			$extension = $request->file('photo2')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			$request->file('photo2')->move('hospital/', $fileName);
-			$hospital->photo2	= '/hospital/'.$fileName;
+			$request->file('photo2')->move('upload/hospital/', $fileName);
+			$hospital->photo2	= '/upload/hospital/'.$fileName;
 		}
 		if($request->hasFile('photo3')){
 			$extension = $request->file('photo3')->getClientOriginalExtension();
 			$fileName = "_".uniqid().".".$extension;
-			$request->file('photo3')->move('hospital/', $fileName);
-			$hospital->photo3	= '/hospital/'.$fileName;
+			$request->file('photo3')->move('/upload/hospital/', $fileName);
+			$hospital->photo3	= '/upload/hospital/'.$fileName;
 		}
 
 		$hospital->name = $request['name'];
