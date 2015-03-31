@@ -28,8 +28,8 @@
 					    <td height="25" align="left">{{ $hospital->type }}&nbsp;</td>
 					    <td height="25" align="left">{{ $hospital->district->name }}&nbsp;</td>
 					    <td align="left" class="action text-center">
-					    	{!! Form::open(array('url'=>route('hospital.destroy', array($hospital->id)),'method'=>'delete')) !!}
-								<a href="{{route('hospital.edit', array($hospital->id))}}" class="btn btn-xs btn-success tooltip-top" title="Edit hospital" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
+					    	{!! Form::open(array('url'=>route('hospitals.destroy', array($hospital->id)),'method'=>'delete')) !!}
+								<a href="{{route('hospitals.edit', array($hospital->id))}}" class="btn btn-xs btn-success tooltip-top" title="Edit hospital" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
 								<button type="submit" onclick="return confirm ('<?php echo ('Are you sure') ?>');" name="id" class="btn btn-xs btn-danger tooltip-top" title="Remove hospital" value="{{$hospital->id}}" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-trash"></i></button>
 							{!!Form::close() !!}
 					    </td>
@@ -47,7 +47,7 @@
 				<div class="panel-heading"><strong>Add Hospital</strong></div>
 				<div class="panel-body">
 					<div class="col-md-12">
-					{!! Form::open(['route'=>'hospital.store','class'=>'form-horizontal','enctype'=>'multipart/form-data']) !!}
+					{!! Form::open(['route'=>'hospitals.store','class'=>'form-horizontal','enctype'=>'multipart/form-data']) !!}
 						<div class="form-group">
 							{!! Form::label('Name','',['class'=>'control-label'])!!}
 							{!! Form::text('name',null,['class'=>'form-control']) !!}

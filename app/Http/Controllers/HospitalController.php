@@ -76,7 +76,7 @@ class HospitalController extends Controller {
 
 		//Hospital::create($request->except('_token'));
 
-		return redirect('hospital');
+		return redirect('hospitals');
 	}
 
 	/**
@@ -148,7 +148,7 @@ class HospitalController extends Controller {
 		$hospital->save();
 		//$hospital->update($request->except('_token'));
 
-		return redirect('hospital');
+		return redirect('hospitals');
 	}
 
 	/**
@@ -160,7 +160,7 @@ class HospitalController extends Controller {
 	public function destroy($id)
 	{
 		Hospital::destroy($id);
-		return redirect('hospital');
+		return redirect('hospitals');
 	}
 
 }
