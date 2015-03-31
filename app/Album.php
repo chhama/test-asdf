@@ -6,6 +6,7 @@ class Album extends Model {
 
 	protected $fillable = [
 		'album_cat_id',
+		'user_id',
 		'name',
 		'cover',
 		'directory'

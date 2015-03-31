@@ -30,8 +30,8 @@
 					    <td height="25" class="text-center">{{ $staff->doj }}&nbsp;</td>
 					    <td height="25" class="text-center"><a href="{{route('posting.index', array('staff_id'=>$staff->id))}}" class="btn btn-xs btn-success tooltip-top" title="Entry Posting" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-plus"></i></a>&nbsp;</td>
 					    <td align="left" class="action text-center">
-					    	{!! Form::open(array('url'=>route('staff.destroy', array($staff->id)),'method'=>'delete')) !!}
-								<a href="{{route('staff.edit', array($staff->id))}}" class="btn btn-xs btn-success tooltip-top" title="Edit staff" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
+					    	{!! Form::open(array('url'=>route('staffrecord.destroy', array($staff->id)),'method'=>'delete')) !!}
+								<a href="{{route('staffrecord.edit', array($staff->id))}}" class="btn btn-xs btn-success tooltip-top" title="Edit staff" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
 								<button type="submit" onclick="return confirm ('<?php echo ('Are you sure') ?>');" name="id" class="btn btn-xs btn-danger tooltip-top" title="Remove staff" value="{{$staff->id}}" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-trash"></i></button>
 							{!!Form::close() !!}
 					    </td>
@@ -49,12 +49,19 @@
 				<div class="panel-heading"><strong>Add Staff</strong></div>
 				<div class="panel-body">
 					<div class="col-md-12">
-					{!! Form::open(['route'=>'staff.store','class'=>'form-horizontal']) !!}
+					{!! Form::open(['route'=>'staffrecord.store','class'=>'form-horizontal','enctype'=>'multipart/form-data']) !!}
 						<div class="form-group">
 							{!! Form::label('Name','',['class'=>'control-label'])!!}
 							{!! Form::text('name',null,['class'=>'form-control']) !!}
 							@if($errors->has('name'))
 								<span class="text-danger">{{$errors->first('name')}}</span>
+							@endif
+						</div>
+						<div class="form-group">
+							{!! Form::label('photo','',['class'=>'control-label']) !!}
+							{!! Form::file('photo',['class'=>'form-control']) !!}
+							@if($errors->has('photo'))
+								<span class="text-danger">{{$errors->first('photo')}}</span>
 							@endif
 						</div>
 						<div class="form-group">

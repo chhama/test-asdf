@@ -24,6 +24,7 @@ class CreateStaffTable extends Migration {
 			$table->string('phone');
 			$table->date('doj');
 			$table->string('remark');
+			$table->string('photo');
 			$table->timestamps();
 		});
 	}

@@ -21,11 +21,8 @@ class CreatePostingsTable extends Migration {
 			$table->integer('hospital_category_id');
 			$table->integer('hospital_id');
 			$table->string('status',20);
-			$table->string('order_no');
-			$table->string('order_type');
-			$table->string('order_renumeration');
-			$table->date('order_date');
-			$table->date('order_upto');
+			$table->string('salary');
+			$table->date('doj');
 			$table->timestamps();
 		});
 	}

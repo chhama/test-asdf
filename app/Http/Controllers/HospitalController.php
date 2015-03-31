@@ -46,7 +46,35 @@ class HospitalController extends Controller {
 		$rules	= ['name'=>'required', 'district_id'=>'required', 'hospital_category_id'=>'required', 'type'=>'required'];
 		$this->validate($request, $rules);
 
-		Hospital::create($request->except('_token'));
+		$hospital = New Hospital();
+		if($request->hasFile('photo1')){
+			$extension = $request->file('photo1')->getClientOriginalExtension();
+			$fileName = "_".uniqid().".".$extension;
+			$request->file('photo1')->move('hospital/', $fileName);
+			$hospital->photo1	= '/hospital/'.$fileName;
+		}
+		if($request->hasFile('photo2')){
+			$extension = $request->file('photo2')->getClientOriginalExtension();
+			$fileName = "_".uniqid().".".$extension;
+			$request->file('photo2')->move('hospital/', $fileName);
+			$hospital->photo2	= '/hospital/'.$fileName;
+		}
+		if($request->hasFile('photo3')){
+			$extension = $request->file('photo3')->getClientOriginalExtension();
+			$fileName = "_".uniqid().".".$extension;
+			$request->file('photo3')->move('hospital/', $fileName);
+			$hospital->photo3	= '/hospital/'.$fileName;
+		}
+
+		$hospital->name = $request['name'];
+		$hospital->type = $request['type'];
+		$hospital->district_id = $request['district_id'];
+		$hospital->hospital_category_id = $request['hospital_category_id'];
+		$hospital->description = $request['description'];
+
+		$hospital->save();
+
+		//Hospital::create($request->except('_token'));
 
 		return redirect('hospital');
 	}
@@ -92,7 +120,33 @@ class HospitalController extends Controller {
 		$this->validate($request, $rules);
 
 		$hospital = Hospital::find($id);
-		$hospital->update($request->except('_token'));
+		if($request->hasFile('photo1')){
+			$extension = $request->file('photo1')->getClientOriginalExtension();
+			$fileName = "_".uniqid().".".$extension;
+			$request->file('photo1')->move('hospital/', $fileName);
+			$hospital->photo1	= '/hospital/'.$fileName;
+		}
+		if($request->hasFile('photo2')){
+			$extension = $request->file('photo2')->getClientOriginalExtension();
+			$fileName = "_".uniqid().".".$extension;
+			$request->file('photo2')->move('hospital/', $fileName);
+			$hospital->photo2	= '/hospital/'.$fileName;
+		}
+		if($request->hasFile('photo3')){
+			$extension = $request->file('photo3')->getClientOriginalExtension();
+			$fileName = "_".uniqid().".".$extension;
+			$request->file('photo3')->move('hospital/', $fileName);
+			$hospital->photo3	= '/hospital/'.$fileName;
+		}
+
+		$hospital->name = $request['name'];
+		$hospital->type = $request['type'];
+		$hospital->district_id = $request['district_id'];
+		$hospital->hospital_category_id = $request['hospital_category_id'];
+		$hospital->description = $request['description'];
+
+		$hospital->save();
+		//$hospital->update($request->except('_token'));
 
 		return redirect('hospital');
 	}

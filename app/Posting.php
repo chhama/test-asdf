@@ -11,11 +11,8 @@ class Posting extends Model {
 		'hospital_category_id',
 		'hospital_id',
 		'status',
-		'order_no',
-		'order_type',
-		'order_renumeration',
-		'order_date',
-		'order_upto'
+		'total_remuneration',
+		'doj'
 	];
 
 	public function designation(){

@@ -60,6 +60,7 @@ class AlbumController extends Controller {
 			$album->cover	= $fileName;
 		}
 
+		$album->user_id		= \Auth::user()->id;
 		$album->directory 	= $albumDir;
 		$album->name 		= $input['name'];
 		$album->album_cat_id = $input['album_cat_id'];

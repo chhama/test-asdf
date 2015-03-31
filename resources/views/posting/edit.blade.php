@@ -87,38 +87,17 @@
 							@endif
 						</div>
 						<div class="form-group">
-							{!! Form::label('File NO.A.','',['class'=>'control-label'])!!}
-							{!! Form::text('order_no',null,['class'=>'form-control']) !!}
-							@if($errors->has('order_no'))
-								<span class="text-danger">{{$errors->first('order_no')}}</span>
+							{!! Form::label('Date of Joining','',['class'=>'control-label'])!!}
+							{!! Form::text('doj',null,['class'=>'form-control']) !!}
+							@if($errors->has('doj'))
+								<span class="text-danger">{{$errors->first('doj')}}</span>
 							@endif
 						</div>
 						<div class="form-group">
-							{!! Form::label('File Dated','',['class'=>'control-label'])!!}
-							{!! Form::text('order_date',null,['class'=>'form-control']) !!}
-							@if($errors->has('order_date'))
-								<span class="text-danger">{{$errors->first('order_date')}}</span>
-							@endif
-						</div>
-						<div class="form-group">
-							{!! Form::label('Validity Date','',['class'=>'control-label'])!!}
-							{!! Form::text('order_upto',null,['class'=>'form-control']) !!}
-							@if($errors->has('order_date_upto'))
-								<span class="text-danger">{{$errors->first('order_date_upto')}}</span>
-							@endif
-						</div>
-						<div class="form-group">
-							{!! Form::label('Jobs Type','',['class'=>'control-label'])!!}
-							{!! Form::text('order_type',null,['class'=>'form-control']) !!}
-							@if($errors->has('order_type'))
-								<span class="text-danger">{{$errors->first('order_type')}}</span>
-							@endif
-						</div>
-						<div class="form-group">
-							{!! Form::label('Total Enumeration','',['class'=>'control-label'])!!}
-							{!! Form::text('order_renumeration',null,['class'=>'form-control']) !!}
-							@if($errors->has('order_renumeration'))
-								<span class="text-danger">{{$errors->first('order_renumeration')}}</span>
+							{!! Form::label('Total Remuneration','',['class'=>'control-label'])!!}
+							{!! Form::text('total_remuneration',null,['class'=>'form-control']) !!}
+							@if($errors->has('total_remuneration'))
+								<span class="text-danger">{{$errors->first('total_remuneration')}}</span>
 							@endif
 						</div>
 						<div class="form-group">

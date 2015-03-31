@@ -16,6 +16,7 @@ class CreateAlbumsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('album_cat_id');
+			$table->integer('user_id');
 			$table->string('name');
 			$table->string('cover');
 			$table->string('directory');

@@ -18,7 +18,10 @@ class CreateHospitalsTable extends Migration {
 			$table->integer('district_id');
 			$table->integer('hospital_category_id');
 			$table->string('name');
-			$table->string('type');
+			$table->string('photo1');
+			$table->string('photo2');
+			$table->string('photo3');
+			$table->text('description');
 			$table->timestamps();
 		});
 	}
