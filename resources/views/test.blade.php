@@ -118,7 +118,7 @@
                             <img src="images/freeze/iphone-freeze.png" alt="">
                         </div>
 
-                        <div class="tp-caption large_white_bold sft" data-x="550" data-y="center" data-hoffset="0" data-voffset="-80" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
+                       <!--  <div class="tp-caption large_white_bold sft" data-x="550" data-y="center" data-hoffset="0" data-voffset="-80" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
                             Oleose
                         </div>
                         <div class="tp-caption large_white_light sfr" data-x="770" data-y="center" data-hoffset="0" data-voffset="-80" data-speed="500" data-start="1400" data-easing="Power4.easeOut">
@@ -133,7 +133,7 @@
                         </div>
                         <div class="tp-caption sfr hidden-xs" data-x="730" data-y="center" data-hoffset="0" data-voffset="85" data-speed="1500" data-start="1900" data-easing="Power4.easeOut">
                             <a href="#getApp" class="btn btn-default btn-lg">GET APP</a>
-                        </div>
+                        </div> -->
 
                     </li>
                     <!-- SLIDE 2 -->
@@ -144,7 +144,7 @@
                         <!-- LAYER NR. 1 -->
                         <div class="tp-caption lfb fadeout hidden-xs"
                             data-x="center"
-                            data-y="bottom"
+                            data-y="center"
                             data-hoffset="0"
                             data-voffset="0"
                             data-speed="1000"
@@ -154,9 +154,9 @@
                         </div>
 
                         
-                        <div class="tp-caption large_white_light sft" data-x="center" data-y="250" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1400" data-easing="Power4.easeOut">
+                        <!-- <div class="tp-caption large_white_light sft" data-x="center" data-y="250" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1400" data-easing="Power4.easeOut">
                             Every Pixel <i class="fa fa-heart"></i>
-                        </div>
+                        </div> -->
                         
                         
                     </li>
@@ -333,7 +333,7 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
             </div>
         </section>
 
-        <section id="reviews">
+        <!-- <section id="reviews">
             <div class="container">
                 <div class="section-heading inverse scrollpoint sp-effect3">
                     <h1>Reviews</h1>
@@ -419,7 +419,7 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <section id="screens">
             <div class="container">
@@ -443,23 +443,23 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
                         <h4>RCH</h4>
                     </div>
                     <div class="two">
-                        <img src="images/freeze/screens/menu.jpg" alt="">
+                        <img src="images/freeze/screens/nuhm.jpg" alt="">
                         <h4>NUHM</h4>
                     </div>
                     <div class="three">
-                        <img src="images/freeze/screens/weather.jpg" alt="">
+                        <img src="images/freeze/screens/idsp.gif" alt="">
                         <h4>IDSP</h4>
                     </div>
                     <div class="one">
-                        <img src="images/freeze/screens/signup.jpg" alt="">
+                        <img src="images/freeze/screens/nrhm.jpg" alt="">
                         <h4>Additionalities under NRHM</h4>
                     </div>
                     <div class="three">
-                        <img src="images/freeze/screens/calendar.jpg" alt="">
+                        <img src="images/freeze/screens/nvbdcp.gif" alt="">
                         <h4>NVBDCP</h4>
                     </div>
                     <div class="three">
-                        <img src="images/freeze/screens/options.jpg" alt="">
+                        <img src="images/freeze/screens/nlep.jpg" alt="">
                         <h4>NLEP</h4>
                     </div>
                     <div class="three">
@@ -507,43 +507,31 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
                 </div>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 scrollpoint sp-effect2">
-                        <div class="video-container" >
-                            <iframe src="http://player.vimeo.com/video/70984663"></iframe>
-                        </div>
+                        The NHM provide funds at the rates given below to all these committees-
+<ol type='a'>
+<li>  District Hospital- Rs. 10.0.0 Lakhs /year
+<li>  Sub-Divisional Hospital- Rs. 2.0 Lakhs/year
+<li>  Community Health Centre- Rs. 5.00 Lakhs/year
+<li>  Primary Health Centre – Rs.1.75 Lakhs
+<li>  Sub Centres-Rs. 0.20 Lakhs
+</ol>
+<ol type='a'>
+The total amount of RKS funds released are as follow:-
+<li>  All District Hospitals- Rs. 27.00 Lakhs
+<li>  All Sub-Divisional Hospitals- Rs. 1.80 Lakhs
+<li>  All Community Health Centres- Rs. 13.50 Lakhs
+<li>  All Primary Health Centres – Rs. 29.92 Lakhs
+<li>  All Sub Centres- Rs. 22.20 Lakhs
+</ol>
+
+TOTAL - Rs.94.42
+
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="getApp">
-            <div class="container-fluid">
-                <div class="section-heading inverse scrollpoint sp-effect3">
-                    <h1>Get App</h1>
-                    <div class="divider"></div>
-                    <p>Choose your native platform and get started!</p>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="hanging-phone scrollpoint sp-effect2 hidden-xs">
-                            <img src="images/freeze/freeze-angled2.png" alt="">
-                        </div>
-                        <div class="platforms">
-                            <a href="#" class="btn btn-primary inverse scrollpoint sp-effect1">
-                                <i class="fa fa-android fa-3x pull-left"></i>
-                                <span>Download for</span><br>
-                                <b>Android</b>
-                            </a>
-                            
-                                <a href="#" class="btn btn-primary inverse scrollpoint sp-effect2">
-                                    <i class="fa fa-apple fa-3x pull-left"></i>
-                                    <span>Download for</span><br>
-                                    <b>Apple IOS</b>
-                                </a>
-                        </div>
-
-                    </div>
-                </div>
+        
 
                 
 
@@ -580,7 +568,7 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
                                         <i class="fa fa-map-marker fa-2x"></i>
                                     </a>
                                     <div class="media-body">
-                                        <h4 class="media-heading">4, Some street, California, USA</h4>
+                                        <h4 class="media-heading">Dinthar, Aizawl</h4>
                                     </div>
                                 </div>
                                 <div class="media">
@@ -589,7 +577,7 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
                                     </a>
                                     <div class="media-body">
                                         <h4 class="media-heading">
-                                            <a href="mailto:support@oleose.com">support@oleose.com</a>
+                                            <a href="mailto:support@oleose.com">support@nhm.com</a>
                                         </h4>
                                     </div>
                                 </div>
