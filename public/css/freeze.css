@@ -1109,3 +1109,7 @@ form .form-control:focus {
 .pre-loader {
   background: #336799;
 }
+
+.lowcon {
+  height: 122px;
+}

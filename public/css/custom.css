@@ -26,3 +26,7 @@ p.whitehead {
 .navbar-default .navbar-nav > li > a {
 	color: #ccc;
 }
+
+.tp-container {
+  height: 122px;
+}
