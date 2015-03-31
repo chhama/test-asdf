@@ -21,7 +21,7 @@ class CreatePostingsTable extends Migration {
 			$table->integer('hospital_category_id');
 			$table->integer('hospital_id');
 			$table->string('status',20);
-			$table->string('salary');
+			$table->string('total_remuneration');
 			$table->date('doj');
 			$table->timestamps();
 		});
