@@ -550,24 +550,15 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
                 </div>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 scrollpoint sp-effect2">
-                        The NHM provide funds at the rates given below to all these committees-
-<ol type='a'>
-<li>  District Hospital- Rs. 10.0.0 Lakhs /year
-<li>  Sub-Divisional Hospital- Rs. 2.0 Lakhs/year
-<li>  Community Health Centre- Rs. 5.00 Lakhs/year
-<li>  Primary Health Centre – Rs.1.75 Lakhs
-<li>  Sub Centres-Rs. 0.20 Lakhs
-</ol>
-<ol type='a'>
-The total amount of RKS funds released are as follow:-
-<li>  All District Hospitals- Rs. 27.00 Lakhs
-<li>  All Sub-Divisional Hospitals- Rs. 1.80 Lakhs
-<li>  All Community Health Centres- Rs. 13.50 Lakhs
-<li>  All Primary Health Centres – Rs. 29.92 Lakhs
-<li>  All Sub Centres- Rs. 22.20 Lakhs
-</ol>
-
-TOTAL - Rs.94.42
+                        <?php
+                        $mandatories = App\Post::where('category_id','=',1)->orderBy('id','desc')->paginate();
+                        ?>
+                        
+                        <ol type='1'>
+                            @foreach($mandatories as $mandatory)
+                                <li> <a href="{{ URL::route('page.show',$mandatory->id)}}">{{ $mandatory->title }}</a></li>
+                            @endforeach
+                        </ol>
 
                     </div>
                 </div>

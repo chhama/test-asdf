@@ -36,3 +36,5 @@ Route::group(['middleware' => 'auth'], function()
 	Route::resource('posting','PostingController');
 	Route::get('hospitalByCat', 'PostingController@hospitalByCat');
 });
+
+Route::resource('page','PageController');

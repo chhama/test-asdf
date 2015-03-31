@@ -18,7 +18,7 @@ class CategoryTableSeeder extends Seeder {
         $categories = [
         	[
         		'id'			=> '1',
-            	'name' 			=> 'Static',
+            	'name' 			=> 'Static Page',
             	'created_at' 	=> date('Y-m-d H:i:s'),
             	'updated_at' 	=> date('Y-m-d H:i:s'),
         	],
