@@ -74,7 +74,7 @@
                             </li>
                             <li><a href="#screens">Programmes</a>
                             </li>
-                            <li><a href="#demo">Mandatory Disclosure</a>
+                            <li><a href="#disclosure">Mandatory Disclosure</a>
                             </li>
                             <li><a href="#support">Contacts</a>
                             </li>
@@ -177,7 +177,7 @@
                             data-speed="1000"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="images/freeze/Slides/family-freeze.png" alt="">
+                            <img src="images/freeze/Slides/hand-freeze.png" alt="">
                         </div>
 
                         <div class="tp-caption customin customout visible-xs"
@@ -190,7 +190,7 @@
                             data-speed="1000"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="images/freeze/Slides/family-freeze.png" alt="">
+                            <img src="images/freeze/Slides/hriselna.jpeg" alt="">
                         </div>
 
                         <div class="tp-caption lfb visible-xs" data-x="center" data-y="center" data-hoffset="0" data-voffset="400" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
@@ -434,12 +434,12 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
                     <a href="javascript:void(0)" class="button js-filter-one">NRHM + RMNCH plus A</a>
                     <a href="javascript:void(0)" class="button js-filter-two">NUHM</a>
                     <a href="javascript:void(0)" class="button js-filter-three">Disease Control Programme</a>
-                    <a href="javascript:void(0)" class="button js-filter-even">Non Communicable Diseases</a>
+                    <a href="javascript:void(0)" class="button js-filter-four">Non Communicable Diseases</a>
 
                 </div>
                 <div class="slider filtering scrollpoint sp-effect5" >
                     <div class="one">
-                        <img src="images/freeze/screens/profile.jpg" alt="">
+                        <img src="images/freeze/screens/rch.jpg" alt="">
                         <h4>RCH</h4>
                     </div>
                     <div class="two">
@@ -463,7 +463,7 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
                         <h4>NLEP</h4>
                     </div>
                     <div class="three">
-                        <img src="images/freeze/screens/sales.jpg" alt="">
+                        <img src="images/freeze/screens/rntcp.jpg" alt="">
                         <h4>RNTCP</h4>
                     </div>
                     <div class="four">
@@ -499,12 +499,11 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
             </div>
         </section>
 
-        <section id="demo">
+        <section id="disclosure">
             <div class="container">
                 <div class="section-heading scrollpoint sp-effect3">
-                    <h1>Demo</h1>
+                    <h1>Mandatory Disclosure</h1>
                     <div class="divider"></div>
-                    <p>Take a closer look in more detail</p>
                 </div>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 scrollpoint sp-effect2">
@@ -611,17 +610,14 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
 
         <footer>
             <div class="container">
-                <a href="#" class="scrollpoint sp-effect3">
-                    <img src="images/freeze/logo.png" alt="" class="logo">
-                </a>
+                
                 <div class="social">
                     <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-twitter fa-lg"></i></a>
                     <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-google-plus fa-lg"></i></a>
                     <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-facebook fa-lg"></i></a>
                 </div>
                 <div class="rights">
-                    <p>Copyright &copy; 2014</p>
-                    <p>Template by <a href="http://www.scoopthemes.com" target="_blank">ScoopThemes</a></p>
+                    <p>Copyright &copy; {{date('Y')}} National Health Mission</p>
                 </div>
             </div>
         </footer>
