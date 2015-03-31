@@ -39,7 +39,7 @@
 
     <div class="pre-loader">
         <div class="load-con">
-            <img src="images/freeze/logo.png" class="animated fadeInDown" alt="">
+            <!-- <img src="images/freeze/logo.png" class="animated fadeInDown" alt=""> -->
             <div class="spinner">
               <div class="bounce1"></div>
               <div class="bounce2"></div>
@@ -87,24 +87,22 @@
 
         
         <!--RevSlider-->
-        <div class="tp-banner-container">
+        <div class="tp-container lowcon">
             <div class="tp-banner" >
                 <ul>
-                    <!-- SLIDE  -->
                     <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
-                        <!-- MAIN IMAGE -->
-                        <img src="images/transparent.png"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                    <img src="images/transparent.png"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                         <!-- LAYERS -->
                         <!-- LAYER NR. 1 -->
                         <div class="tp-caption lfl fadeout hidden-xs"
-                            data-x="center"
+                            data-x="right"
                             data-y="center"
                             data-hoffset="0"
                             data-voffset="0"
                             data-speed="500"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="images/freeze/Slides/sparkler.jpeg" alt="">
+                            <img src="images/freeze/Slides/helpline.jpeg" alt="">
                         </div>
 
                         <div class="tp-caption lfl fadeout visible-xs"
@@ -118,22 +116,25 @@
                             <img src="images/freeze/iphone-freeze.png" alt="">
                         </div>
 
-                       <!--  <div class="tp-caption large_white_bold sft" data-x="550" data-y="center" data-hoffset="0" data-voffset="-80" data-speed="500" data-start="1200" data-easing="Power4.easeOut">
-                            Oleose
-                        </div>
-                        <div class="tp-caption large_white_light sfr" data-x="770" data-y="center" data-hoffset="0" data-voffset="-80" data-speed="500" data-start="1400" data-easing="Power4.easeOut">
-                            App
-                        </div>
-                        <div class="tp-caption large_white_light sfb" data-x="550" data-y="center" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1500" data-easing="Power4.easeOut">
-                            Landing Theme
+                       <div class="tp-caption lfb visible-xs" data-x="center" data-y="center" data-hoffset="0" data-voffset="400" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
+                            <a href="#" class="btn btn-primary inverse btn-lg">NHM</a>
                         </div>
 
-                        <div class="tp-caption sfb hidden-xs" data-x="550" data-y="center" data-hoffset="0" data-voffset="85" data-speed="1000" data-start="1700" data-easing="Power4.easeOut">
-                            <a href="#about" class="btn btn-primary inverse btn-lg">LEARN MORE</a>
+                        
+                        <div class="tp-caption mediumlarge_light_white sfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="-50" data-speed="1000" data-start="1000" data-easing="Power4.easeOut">
+                            Ambulance Service
                         </div>
-                        <div class="tp-caption sfr hidden-xs" data-x="730" data-y="center" data-hoffset="0" data-voffset="85" data-speed="1500" data-start="1900" data-easing="Power4.easeOut">
-                            <a href="#getApp" class="btn btn-default btn-lg">GET APP</a>
-                        </div> -->
+                        <div class="tp-caption mediumlarge_light_white sft hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
+                           NHM hi khawtlang hriselna a ni
+                        </div>
+                        <div class="tp-caption small_light_white sfb hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="80" data-speed="1000" data-start="1600" data-easing="Power4.easeOut">
+                           <p>National Health Mission hian India khua leh tuite lo hrisel zawk nan nasa takin a thawk thin.</p>
+                        </div>
+
+                        <div class="tp-caption lfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="160" data-speed="1000" data-start="1800" data-easing="Power4.easeOut">
+                            <a href="#" class="btn btn-primary inverse btn-lg">NHM</a>
+                        </div>
+                       
 
                     </li>
                     <!-- SLIDE 2 -->
@@ -143,20 +144,35 @@
                         <!-- LAYERS -->
                         <!-- LAYER NR. 1 -->
                         <div class="tp-caption lfb fadeout hidden-xs"
-                            data-x="center"
+                            data-x="right"
                             data-y="center"
                             data-hoffset="0"
                             data-voffset="0"
                             data-speed="1000"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="images/freeze/Slides/helpline.jpeg" alt="">
+                            <img src="images/freeze/Slides/hriselna.jpg" alt="">
                         </div>
 
                         
-                        <!-- <div class="tp-caption large_white_light sft" data-x="center" data-y="250" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1400" data-easing="Power4.easeOut">
-                            Every Pixel <i class="fa fa-heart"></i>
-                        </div> -->
+                        <div class="tp-caption lfb visible-xs" data-x="center" data-y="center" data-hoffset="0" data-voffset="400" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
+                            <a href="#" class="btn btn-primary inverse btn-lg">NHM</a>
+                        </div>
+
+                        
+                        <div class="tp-caption mediumlarge_light_white sfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="-50" data-speed="1000" data-start="1000" data-easing="Power4.easeOut">
+                           Khawtlang hrisel nan
+                        </div>
+                        <div class="tp-caption mediumlarge_light_white sft hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
+                           NHM hi khawtlang hriselna a ni
+                        </div>
+                        <div class="tp-caption small_light_white sfb hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="80" data-speed="1000" data-start="1600" data-easing="Power4.easeOut">
+                           <p>National Health Mission hian India khua leh tuite lo hrisel zawk nan nasa takin a thawk thin.</p>
+                        </div>
+
+                        <div class="tp-caption lfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="160" data-speed="1000" data-start="1800" data-easing="Power4.easeOut">
+                            <a href="#" class="btn btn-primary inverse btn-lg">NHM</a>
+                        </div>
                         
                         
                     </li>
@@ -167,7 +183,7 @@
                         <img src="images/transparent.png"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                         <!-- LAYERS -->
                         <!-- LAYER NR. 1 -->
-                        <div class="tp-caption customin customout hidden-xs"
+                        <div class="tp-caption lfb customin customout hidden-xs"
                             data-x="right"
                             data-y="center"
                             data-hoffset="0"
@@ -177,56 +193,80 @@
                             data-speed="1000"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="images/freeze/Slides/hand-freeze.png" alt="">
+                            <img src="images/freeze/Slides/mawhphurhna.jpg" alt="">
                         </div>
 
-                        <div class="tp-caption customin customout visible-xs"
-                            data-x="center"
-                            data-y="center"
-                            data-hoffset="0"
-                            data-customin="x:50;y:150;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:0;transformOrigin:50% 50%;"
-                        data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                            data-voffset="0"
-                            data-speed="1000"
-                            data-start="700"
-                            data-easing="Power4.easeOut">
-                            <img src="images/freeze/Slides/hriselna.jpeg" alt="">
-                        </div>
 
                         <div class="tp-caption lfb visible-xs" data-x="center" data-y="center" data-hoffset="0" data-voffset="400" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
-                            <a href="#" class="btn btn-primary inverse btn-lg">Purchase</a>
+                            <a href="#" class="btn btn-primary inverse btn-lg">NHM</a>
                         </div>
 
                         
                         <div class="tp-caption mediumlarge_light_white sfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="-50" data-speed="1000" data-start="1000" data-easing="Power4.easeOut">
-                           Powerful Responsive
+                           Hriselna-mitin mawhphurhna
                         </div>
                         <div class="tp-caption mediumlarge_light_white sft hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
-                           App Landing Page
+                           NHM hi khawtlang hriselna a ni
                         </div>
                         <div class="tp-caption small_light_white sfb hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="80" data-speed="1000" data-start="1600" data-easing="Power4.easeOut">
-                           <p>Nulla pretium libero interdum, tempus lorem non, rutrum diam. <br> Quisque pellentesque diam sed pulvinar lobortis. Vestibulum ante <br>ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+                           <p>National Health Mission hian India khua leh tuite lo hrisel zawk nan nasa takin a thawk thin.</p>
                         </div>
 
                         <div class="tp-caption lfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="160" data-speed="1000" data-start="1800" data-easing="Power4.easeOut">
-                            <a href="#" class="btn btn-primary inverse btn-lg">Purchase</a>
+                            <a href="#" class="btn btn-primary inverse btn-lg">I hrisel em?</a>
                         </div>
-                        
-                        
-                    </li>
+                            </li>
                     
                 </ul>
+
+                        
+        </div>
+
+            </header>
+
+        <div class="container" style="margin-top:10px">
+            <ul class="nav-tabs nav" role='tablist'>
+            <li class=""><a href="#order" data-toggle="tab">Government Order</a></li>
+            <li class="active"><a href="#ads" data-toggle="tab">Advertisement</a></li>
+            <li class=""><a href="#tender" data-toggle="tab">Tender</a></li>
+            <li class=""><a href="#training" data-toggle="tab">Trainings</a></li>
+            <li class=""><a href="#mis" data-toggle="tab">MIS Report</a></li>
+            <li class=""><a href="#activities" data-toggle="tab">Activities under NHM</a></li>
+            <li class=""><a href="#charter" data-toggle="tab">Citizen Charter</a></li>
+            <li class=""><a href="#notice" data-toggle="tab">Notifications</a></li>
+            <li class=""><a href="#iec" data-toggle="tab">IEC/BCC</a></li>
+
+
+            </ul>
+
+            <div id="programmeTab" class="tab-content">
+                <div class="tab-pane fade" id='order'>  
+                    Orderlist
+                </div>
+
+                <div class="tab-pane fade active in" id='ads'>  
+                    Advertisement List:
+                    <ul>
+                        <li>First</li>
+                        <li>Second</li>
+                    </ul>
+                </div>
+
+                <div class="tab-pane fade" id='tender'>  
+                    Tender
+                    <ul>
+                        <li>First</li>
+                        <li>Second</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
 
 
-    </header>
 
 
     <div class="wrapper">
-
-        
-
         <section id="stateprofile">
             <div class="container">
                 
@@ -439,7 +479,8 @@ To meet the set goals/ outcomes we need to have access coverage through our acti
                 </div>
                 <div class="slider filtering scrollpoint sp-effect5" >
                     <div class="one">
-                        <img src="images/freeze/screens/rch.jpg" alt="">
+                     <a data-toggle="modal" data-target="#myModal">
+                        <img src="images/freeze/screens/rch.jpg" alt=""></a>
                         <h4>RCH</h4>
                     </div>
                     <div class="two">
@@ -541,7 +582,7 @@ TOTAL - Rs.94.42
         <section id="support" class="doublediagonal">
             <div class="container">
                 <div class="section-heading scrollpoint sp-effect3">
-                    <h1>Support</h1>
+                    <h1>Contact Us</h1>
                     <div class="divider"></div>
                     <p>For more info and support, contact us!</p>
                 </div>
@@ -595,6 +636,32 @@ TOTAL - Rs.94.42
                 </div>
             </div>
         </section>
+
+
+        <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">RASHTRIYA BAL SWASTHYA KARYAKRAM (RBSK)</h4>
+      </div>
+      <div class="modal-body">
+About the programme:
+<p></p>
+The ‘Child Health Screening and Early Intervention Services’ Programme under National Health Mission initiated by the Ministry of Health and Family Welfare aims at early detection and management of the 4Ds prevalent in children. 
+<p></p>Health screening of children is a known intervention under the School Health Programme. It is now being expanded to cover all children from birth to 18 years of age. The Programme has been initiated as significant progress has already been made in reducing child mortality under the National Health Mission. However, further gains can be achieved by early detection and management of conditions in all age groups.
+<p></p>Launched across the country in February, 2013, Rashtriya Bal Swasthya Karyakram (RBSK) is a significant health initiative aiming at early identification and early intervention for children from birth to 18 years to cover 4 ‘D’s viz. Defects at birth, Deficiencies, Diseases, Development delays including disability. The launch of this programme assumes great significance as it corresponds to the release of Reproductive, Maternal, Newborn, Child Health and Adolescent Health strategy (RMNCH+A).
+<p></p>In Mizoram, RBSK was officially launched in July, 2013 and as of March, 2015, there are 23 functional RBSK Mobile Health Teams and each team conducts health screening among Govt and Govt. Aided School students and Anganwadi Children across the state. There is also provision of special care/ treatment to target beneficiaries through referral to District Early Intervention Center (DEIC), the first referral center under RBSK.
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
         <footer>
             <div class="container">
