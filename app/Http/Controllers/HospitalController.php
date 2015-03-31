@@ -17,7 +17,7 @@ class HospitalController extends Controller {
 	 */
 	public function index()
 	{
-		$type = [''=>'','I'=>'I','II'=>'II','III'=>'III'];
+		$type = [''=>'','Normal'=>'Normal','Difficult'=>'Difficult','Very Difficult'=>'Very Difficult','HPD Normal'=>'HPD Normal','HPD Difficult'=>'HPD Difficult','HPD Very Difficult'=>'HPD Very Difficult'];
 		$hospitalAll	= Hospital::orderBy('name')->paginate();
 		$districtAll	= District::orderBy('name')->lists('name','id');
 		$hospitalCategoryAll	= HospitalCategory::orderBy('name')->lists('name','id');
@@ -98,7 +98,7 @@ class HospitalController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$type = [''=>'','I'=>'I','II'=>'II','III'=>'III'];
+		$type = ['Normal'=>'Normal','Difficult'=>'Difficult','Very Difficult'=>'Very Difficult','HPD Normal'=>'HPD Normal','HPD Difficult'=>'HPD Difficult','HPD Very Difficult'=>'HPD Very Difficult'];
 		$hospitalAll	= Hospital::orderBy('name')->paginate();
 		$hospitalById	= Hospital::find($id);
 		$districtAll	= District::orderBy('name')->lists('name','id');
