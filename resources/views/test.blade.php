@@ -225,7 +225,7 @@
             </header>
 
         <div class="container" style="margin-top:10px">
-            <ul class="nav-tabs nav" role='tablist'>
+            <ul class="nav nav-tabs" role='tablist' data-tabs='tabs'>
             <li class=""><a href="#order" data-toggle="tab">Government Order</a></li>
             <li class="active"><a href="#ads" data-toggle="tab">Advertisement</a></li>
             <li class=""><a href="#tender" data-toggle="tab">Tender</a></li>
@@ -238,13 +238,15 @@
 
 
             </ul>
-
-            <div id="programmeTab" class="tab-content">
-                <div class="tab-pane fade" id='order'>  
+            
+            <div id='myTab' class="tab-content">
+                <div class="tab-pane " id='order'>  
+                    <p>
                     Orderlist
+                    </p>
                 </div>
 
-                <div class="tab-pane fade active in" id='ads'>  
+                <div class="tab-pane  active in" id='ads'>  
                     Advertisement List:
                     <ul>
                         <li>First</li>
@@ -252,7 +254,7 @@
                     </ul>
                 </div>
 
-                <div class="tab-pane fade" id='tender'>  
+                <div class="tab-pane " id='tender'>  
                     Tender
                     <ul>
                         <li>First</li>
@@ -690,7 +692,13 @@ The ‘Child Health Screening and Early Intervention Services’ Programme under
     <script>
         $(document).ready(function() {
             appMaster.preLoader();
+$('#myTab a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+});
         });
+
+
     </script>
 
 </body>
