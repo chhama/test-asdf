@@ -37,7 +37,7 @@
 				<div class="form-group">
 					<div class="col-md-12">
 						{!! Form::label("Body",'',['class'=>'control-label'])!!}
-						{!! Form::textarea('body',null,['class'=>'form-control']) !!}
+						{!! Form::textarea('body',null,['class'=>'form-control','id'=>'redactorContent']) !!}
 						@if($errors->has('body'))
 							<span class="text-danger">{{$errors->first('body')}}</span>
 						@endif
