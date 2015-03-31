@@ -21,10 +21,19 @@ class PostTableSeeder extends Seeder {
                 'category_id'   => '1',
                 'user_id'       => '1',
                 'highlight'     => 'Yes',
-            	'title'      	=> 'National urban health mission',
+            	'title'      	=> 'About the state of Mizoram',
             	'created_at' 	=> date('Y-m-d H:i:s'),
             	'updated_at' 	=> date('Y-m-d H:i:s'),
-        	]
+        	],
+            [
+                'id'            => '2',
+                'category_id'   => '1',
+                'user_id'       => '1',
+                'highlight'     => 'Yes',
+                'title'         => 'About Us',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
         ];
 
         DB::table('posts')->insert($posts);

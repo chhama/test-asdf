@@ -27,7 +27,91 @@ class CategoryTableSeeder extends Seeder {
             	'name' 			=> 'Notification',
             	'created_at' 	=> date('Y-m-d H:i:s'),
             	'updated_at' 	=> date('Y-m-d H:i:s'),
-        	]
+        	],
+            [
+                'id'            => '3',
+                'name'          => 'Advertistment',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '4',
+                'name'          => 'Tender',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '5',
+                'name'          => 'Trainings',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '6',
+                'name'          => 'MIS Report',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '7',
+                'name'          => 'Activities Under NHM',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '8',
+                'name'          => 'Citizen Charter',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '9',
+                'name'          => 'IEC/BCC',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '10',
+                'name'          => 'State PIP',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '11',
+                'name'          => 'Programmes',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '12',
+                'name'          => 'Mandatory Disclosure',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '13',
+                'name'          => 'NRHM + RMNCH PLUS A',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '14',
+                'name'          => 'NUHM',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '15',
+                'name'          => 'Disease Control Programme',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '16',
+                'name'          => 'Non Communicable Diseases',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
         ];
 
         DB::table('categories')->insert($categories);
