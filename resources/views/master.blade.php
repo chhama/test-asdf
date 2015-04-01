@@ -105,30 +105,18 @@
                                     <ul>
                                         <li>RCH</li>
                                             <ul>
-                                                <li>Maternal Health
-                                                <li>Child Health
-                                                <li>Family Planning
-                                                <li>Adolescent Health/RKSK
-                                                <li>RBSK
-                                                <li>PNDT
+                                                <?php $rch = App\Post::where('category_id','=',13)->orderBy('id','desc')->lists('title','id'); ?>
+                                                @foreach($rch as $id => $title)
+                                                    <li><a href="{{ URL::route('page.index','id='.$id) }}">{{ $title }}</a></li>
+                                                @endforeach
                                             </ul>
 
                                         <li>Additionalities under NRHM</li>
                                             <ul>
-                                                <li>ASHA
-                                                <li>Clinical Establishment Act
-                                                <li>AYUSH
-                                                <li>IEC/BCC
-                                                <li>Mobile Medical Unit (MMU)
-                                                <li>National Ambulance Service (NAS)
-                                                <li>Public Private Partnership (PPP)
-                                                <li>Quality Assurance
-                                                <li>Health Management Information System (HMIS)
-                                                <li>Mother and Child Tracking System (MCTS)
-                                                <li>Immunisation
-                                                <li>National Iodine Deficiency Disorders Control Programme (NIDDCP)
-                                                <li>RKS and Untied Funds
-
+                                                <?php $additonalNRHM = App\Post::where('category_id','=',17)->orderBy('id','desc')->lists('title','id'); ?>
+                                                @foreach($additonalNRHM as $id => $title)
+                                                    <li><a href="{{ URL::route('page.index','id='.$id) }}">{{ $title }}</a></li>
+                                                @endforeach
                                             </ul>
                                     </ul>
 
@@ -145,7 +133,12 @@
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse collapse">
                                   <div class="panel-body">
-                                        National Urban Health Mission
+                                        <ul>
+                                            <?php $nuhm = App\Post::where('category_id','=',14)->orderBy('id','desc')->lists('title','id'); ?>
+                                            @foreach($nuhm as $id => $title)
+                                                <li><a href="{{ URL::route('page.index','id='.$id) }}">{{ $title }}</a></li>
+                                            @endforeach
+                                        </ul>
                                   </div>
                                 </div>
                               </div>
@@ -160,10 +153,10 @@
                                 <div id="collapseThree" class="panel-collapse collapse">
                                   <div class="panel-body">
                                         <ul>
-                                            <li>Integrated Disease Surveillance Programme (IDSP)
-                                            <li>National Vector Borne Disease Control Programme (NVBDCP)
-                                            <li>National Leprosy Eradication Programme (NLEP)
-                                            <li>TB (RNTCP)
+                                            <?php $dcp = App\Post::where('category_id','=',15)->orderBy('id','desc')->lists('title','id'); ?>
+                                            @foreach($dcp as $id => $title)
+                                                <li><a href="{{ URL::route('page.index','id='.$id) }}">{{ $title }}</a></li>
+                                            @endforeach
                                         </ul>
                                   </div>
                                     </div>
@@ -179,13 +172,10 @@
                                         <div id="collapseFour" class="panel-collapse collapse">
                                           <div class="panel-body">
                                                 <ul>
-                                                    <li>National Programme for Control of Blindness (NPCB)</li>
-                                                    <li>National Mental Health Programme (NMHP)</li>
-                                                    <li>National Programme for the Healthcare of the Elderly (NPHCE)</li>
-                                                    <li>National Programme for  Prevention and control of Deafness (NPPCD)</li>
-                                                    <li>National Tobacco Control Programme (NTCP)</li>
-                                                    <li>National Oral Health Programme (NOHP)</li>
-                                                    <li>National Programme for Prevention and Control of Cancer, Diabetes, Cardiovascular Diseases and Stroke (NPCDCS)</li>
+                                                    <?php $ncd = App\Post::where('category_id','=',16)->orderBy('id','desc')->lists('title','id'); ?>
+                                                    @foreach($ncd as $id => $title)
+                                                        <li><a href="{{ URL::route('page.index','id='.$id) }}">{{ $title }}</a></li>
+                                                    @endforeach
                                                 </ul>
                                           </div>
                                         </div>
@@ -208,7 +198,7 @@
             
             <div id='myTab' class="tab-content">
                 <div class="tab-pane " id='order'>  
-                    <?php $govtOrders = App\Post::where('category_id','=',17)->orderBy('id','desc')->paginate(); ?>
+                    <?php $govtOrders = App\Post::where('category_id','=',11)->orderBy('id','desc')->paginate(); ?>
                     <div class="scrollpoint sp-effect5">
                         <h3>Government Order</h3>
                     </div>
@@ -300,7 +290,7 @@
                 </div>
 
                 <div class="tab-pane " id='iec'>  
-                    <?php $iecs = App\Post::where('category_id','=',2)->orderBy('id','desc')->paginate(); ?>
+                    <?php $iecs = App\Post::where('category_id','=',9)->orderBy('id','desc')->paginate(); ?>
                     <div class="scrollpoint sp-effect5">
                         <h3>IEC / BCC</h3>
                     </div>

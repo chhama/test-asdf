@@ -78,7 +78,7 @@ class CategoryTableSeeder extends Seeder {
             ],
             [
                 'id'            => '11',
-                'name'          => 'Programmes',
+                'name'          => 'Goverment Order',
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s'),
             ],
@@ -90,7 +90,7 @@ class CategoryTableSeeder extends Seeder {
             ],
             [
                 'id'            => '13',
-                'name'          => 'NRHM + RMNCH PLUS A',
+                'name'          => 'RCH',
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s'),
             ],
@@ -112,9 +112,10 @@ class CategoryTableSeeder extends Seeder {
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s'),
             ],
+            
             [
                 'id'            => '17',
-                'name'          => 'Goverment Order',
+                'name'          => 'Additionalities under NRHM',
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s'),
             ],
