@@ -89,6 +89,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-3">
+                    <h3>Programmes</h3>
                         <div class="panel-group" id="accordion">
                               <div class="panel panel-info">
                                 <div class="panel-heading">
@@ -228,6 +229,7 @@
                 </div>
 
             </div>
+        @yield('content')
         </div>
 
     </div>
@@ -235,7 +237,6 @@
 
 
     <div class="wrapper">
-        @yield('content')
 
 
 
