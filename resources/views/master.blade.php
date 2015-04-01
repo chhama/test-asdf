@@ -208,25 +208,108 @@
             
             <div id='myTab' class="tab-content">
                 <div class="tab-pane " id='order'>  
-                    <p>
-                    Orderlist
-                    </p>
+                    <?php $govtOrders = App\Post::where('category_id','=',17)->orderBy('id','desc')->paginate(); ?>
+                    <div class="scrollpoint sp-effect5">
+                        <h3>Government Order</h3>
+                    </div>
+                    <ol start='1'>
+                    @foreach($govtOrders as $govtOrder)
+                        <li><a href="{{ URL::route('page.index','id='.$govtOrder->id) }}">{{ $govtOrder->title }}</a></li>
+                    @endforeach
+                    <ol>
+                    {!! $govtOrders !!}
+                    
                 </div>
 
                 <div class="tab-pane " id='ads'>  
-                    Advertisement List:
-                    <ul>
-                        <li>First</li>
-                        <li>Second</li>
-                    </ul>
+                    <?php $advertistments = App\Post::where('category_id','=',3)->orderBy('id','desc')->paginate(); ?>
+                    <div class="scrollpoint sp-effect5">
+                        <h3>Advertisement List</h3>
+                    </div>
+                    <ol start='1'>
+                    @foreach($advertistments as $advertist)
+                        <li><a href="{{ URL::route('page.index','id='.$advertist->id) }}">{{ $advertist->title }}</a></li>
+                    @endforeach
+                    <ol>
+                    {!! $advertistments !!}
                 </div>
 
                 <div class="tab-pane " id='tender'>  
-                    Tender
-                    <ul>
-                        <li>First</li>
-                        <li>Second</li>
-                    </ul>
+                    <?php $tenders = App\Post::where('category_id','=',4)->orderBy('id','desc')->paginate(); ?>
+                    <div class="scrollpoint sp-effect5">
+                        <h3>Tender</h3>
+                    </div>
+                    <ol start='1'>
+                    @foreach($tenders as $tender)
+                        <li><a href="{{ URL::route('page.index','id='.$tender->id) }}">{{ $tender->title }}</a></li>
+                    @endforeach
+                    <ol>
+                    {!! $tenders !!}
+                </div>
+
+                <div class="tab-pane " id='training'>  
+                    <?php $trainings = App\Post::where('category_id','=',5)->orderBy('id','desc')->paginate(); ?>
+                    <div class="scrollpoint sp-effect5">
+                        <h3>Trainings</h3>
+                    </div>
+                    <ol start='1'>
+                    @foreach($trainings as $training)
+                        <li><a href="{{ URL::route('page.index','id='.$training->id) }}">{{ $training->title }}</a></li>
+                    @endforeach
+                    <ol>
+                    {!! $trainings !!}
+                </div>
+
+                <div class="tab-pane " id='mis'>  
+                    <?php $misreports = App\Post::where('category_id','=',6)->orderBy('id','desc')->paginate(); ?>
+                    <div class="scrollpoint sp-effect5">
+                        <h3>MIS Report</h3>
+                    </div>
+                    <ol start='1'>
+                    @foreach($misreports as $misreport)
+                        <li><a href="{{ URL::route('page.index','id='.$misreport->id) }}">{{ $misreport->title }}</a></li>
+                    @endforeach
+                    <ol>
+                    {!! $misreports !!}
+                </div>
+
+                <div class="tab-pane " id='activities'>  
+                    <?php $activities = App\Post::where('category_id','=',7)->orderBy('id','desc')->paginate(); ?>
+                    <div class="scrollpoint sp-effect5">
+                        <h3>Activities Under NHM</h3>
+                    </div>
+                    <ol start='1'>
+                    @foreach($activities as $activity)
+                        <li><a href="{{ URL::route('page.index','id='.$activity->id) }}">{{ $activity->title }}</a></li>
+                    @endforeach
+                    <ol>
+                    {!! $activities !!}
+                </div>
+
+                <div class="tab-pane " id='notice'>  
+                    <?php $notifications = App\Post::where('category_id','=',2)->orderBy('id','desc')->paginate(); ?>
+                    <div class="scrollpoint sp-effect5">
+                        <h3>Notifications</h3>
+                    </div>
+                    <ol start='1'>
+                    @foreach($notifications as $noti)
+                        <li><a href="{{ URL::route('page.index','id='.$noti->id) }}">{{ $noti->title }}</a></li>
+                    @endforeach
+                    <ol>
+                    {!! $notifications !!}
+                </div>
+
+                <div class="tab-pane " id='iec'>  
+                    <?php $iecs = App\Post::where('category_id','=',2)->orderBy('id','desc')->paginate(); ?>
+                    <div class="scrollpoint sp-effect5">
+                        <h3>IEC / BCC</h3>
+                    </div>
+                    <ol start='1'>
+                    @foreach($iecs as $iec)
+                        <li><a href="{{ URL::route('page.index','id='.$iec->id) }}">{{ $iec->title }}</a></li>
+                    @endforeach
+                    <ol>
+                    {!! $iecs !!}
                 </div>
 
             </div>
