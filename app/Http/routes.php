@@ -37,3 +37,6 @@ Route::group(['middleware' => 'auth'], function()
 	Route::get('hospitalByCat', 'PostingController@hospitalByCat');
 });
 Route::resource('page','PageController');
+Route::get('family',function(){
+	return view('family');
+});
