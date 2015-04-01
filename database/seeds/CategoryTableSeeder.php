@@ -112,6 +112,12 @@ class CategoryTableSeeder extends Seeder {
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s'),
             ],
+            [
+                'id'            => '17',
+                'name'          => 'Goverment Order',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
         ];
 
         DB::table('categories')->insert($categories);

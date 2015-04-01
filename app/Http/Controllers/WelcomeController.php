@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Post;
 class WelcomeController extends Controller {
 
 	/*
@@ -30,7 +31,8 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('test');
+		$mainPage = Post::find(1);
+		return view('main',compact('mainPage'));
 	}
 
 }
