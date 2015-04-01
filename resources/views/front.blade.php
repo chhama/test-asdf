@@ -143,16 +143,9 @@
         <section id="stateprofile">
             <div class="container">
                 <div class="section-heading scrollpoint sp-effect5">
-                            <h3>ABOUT THE STATE OF MIZORAM</h3>
+                            <h3>{{ strtoupper($mainPage->title) }}</h3>
                 </div>
-                    <p>The State is bordering by Myanmar in the East and South and Bangladesh in the West, it occupies an area of great strategic importance in the North Eastern corner of India.  It has a total of 722 kms international boundary with Myanmar and Bangladesh.  Mizoram has the most variegated hilly terrain in the eastern part of India.  The hills are steep and are separated by rivers that flow either to the North or South creating deep gorgeous between the hill rangers.  The average height of the hills is about 1000 meters and the highest peak is the Phawngpui (Blue Mountain) with the height of 2210 meters. Mizoram has a pleasant climate.  It is generally cool in summer and not very cold in winter. The temperate varies from 10c to 30c and the entire state is under the direct influence of monsoon.  It rains heavily from May to September and the average rainfall in Aizawl is 208 cm.
-Mizoram is a mountainous region and became the 23rd state of the Union in February 1987.  It was one of the districts of Assam till 1972 when it became Union Territory.  Mizoram is a state with one of the highest literacy rates in India.  Situated on the extreme south of the North Eastern India, it is a land of unending natural beauty with an array of flora and fauna.  Presently, there are 8 Civil Administrative Districts but there are 9 Health Districts since Aizawl Civil administrative district is divided into Aizawl West and East health districts.  3 more districts are created during 2008 namely, Hnahthial, Khawzawl and Saitual districts but are yet to be fully functional. Panchayati Raj system is not adapted in Mizoram but there is Village Council system. 
-Demography <p></p>
-The population of Mizoram is 1.09 million according to 2011 census and it is having 26 blocks and 830 recognised villages. The state has a density of 52 persons per sq. Km, with decadal growth of 22.78 percent.  The high decadal growth rate is mainly due to influx across the international borders and workforce from other states of the country.  The sex ratio is 975 females to 1000 males. Female literacy of the state rose to 89.40 percent from 86.13 percent in the year 2001. The state profile Administrative details, Facility distance, Existing number of Facility and Development partners in Mizoram is shown below. To have a clear picture of the facility in Mizoram, it is better to mentioned that the Facilities are not as per the norms of IPHS.
-
-<h3>ABOUT THE STATE CAPITAL</h3>
-The capital of Mizoram, Aizawl is wonderfully blue in the winter, and in the enchanting view of wide stretches of a vast lake of cloud.  This place has great natural beauty and endless variety of landscape and is very rich in flora and fauna.  Almost all kinds of tropical trees and plants thrive in Mizoram, especially in Aizawl. The hills are marvelously green.
-</p>
+                    {!! $mainPage->body !!}
                 </div>
                
         </section>
