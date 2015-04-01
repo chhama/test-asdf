@@ -55,8 +55,8 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#about" class="smooth">Executive Summary</a></li>
-                                        <li><a href="#framework" class="smooth">Conceptual Framework</a></li>
+                                        <li><a href="{{ URL::route('page.index','id=2') }}" class="smooth">Executive Summary</a></li>
+                                        <li><a href="{{ URL::route('page.index','id=3') }}" class="smooth">Conceptual Framework</a></li>
                                     </ul>
                             </li>
                             <li class="dropdown">
@@ -68,6 +68,7 @@
                             </li>
                             <li><a href="#disclosure">Mandatory Disclosure</a>
                             </li>
+                            <li><a href="#gallery">Gallery</a>
                             <li><a href="#support">Contacts</a>
                             </li>
                         </ul>
@@ -197,7 +198,6 @@
             <li class=""><a href="#training" data-toggle="tab">Trainings</a></li>
             <li class=""><a href="#mis" data-toggle="tab">MIS Report</a></li>
             <li class=""><a href="#activities" data-toggle="tab">Activities under NHM</a></li>
-            <li class=""><a href="#charter" data-toggle="tab">Citizen Charter</a></li>
             <li class=""><a href="#notice" data-toggle="tab">Notifications</a></li>
             <li class=""><a href="#iec" data-toggle="tab">IEC/BCC</a></li>
 

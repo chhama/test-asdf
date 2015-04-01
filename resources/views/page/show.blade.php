@@ -1,7 +1,8 @@
-@extends('back')
+@extends('master')
 
 @section('content')
 
-{{ "Hello World " }}
+	{{ $page->title }}
+	{!! $page->body !!}
 
 @endsection

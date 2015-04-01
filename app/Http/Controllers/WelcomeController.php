@@ -30,8 +30,12 @@ class WelcomeController extends Controller {
 	 * @return Response
 	 */
 	public function index()
-	{
-		$mainPage = Post::find(1);
+	{	
+		if(isset($_GET['id'])){
+			$id = $_GET['id'];
+		} else { $id = 1; }
+		
+		$mainPage = Post::find($id);
 		return view('front',compact('mainPage'));
 	}
 
