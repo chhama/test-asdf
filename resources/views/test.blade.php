@@ -17,7 +17,7 @@
                             data-speed="500"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="images/freeze/Slides/helpline.jpeg" alt="">
+                            <img src="images/freeze/Slides/ambulance.png" alt="">
                         </div>
 
                         <div class="tp-caption lfl fadeout visible-xs"
@@ -66,7 +66,7 @@
                             data-speed="1000"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="images/freeze/Slides/hriselna.jpg" alt="">
+                            <img src="images/freeze/Slides/health.png" alt="">
                         </div>
 
                         
@@ -108,7 +108,7 @@
                             data-speed="1000"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="images/freeze/Slides/mawhphurhna.jpg" alt="">
+                            <img src="images/freeze/Slides/kids.png" alt="">
                         </div>
 
 
