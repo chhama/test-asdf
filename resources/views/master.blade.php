@@ -59,17 +59,18 @@
                                         <li><a href="{{ URL::route('page.index','id=3') }}" class="smooth">Conceptual Framework</a></li>
                                     </ul>
                             </li>
-                            <li class="dropdown">
+                            <!-- <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">State PIP <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="#">PIP 2000-2001</a></li>
                                         <li><a href="#">PIP 2001-2002</a></li>
                                     </ul>
-                            </li>
+                            </li> -->
+                            <li><a href="{{ URL::to('list?id=10') }}">State PIP</a>
                             <li><a href="{{ URL::to('list?id=12') }}">Mandatory Disclosure</a>
                             </li>
                             <li><a href="/#gallery">Gallery</a>
-                            <li><a href="/#support">Contacts</a>
+                            <li><a href="{{ URL::route('page.index','id=4') }}">Contacts</a>
                             </li>
                         </ul>
                     </div>
