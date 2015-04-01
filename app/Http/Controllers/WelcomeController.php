@@ -32,7 +32,7 @@ class WelcomeController extends Controller {
 	public function index()
 	{
 		$mainPage = Post::find(1);
-		return view('main',compact('mainPage'));
+		return view('test',compact('mainPage'));
 	}
 
 }

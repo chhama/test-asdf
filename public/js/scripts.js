@@ -13,7 +13,8 @@ var appMaster = {
 
     smoothScroll: function() {
         // Smooth Scrolling
-        $('a[href*=#]:not([href=#carousel-example-generic])').click(function() {
+        $('a.smooth').click(function() {
+
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
 
                 var target = $(this.hash);

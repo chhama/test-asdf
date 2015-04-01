@@ -14,12 +14,12 @@
     <link rel="shortcut icon" href="favicon.png">
 
 
-    {!!Html::Style('css/freeze.css')!!}
     {!!Html::Style('css/bootstrap.css')!!}
     {!!Html::Style('css/animate.css')!!}
     {!!Html::Style('css/font-awesome.min.css')!!}
     {!!Html::Style('css/slick.css')!!}
     {!!Html::Style('js/rs-plugin/css/settings.css')!!}
+    {!!Html::Style('css/freeze.css')!!}
 
 
 
@@ -51,12 +51,12 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#stateprofile">State Profile</a></li>
+                            <li><a href="#stateprofile" class="smooth">State Profile</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#about">Executive Summary</a></li>
-                                        <li><a href="#">Conceptual Framework</a></li>
+                                        <li><a href="#about" class="smooth">Executive Summary</a></li>
+                                        <li><a href="#" class="smooth">Conceptual Framework</a></li>
                                     </ul>
                             </li>
                             <li class="dropdown">
@@ -82,110 +82,112 @@
        @yield('slider')
 
             </header>
-        <div class="col-md-3">
-            <div class="panel-group" id="accordion">
-                  <div class="panel panel-info">
-                    <div class="panel-heading">
-                      <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                          NRHM + RMNCH plus A
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse">
-                      <div class="panel-body">
-                        <ul>
-                            <li>RCH</li>
-                                <ul>
-                                    <li>Maternal Health
-                                    <li>Child Health
-                                    <li>Family Planning
-                                    <li>Adolescent Health/RKSK
-                                    <li>RBSK
-                                    <li>PNDT
-                                </ul>
+            <div class="row" style="margin-top:10px;"></div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="panel-group" id="accordion">
+                              <div class="panel panel-info">
+                                <div class="panel-heading">
+                                  <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                      NRHM + RMNCH plus A
+                                    </a>
+                                  </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse">
+                                  <div class="panel-body">
+                                    <ul>
+                                        <li>RCH</li>
+                                            <ul>
+                                                <li>Maternal Health
+                                                <li>Child Health
+                                                <li>Family Planning
+                                                <li>Adolescent Health/RKSK
+                                                <li>RBSK
+                                                <li>PNDT
+                                            </ul>
 
-                            <li>Additionalities under NRHM</li>
-                                <ul>
-                                    <li>ASHA
-                                    <li>Clinical Establishment Act
-                                    <li>AYUSH
-                                    <li>IEC/BCC
-                                    <li>Mobile Medical Unit (MMU)
-                                    <li>National Ambulance Service (NAS)
-                                    <li>Public Private Partnership (PPP)
-                                    <li>Quality Assurance
-                                    <li>Health Management Information System (HMIS)
-                                    <li>Mother and Child Tracking System (MCTS)
-                                    <li>Immunisation
-                                    <li>National Iodine Deficiency Disorders Control Programme (NIDDCP)
-                                    <li>RKS and Untied Funds
+                                        <li>Additionalities under NRHM</li>
+                                            <ul>
+                                                <li>ASHA
+                                                <li>Clinical Establishment Act
+                                                <li>AYUSH
+                                                <li>IEC/BCC
+                                                <li>Mobile Medical Unit (MMU)
+                                                <li>National Ambulance Service (NAS)
+                                                <li>Public Private Partnership (PPP)
+                                                <li>Quality Assurance
+                                                <li>Health Management Information System (HMIS)
+                                                <li>Mother and Child Tracking System (MCTS)
+                                                <li>Immunisation
+                                                <li>National Iodine Deficiency Disorders Control Programme (NIDDCP)
+                                                <li>RKS and Untied Funds
 
-                                </ul>
-                        </ul>
+                                            </ul>
+                                    </ul>
 
-                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="panel panel-info">
+                                <div class="panel-heading">
+                                  <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                        NUHM
+                                     </a>
+                                  </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse">
+                                  <div class="panel-body">
+                                        National Urban Health Mission
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="panel panel-info">
+                                <div class="panel-heading">
+                                  <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                      Disease Control Programme
+                                    </a>
+                                  </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse">
+                                  <div class="panel-body">
+                                        <ul>
+                                            <li>Integrated Disease Surveillance Programme (IDSP)
+                                            <li>National Vector Borne Disease Control Programme (NVBDCP)
+                                            <li>National Leprosy Eradication Programme (NLEP)
+                                            <li>TB (RNTCP)
+                                        </ul>
+                                  </div>
+                                    </div>
+                                      </div>
+                                       <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                          <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                              Non-communicable diseases
+                                            </a>
+                                          </h4>
+                                        </div>
+                                        <div id="collapseFour" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                                <ul>
+                                                    <li>National Programme for Control of Blindness (NPCB)</li>
+                                                    <li>National Mental Health Programme (NMHP)</li>
+                                                    <li>National Programme for the Healthcare of the Elderly (NPHCE)</li>
+                                                    <li>National Programme for  Prevention and control of Deafness (NPPCD)</li>
+                                                    <li>National Tobacco Control Programme (NTCP)</li>
+                                                    <li>National Oral Health Programme (NOHP)</li>
+                                                    <li>National Programme for Prevention and Control of Cancer, Diabetes, Cardiovascular Diseases and Stroke (NPCDCS)</li>
+                                                </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                     </div>
-                  </div>
-                  <div class="panel panel-info">
-                    <div class="panel-heading">
-                      <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                            NUHM
-                         </a>
-                      </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse">
-                      <div class="panel-body">
-                            National Urban Health Mission
-                      </div>
-                    </div>
-                  </div>
-                  <div class="panel panel-info">
-                    <div class="panel-heading">
-                      <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                          Disease Control Programme
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                      <div class="panel-body">
-                            <ul>
-                                <li>Integrated Disease Surveillance Programme (IDSP)
-                                <li>National Vector Borne Disease Control Programme (NVBDCP)
-                                <li>National Leprosy Eradication Programme (NLEP)
-                                <li>TB (RNTCP)
-                            </ul>
-                      </div>
-                    </div>
-                  </div>
-                   <div class="panel panel-info">
-                    <div class="panel-heading">
-                      <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                          Non-communicable diseases
-                        </a>
-                      </h4>
-                    </div>
-                    <div id="collapseFour" class="panel-collapse collapse">
-                      <div class="panel-body">
-                            <ul>
-                                <li>National Programme for Control of Blindness (NPCB)
-                                <li>National Mental Health Programme (NMHP)
-                                <li>National Programme for the Healthcare of the Elderly (NPHCE)
-                                <li>National Programme for  Prevention and control of Deafness (NPPCD)
-                                <li>National Tobacco Control Programme (NTCP)
-                                <li>National Oral Health Programme (NOHP)
-                                <li>National Programme for Prevention and Control of Cancer, Diabetes, Cardiovascular Diseases and Stroke (NPCDCS)
-                            </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-        </div>
         <div class="col-md-9">
-        <div class="container" style="margin-top:10px">
             <ul class="nav nav-pills" role='tablist' data-tabs='tabs'>
             <li class=""><a href="#order" data-toggle="tab">Government Order</a></li>
             <li class="active"><a href="#ads" data-toggle="tab">Advertisement</a></li>
@@ -226,6 +228,7 @@
             </div>
         </div>
 
+    </div>
     </div>
 
 
