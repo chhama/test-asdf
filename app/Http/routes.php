@@ -40,3 +40,4 @@ Route::resource('page','PageController');
 Route::get('family',function(){
 	return view('family');
 });
+Route::get('list', 'PageController@listByCat');
