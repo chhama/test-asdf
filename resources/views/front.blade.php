@@ -81,7 +81,7 @@
 
 		
 		</div>	
-			<div class="container-fluid">
+			<div class="container">
 			<div class="col-md-3" style="margin-top:10px;">
 				<h3>Programmes</h3>
 				<div class="panel-group" id="accordion">
