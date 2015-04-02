@@ -105,17 +105,25 @@
                                     <ul>
                                         <li>RCH</li>
                                             <ul>
-                                                <?php $rch = App\Post::where('category_id','=',13)->orderBy('id','desc')->lists('title','id'); ?>
-                                                @foreach($rch as $id => $title)
-                                                    <li><a href="{{ URL::route('page.index','id='.$id) }}">{{ $title }}</a></li>
+                                                <?php $rchs = App\Post::where('category_id','=',13)->orderBy('id','desc')->get(); ?>
+                                                @foreach($rchs as $nch)
+                                                    <?php if(strlen($nch->download)>3 && strlen($nch->body)<1) { ?>
+                                                        <li><a href="{{ $nch->download }}" download>{{ $nch->title }}</a></li>
+                                                    <?php } else { ?>
+                                                        <li><a href="{{ URL::route('page.index','id='.$nch->id) }}">{{ $nch->title }}</a></li>
+                                                    <?php } ?>
                                                 @endforeach
                                             </ul>
 
                                         <li>Additionalities under NRHM</li>
                                             <ul>
-                                                <?php $additonalNRHM = App\Post::where('category_id','=',17)->orderBy('id','desc')->lists('title','id'); ?>
-                                                @foreach($additonalNRHM as $id => $title)
-                                                    <li><a href="{{ URL::route('page.index','id='.$id) }}">{{ $title }}</a></li>
+                                                <?php $additonalNRHM = App\Post::where('category_id','=',17)->orderBy('id','desc')->get(); ?>
+                                                @foreach($additonalNRHM as $additional)
+                                                    <?php if(strlen($additional->download)>3 && strlen($additional->body)<1) { ?>
+                                                        <li><a href="{{ $additional->download }}" download>{{ $additional->title }}</a></li>
+                                                    <?php } else { ?>
+                                                        <li><a href="{{ URL::route('page.index','id='.$additional->id) }}">{{ $additional->title }}</a></li>
+                                                    <?php } ?>
                                                 @endforeach
                                             </ul>
                                     </ul>
@@ -134,9 +142,13 @@
                                 <div id="collapseTwo" class="panel-collapse collapse">
                                   <div class="panel-body">
                                         <ul>
-                                            <?php $nuhm = App\Post::where('category_id','=',14)->orderBy('id','desc')->lists('title','id'); ?>
-                                            @foreach($nuhm as $id => $title)
-                                                <li><a href="{{ URL::route('page.index','id='.$id) }}">{{ $title }}</a></li>
+                                            <?php $nuhms = App\Post::where('category_id','=',14)->orderBy('id','desc')->get(); ?>
+                                            @foreach($nuhms as $nuhm)
+                                                <?php if(strlen($nuhm->download)>3 && strlen($nuhm->body)<1) { ?>
+                                                    <li><a href="{{ $nuhm->download }}" download>{{ $nuhm->title }}</a></li>
+                                                <?php } else { ?>
+                                                    <li><a href="{{ URL::route('page.index','id='.$nuhm->id) }}">{{ $nuhm->title }}</a></li>
+                                                <?php } ?>
                                             @endforeach
                                         </ul>
                                   </div>
@@ -153,9 +165,13 @@
                                 <div id="collapseThree" class="panel-collapse collapse">
                                   <div class="panel-body">
                                         <ul>
-                                            <?php $dcp = App\Post::where('category_id','=',15)->orderBy('id','desc')->lists('title','id'); ?>
-                                            @foreach($dcp as $id => $title)
-                                                <li><a href="{{ URL::route('page.index','id='.$id) }}">{{ $title }}</a></li>
+                                            <?php $dcps = App\Post::where('category_id','=',15)->orderBy('id','desc')->get(); ?>
+                                            @foreach($dcps as $dcp)
+                                                <?php if(strlen($dcp->download)>3 && strlen($dcp->body)<1) { ?>
+                                                    <li><a href="{{ $dcp->download }}" download>{{ $dcp->title }}</a></li>
+                                                <?php } else { ?>
+                                                    <li><a href="{{ URL::route('page.index','id='.$dcp->id) }}">{{ $dcp->title }}</a></li>
+                                                <?php } ?>
                                             @endforeach
                                         </ul>
                                   </div>
@@ -172,9 +188,13 @@
                                         <div id="collapseFour" class="panel-collapse collapse">
                                           <div class="panel-body">
                                                 <ul>
-                                                    <?php $ncd = App\Post::where('category_id','=',16)->orderBy('id','desc')->lists('title','id'); ?>
-                                                    @foreach($ncd as $id => $title)
-                                                        <li><a href="{{ URL::route('page.index','id='.$id) }}">{{ $title }}</a></li>
+                                                    <?php $ncds = App\Post::where('category_id','=',16)->orderBy('id','desc')->get(); ?>
+                                                    @foreach($ncds as $ncd)
+                                                        <?php if(strlen($ncd->download)>3 && strlen($ncd->body)<1) { ?>
+                                                            <li><a href="{{ $ncd->download }}" download>{{ $ncd->title }}</a></li>
+                                                        <?php } else { ?>
+                                                            <li><a href="{{ URL::route('page.index','id='.$ncd->id) }}">{{ $ncd->title }}</a></li>
+                                                        <?php } ?>
                                                     @endforeach
                                                 </ul>
                                           </div>
@@ -204,7 +224,11 @@
                     </div>
                     <ol start='1'>
                     @foreach($govtOrders as $govtOrder)
-                        <li><a href="{{ URL::route('page.index','id='.$govtOrder->id) }}">{{ $govtOrder->title }}</a></li>
+                        <?php if(strlen($govtOrder->download)>3 && strlen($govtOrder->body)<1) { ?>
+                            <li><a href="{{ $govtOrder->download }}" download>{{ $govtOrder->title }}</a></li>
+                        <?php } else { ?>
+                            <li><a href="{{ URL::route('page.index','id='.$govtOrder->id) }}">{{ $govtOrder->title }}</a></li>
+                        <?php } ?>
                     @endforeach
                     <ol>
                     {!! $govtOrders !!}
@@ -218,7 +242,11 @@
                     </div>
                     <ol start='1'>
                     @foreach($advertistments as $advertist)
-                        <li><a href="{{ URL::route('page.index','id='.$advertist->id) }}">{{ $advertist->title }}</a></li>
+                        <?php if(strlen($advertist->download)>3 && strlen($advertist->body)<1) { ?>
+                            <li><a href="{{ $advertist->download }}" download>{{ $advertist->title }}</a></li>
+                        <?php } else { ?>
+                            <li><a href="{{ URL::route('page.index','id='.$advertist->id) }}">{{ $advertist->title }}</a></li>
+                        <?php } ?>
                     @endforeach
                     <ol>
                     {!! $advertistments !!}
@@ -231,7 +259,11 @@
                     </div>
                     <ol start='1'>
                     @foreach($tenders as $tender)
-                        <li><a href="{{ URL::route('page.index','id='.$tender->id) }}">{{ $tender->title }}</a></li>
+                        <?php if(strlen($tender->download)>3 && strlen($tender->body)<1) { ?>
+                            <li><a href="{{ $tender->download }}" download>{{ $tender->title }}</a></li>
+                        <?php } else { ?>
+                            <li><a href="{{ URL::route('page.index','id='.$tender->id) }}">{{ $tender->title }}</a></li>
+                        <?php } ?>
                     @endforeach
                     <ol>
                     {!! $tenders !!}
@@ -244,7 +276,11 @@
                     </div>
                     <ol start='1'>
                     @foreach($trainings as $training)
-                        <li><a href="{{ URL::route('page.index','id='.$training->id) }}">{{ $training->title }}</a></li>
+                        <?php if(strlen($training->download)>3 && strlen($training->body)<1) { ?>
+                            <li><a href="{{ $training->download }}" download>{{ $training->title }}</a></li>
+                        <?php } else { ?>
+                            <li><a href="{{ URL::route('page.index','id='.$training->id) }}">{{ $training->title }}</a></li>
+                        <?php } ?>
                     @endforeach
                     <ol>
                     {!! $trainings !!}
@@ -257,7 +293,11 @@
                     </div>
                     <ol start='1'>
                     @foreach($misreports as $misreport)
-                        <li><a href="{{ URL::route('page.index','id='.$misreport->id) }}">{{ $misreport->title }}</a></li>
+                        <?php if(strlen($misreport->download)>3 && strlen($misreport->body)<1) { ?>
+                            <li><a href="{{ $misreport->download }}" download>{{ $misreport->title }}</a></li>
+                        <?php } else { ?>
+                            <li><a href="{{ URL::route('page.index','id='.$misreport->id) }}">{{ $misreport->title }}</a></li>
+                        <?php } ?>
                     @endforeach
                     <ol>
                     {!! $misreports !!}
@@ -270,7 +310,11 @@
                     </div>
                     <ol start='1'>
                     @foreach($activities as $activity)
-                        <li><a href="{{ URL::route('page.index','id='.$activity->id) }}">{{ $activity->title }}</a></li>
+                        <?php if(strlen($activity->download)>3 && strlen($activity->body)<1) { ?>
+                            <li><a href="{{ $activity->download }}" download>{{ $activity->title }}</a></li>
+                        <?php } else { ?>
+                            <li><a href="{{ URL::route('page.index','id='.$activity->id) }}">{{ $activity->title }}</a></li>
+                        <?php } ?>
                     @endforeach
                     <ol>
                     {!! $activities !!}
@@ -283,7 +327,11 @@
                     </div>
                     <ol start='1'>
                     @foreach($notifications as $noti)
-                        <li><a href="{{ URL::route('page.index','id='.$noti->id) }}">{{ $noti->title }}</a></li>
+                        <?php if(strlen($noti->download)>3 && strlen($noti->body)<1) { ?>
+                            <li><a href="{{ $noti->download }}" download>{{ $noti->title }}</a></li>
+                        <?php } else { ?>
+                            <li><a href="{{ URL::route('page.index','id='.$noti->id) }}">{{ $noti->title }}</a></li>
+                        <?php } ?>
                     @endforeach
                     <ol>
                     {!! $notifications !!}
@@ -296,7 +344,11 @@
                     </div>
                     <ol start='1'>
                     @foreach($iecs as $iec)
-                        <li><a href="{{ URL::route('page.index','id='.$iec->id) }}">{{ $iec->title }}</a></li>
+                        <?php if(strlen($iec->download)>3 && strlen($iec->body)<1) { ?>
+                            <li><a href="{{ $iec->download }}" download>{{ $iec->title }}</a></li>
+                        <?php } else { ?>
+                            <li><a href="{{ URL::route('page.index','id='.$iec->id) }}">{{ $iec->title }}</a></li>
+                        <?php } ?>
                     @endforeach
                     <ol>
                     {!! $iecs !!}
