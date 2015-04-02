@@ -41,3 +41,5 @@ Route::get('family',function(){
 	return view('family');
 });
 Route::get('list', 'PageController@listByCat');
+Route::get('ehrmis', 'PageController@eHRMIS');
+Route::get('staff', 'PageController@staff');

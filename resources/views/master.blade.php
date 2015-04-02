@@ -71,6 +71,7 @@
                             </li>
                             <li><a href="/#gallery">Gallery</a>
                             <li><a href="{{ URL::route('page.index','id=4') }}">Contacts</a>
+                            <li><a href="{{ URL::to('ehrmis') }}">HRMIS</a>
                             </li>
                         </ul>
                     </div>
