@@ -67,11 +67,17 @@
                                     </ul>
                             </li> -->
                             <li><a href="{{ URL::to('list?id=10') }}">State PIP</a>
-                            <li><a href="{{ URL::to('list?id=12') }}">Mandatory Disclosure</a>
-                            </li>
+                            <li><a href="{{ URL::to('list?id=12') }}">Mandatory Disclosure</a></li>
                             <li><a href="/#gallery">Gallery</a>
                             <li><a href="{{ URL::route('page.index','id=4') }}">Contacts</a>
-                            <li><a href="{{ URL::to('ehrmis') }}">HRMIS</a>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">e-HRMIS <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" class="smooth">Facilities</a></li>
+                                        <li><a href="#" class="smooth">Human Resource</a></li>
+                                    </ul>
+                            </li>
+                            <!-- <li><a href="{{ URL::to('ehrmis') }}">HRMIS</a> -->
                             </li>
                         </ul>
                     </div>
@@ -206,13 +212,13 @@
         <div class="col-md-9">
             <ul class="nav nav-pills" role='tablist' data-tabs='tabs'>
             <li class=""><a href="#order" data-toggle="tab">Government Order</a></li>
-            <li class=""><a href="#ads" data-toggle="tab">Advertisement</a></li>
-            <li class=""><a href="#tender" data-toggle="tab">Tender</a></li>
-            <li class=""><a href="#training" data-toggle="tab">Trainings</a></li>
-            <li class=""><a href="#mis" data-toggle="tab">MIS Report</a></li>
-            <li class=""><a href="#activities" data-toggle="tab">Activities under NHM</a></li>
             <li class=""><a href="#notice" data-toggle="tab">Notifications</a></li>
+            <li class=""><a href="#activities" data-toggle="tab">Activities under NHM</a></li>
+            <li class=""><a href="#mis" data-toggle="tab">MIS Report</a></li>
+            <li class="text-center"><a href="#ads" data-toggle="tab">Schemes & Guideline<br> under NHM</a></li>
+            <li class="text-center"><a href="#training" data-toggle="tab">Trainings <br> under NHM</a></li>
             <li class=""><a href="#iec" data-toggle="tab">IEC/BCC</a></li>
+            <li class=""><a href="#tender" data-toggle="tab">Tender</a></li>
 
 
             </ul>

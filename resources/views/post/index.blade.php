@@ -12,10 +12,11 @@
 					<thead>
 					  <tr>
 					    <th class="text-center col-md-1">#</th>
-					    <th class="text-left col-md-5">Title</th>
-					    <th class="text-left col-md-1">Category</th>
-					    <th class="text-left col-md-2">User</th>
+					    <th class="text-left col-md-4">Title</th>
+					    <th class="text-left col-md-2">Category</th>
+					    <th class="text-left col-md-1">User</th>
 					    <th class="text-center col-md-1">Highlight</th>
+					    <th class="text-center col-md-1">ID</th>
 					    <th class="text-center col-md-2">Control</th>
 					  </tr>
 					  </thead>
@@ -27,6 +28,7 @@
 					    <td class="text-left">{{ $post->category->name }}&nbsp;</td>
 					    <td class="text-left">{{ $post->user->name }}&nbsp;</td>
 					    <td class="text-center">{{ $post->highlight }}&nbsp;</td>
+					    <td class="text-center">{{ $post->id }}&nbsp;</td>
 					    <td class="action text-center">
 					    	{!! Form::open(array('url'=>route('post.destroy', array($post->id)),'method'=>'delete')) !!}
 								<a href="{{route('post.edit', array($post->id))}}" class="btn btn-xs btn-success tooltip-top" title="Edit post" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;

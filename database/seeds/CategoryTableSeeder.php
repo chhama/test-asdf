@@ -30,7 +30,7 @@ class CategoryTableSeeder extends Seeder {
         	],
             [
                 'id'            => '3',
-                'name'          => 'Advertistment',
+                'name'          => 'Schemes and Guidelines under NHM',
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s'),
             ],
@@ -112,10 +112,15 @@ class CategoryTableSeeder extends Seeder {
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s'),
             ],
-            
             [
                 'id'            => '17',
                 'name'          => 'Additionalities under NRHM',
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
+                'id'            => '18',
+                'name'          => 'Post',
                 'created_at'    => date('Y-m-d H:i:s'),
                 'updated_at'    => date('Y-m-d H:i:s'),
             ],
