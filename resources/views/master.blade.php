@@ -68,13 +68,13 @@
                             </li> -->
                             <li><a href="{{ URL::to('list?id=10') }}">State PIP</a>
                             <li><a href="{{ URL::to('list?id=12') }}">Mandatory Disclosure</a></li>
-                            <li><a href="{{ URL::to('gallery') }}">Gallery</a>
+                            <li><a href="{{ URL::to('galleryalbum') }}">Gallery</a>
                             <li><a href="{{ URL::route('page.index','id=4') }}">Contacts</a>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">e-HRMIS <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#" class="smooth">Facilities</a></li>
-                                        <li><a href="#" class="smooth">Human Resource</a></li>
+                                        <li><a href="{{ URL::to('facilities') }}" class="smooth">Facilities</a></li>
+                                        <li><a href="{{ URL::to('hr') }}" class="smooth">Human Resource</a></li>
                                     </ul>
                             </li>
                             <!-- <li><a href="{{ URL::to('ehrmis') }}">HRMIS</a> -->
@@ -346,7 +346,7 @@
                 </div>
 
                 <div class="tab-pane " id='iec'>  
-                    <?php $iecsPhotos = App\Photo::where('album_id','=',3)->orderBy('name')->paginate(); ?>
+                    <?php $iecsPhotos = App\Photo::where('album_id','=',1)->orderBy('name')->paginate(); ?>
                     <div class="scrollpoint sp-effect5">
                         <h3>IEC / BCC</h3>
                     </div>

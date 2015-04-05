@@ -15,6 +15,10 @@ class Posting extends Model {
 		'doj'
 	];
 
+	public function staff(){
+		return $this->belongsTo('App\Staff','staff_id');
+	}
+
 	public function designation(){
 		return $this->belongsTo('App\Designation','designation_id');
 	}

@@ -19,7 +19,7 @@ class AlbumTableSeeder extends Seeder {
         	'id'			=>'1',
             'user_id' 		=> 1,
             'album_cat_id' 	=> 1,
-			'name' 			=> 'Static',
+			'name' 			=> 'IEC/BCC',
 			'cover' 		=> 'iec_bcc.jpeg',
 			'directory'		=> '/upload/static/iec_bcc/',
             'created_at' 	=> date('Y-m-d H:i:s'),

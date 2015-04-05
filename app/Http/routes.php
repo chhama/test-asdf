@@ -47,3 +47,7 @@ Route::get('staff', 'PageController@staff');
 
 Route::get('galleryalbum', 'GalleryController@album');
 Route::get('galleryphoto', 'GalleryController@photo');
+
+Route::get('facilities', 'EhrmisController@facilities');
+Route::get('facdetail', 'EhrmisController@facdetail');
+Route::get('hr', 'EhrmisController@hr');
