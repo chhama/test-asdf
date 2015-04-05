@@ -68,7 +68,7 @@
                             </li> -->
                             <li><a href="{{ URL::to('list?id=10') }}">State PIP</a>
                             <li><a href="{{ URL::to('list?id=12') }}">Mandatory Disclosure</a></li>
-                            <li><a href="/#gallery">Gallery</a>
+                            <li><a href="{{ URL::to('gallery') }}">Gallery</a>
                             <li><a href="{{ URL::route('page.index','id=4') }}">Contacts</a>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">e-HRMIS <b class="caret"></b></a>
@@ -211,19 +211,20 @@
                     </div>
         <div class="col-md-9">
             <ul class="nav nav-pills" role='tablist' data-tabs='tabs'>
-            <li class=""><a href="#order" data-toggle="tab">Government Order</a></li>
-            <li class=""><a href="#notice" data-toggle="tab">Notifications</a></li>
-            <li class=""><a href="#activities" data-toggle="tab">Activities under NHM</a></li>
-            <li class=""><a href="#mis" data-toggle="tab">MIS Report</a></li>
-            <li class="text-center"><a href="#ads" data-toggle="tab">Schemes & Guideline<br> under NHM</a></li>
-            <li class="text-center"><a href="#training" data-toggle="tab">Trainings <br> under NHM</a></li>
-            <li class=""><a href="#iec" data-toggle="tab">IEC/BCC</a></li>
-            <li class=""><a href="#tender" data-toggle="tab">Tender</a></li>
+            <li class=""><a href="#order" data-toggle="tab" onClick="$('.yieldContent').hide()">Government Order</a></li>
+            <li class=""><a href="#notice" data-toggle="tab" onClick="$('.yieldContent').hide()">Notifications</a></li>
+            <li class=""><a href="#activities" data-toggle="tab" onClick="$('.yieldContent').hide()">Activities under NHM</a></li>
+            <li class=""><a href="#mis" data-toggle="tab" onClick="$('.yieldContent').hide()">MIS Report</a></li>
+            <li class="text-center"><a href="#ads" data-toggle="tab" onClick="$('.yieldContent').hide()">Schemes & Guideline<br> under NHM</a></li>
+            <li class="text-center"><a href="#training" data-toggle="tab" onClick="$('.yieldContent').hide()">Trainings <br> under NHM</a></li>
+            <li class=""><a href="#iec" data-toggle="tab" onClick="$('.yieldContent').hide()">IEC/BCC</a></li>
+            <li class=""><a href="#tender" data-toggle="tab" onClick="$('.yieldContent').hide()">Tender</a></li>
 
 
             </ul>
             
-            <div id='myTab' class="tab-content">
+            <div id='myTab' class="tab-content row">
+
                 <div class="tab-pane " id='order'>  
                     <?php $govtOrders = App\Post::where('category_id','=',11)->orderBy('id','desc')->paginate(); ?>
                     <div class="scrollpoint sp-effect5">
@@ -345,24 +346,24 @@
                 </div>
 
                 <div class="tab-pane " id='iec'>  
-                    <?php $iecs = App\Post::where('category_id','=',9)->orderBy('id','desc')->paginate(); ?>
+                    <?php $iecsPhotos = App\Photo::where('album_id','=',3)->orderBy('name')->paginate(); ?>
                     <div class="scrollpoint sp-effect5">
                         <h3>IEC / BCC</h3>
                     </div>
-                    <ol start='1'>
-                    @foreach($iecs as $iec)
-                        <?php if(strlen($iec->download)>3 && strlen($iec->body)<1) { ?>
-                            <li><a href="{{ $iec->download }}" download>{{ $iec->title }}</a></li>
-                        <?php } else { ?>
-                            <li><a href="{{ URL::route('page.index','id='.$iec->id) }}">{{ $iec->title }}</a></li>
-                        <?php } ?>
+                    @foreach($iecsPhotos as $photo)
+                        <div class="col-md-3 text-center">
+                            <a href="#"><img src="{{ $photo->directory }}{{ $photo->photo_file }}" class="img-thumbnail" ></a><br>
+                            <strong>{{ $photo->name }}</strong>
+                        </div>
                     @endforeach
-                    <ol>
-                    {!! $iecs !!}
-                </div>
 
+                    {!! $iecsPhotos !!}
+                </div>
             </div>
-        @yield('content')
+
+            <div class="row yieldContent" >
+                @yield('content')
+            </div>
         </div>
 
     </div>

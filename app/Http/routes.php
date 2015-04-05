@@ -37,9 +37,13 @@ Route::group(['middleware' => 'auth'], function()
 	Route::get('hospitalByCat', 'PostingController@hospitalByCat');
 });
 Route::resource('page','PageController');
+Route::resource('gallery','GalleryController');
 Route::get('family',function(){
 	return view('family');
 });
 Route::get('list', 'PageController@listByCat');
 Route::get('ehrmis', 'PageController@eHRMIS');
 Route::get('staff', 'PageController@staff');
+
+Route::get('galleryalbum', 'GalleryController@album');
+Route::get('galleryphoto', 'GalleryController@photo');

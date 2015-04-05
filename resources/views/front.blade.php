@@ -142,8 +142,8 @@
     @section('content')
         <section id="stateprofile">
             <div class="container-fluid">
-                <div class="section-heading scrollpoint sp-effect5">
-                <h3>{{ strtoupper($mainPage->title) }}</h3>
+                <div class="scrollpoint sp-effect5">
+                    <h3>{{ strtoupper($mainPage->title) }}</h3>
                 </div>
                     {!! $mainPage->body !!}
             </div>
