@@ -101,6 +101,20 @@
 							@endif
 						</div>
 						<div class="form-group">
+							{!! Form::label('Job Type Eg : MR/Contract/Regular','',['class'=>'control-label'])!!}
+							{!! Form::text('type',null,['class'=>'form-control']) !!}
+							@if($errors->has('type'))
+								<span class="text-danger">{{$errors->first('type')}}</span>
+							@endif
+						</div>
+						<div class="form-group">
+							{!! Form::label('Remark','',['class'=>'control-label'])!!}
+							{!! Form::textarea('remark',null,['class'=>'form-control']) !!}
+							@if($errors->has('remark'))
+								<span class="text-danger">{{$errors->first('remark')}}</span>
+							@endif
+						</div>
+						<div class="form-group">
 							<button type="submit" class="btn btn-success">
 								Update
 							</button>

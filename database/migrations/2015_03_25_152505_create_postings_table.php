@@ -23,6 +23,8 @@ class CreatePostingsTable extends Migration {
 			$table->string('status',20);
 			$table->string('total_remuneration');
 			$table->date('doj');
+			$table->string('type');
+			$table->text('remark');
 			$table->timestamps();
 		});
 	}

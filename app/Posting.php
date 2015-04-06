@@ -12,7 +12,9 @@ class Posting extends Model {
 		'hospital_id',
 		'status',
 		'total_remuneration',
-		'doj'
+		'doj',
+		'type',
+		'remark'
 	];
 
 	public function staff(){

@@ -44,9 +44,12 @@ class EhrmisController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function hr()
 	{
-		//
+		$staffAll	= Staff::orderBy('name')->paginate();
+		$index = $staffAll->perPage() * ($staffAll->currentPage()-1) + 1;
+
+		return view('ehrmis.hr',compact('staffAll','index')); 
 	}
 
 	/**
