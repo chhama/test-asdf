@@ -14,22 +14,31 @@
 			    <th class="col-md-2">Fathers</th>
 			    <th class="col-md-2">Address</th>
 			    <th class="col-md-2 text-center">D.O.J</th>
-			    <th class="col-md-1 text-center">Phone</th>
-			    <th class="col-md-2">Posting</th>
+			    <th class="col-md-1 text-center">Posting</th>
+			    <th class="col-md-2">Type</th>
 			  </tr>
 			  </thead>
 			  <tbody>
 			@foreach($staffAll as $staff)
 				<tr bgcolor="">
 			    <td height="25" class="text-center">{{ $index++ }}</td>
-			    <td height="25" align="left"><a href="{{ URL::to('staff?id='.$staff->id) }}">{{ $staff->name }}</a>&nbsp;</td>
+			    <td height="25" align="left"><a href="{{ URL::to('hrdetail?id='.$staff->id) }}">{{ $staff->name }}</a>&nbsp;</td>
 			    <td height="25" align="left">{{ $staff->fathers_name }}&nbsp;</td>
 			    <td height="25" align="left">{{ $staff->address }}&nbsp;</td>
-			    <td height="25" class="text-center">{{ $staff->doj }}&nbsp;</td>
-			    <td height="25" class="text-center">&nbsp;</td>
-			    <td align="left">
-			    	
-			    </td>
+			    <td height="25" align="left">{{ $staff->doj }}&nbsp;</td>
+			    <td height="25" class="text-center">
+			    	<?php 
+			    		$posting = App\Posting::where('staff_id','=',$staff->id)->where('status','=','Current Post')->pluck('hospital_id');
+			    		$hospital = App\Hospital::find($posting);
+			     		echo $hospital->name;	
+			     	?>&nbsp;
+			 	</td>
+			    <td height="25" class="text-center">
+			    	<?php 
+			    		$type = App\Posting::where('staff_id','=',$staff->id)->where('status','=','Current Post')->pluck('type');
+			     		echo $type;
+			     	?>&nbsp;
+			 	</td>
 			    </tr>
 			    
 			@endforeach

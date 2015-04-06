@@ -58,9 +58,13 @@ class EhrmisController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function hrdetail()
 	{
-		//
+		$id = $_GET['id'];
+		$index = 1;
+		$staffById	= Staff::find($id);
+		$postingAll = Posting::where('staff_id','=',$id)->orderBy('status')->get();
+		return view('ehrmis.hrdetail',compact('staffById','postingAll','index')); 
 	}
 
 	/**

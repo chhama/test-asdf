@@ -51,3 +51,4 @@ Route::get('galleryphoto', 'GalleryController@photo');
 Route::get('facilities', 'EhrmisController@facilities');
 Route::get('facdetail', 'EhrmisController@facdetail');
 Route::get('hr', 'EhrmisController@hr');
+Route::get('hrdetail', 'EhrmisController@hrdetail');

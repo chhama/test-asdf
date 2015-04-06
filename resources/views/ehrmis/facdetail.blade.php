@@ -62,6 +62,7 @@
 			    <th height="38" align="left">Designation</th>
 			    <th height="38" align="left">Date of Joining</th>
 			    <th height="38" align="left">Salary</th>
+			    <th height="38" align="left">Type</th>
 			  </tr>
 			  </thead>
 			  <tbody>
@@ -72,6 +73,7 @@
 			    <td height="25" align="left">{{ $postOnHos->designation->name }}&nbsp;</td>
 			    <td height="25" align="left">{{ $postOnHos->doj }}&nbsp;</td>
 			    <td height="25" align="left">{{ $postOnHos->total_remuneration }}&nbsp;</td>
+			    <td height="25" align="left">{{ $postOnHos->type }}&nbsp;</td>
 			    </tr>
 			    
 			@endforeach
