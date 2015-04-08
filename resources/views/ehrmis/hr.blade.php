@@ -25,7 +25,7 @@
 			    <td height="25" align="left"><a href="{{ URL::to('hrdetail?id='.$staff->id) }}">{{ $staff->name }}</a>&nbsp;</td>
 			    <td height="25" align="left">{{ $staff->fathers_name }}&nbsp;</td>
 			    <td height="25" align="left">{{ $staff->address }}&nbsp;</td>
-			    <td height="25" align="left">{{ $staff->doj }}&nbsp;</td>
+			    <td height="25" align="left" class="text-center">{{ date('d-m-Y',strtotime($staff->doj)) }}&nbsp;</td>
 			    <td height="25" class="text-center">
 			    	<?php 
 			    		$posting = App\Posting::where('staff_id','=',$staff->id)->where('status','=','Current Post')->pluck('hospital_id');

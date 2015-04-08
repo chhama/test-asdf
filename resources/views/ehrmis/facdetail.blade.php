@@ -60,7 +60,7 @@
 			    <th height="38" class="text-center">#</th>
 			    <th height="38" align="left">Name</th>
 			    <th height="38" align="left">Designation</th>
-			    <th height="38" align="left">Date of Joining</th>
+			    <th height="38" align="left" class="text-center">Date of Joining</th>
 			    <th height="38" align="left">Salary</th>
 			    <th height="38" align="left">Type</th>
 			  </tr>
@@ -71,7 +71,7 @@
 			    <td height="25" class="text-center">{{ $index++ }}</td>
 			    <td height="25" align="left">{{ $postOnHos->staff->name }}</a>&nbsp;</td>
 			    <td height="25" align="left">{{ $postOnHos->designation->name }}&nbsp;</td>
-			    <td height="25" align="left">{{ $postOnHos->doj }}&nbsp;</td>
+			    <td height="25" align="left" class="text-center">{{ date('d-m-Y',strtotime($postOnHos->doj)) }}&nbsp;</td>
 			    <td height="25" align="left">{{ $postOnHos->total_remuneration }}&nbsp;</td>
 			    <td height="25" align="left">{{ $postOnHos->type }}&nbsp;</td>
 			    </tr>

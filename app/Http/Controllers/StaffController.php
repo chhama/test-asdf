@@ -53,10 +53,9 @@ class StaffController extends Controller {
 		$staff->fathers_name = $request['fathers_name'];
 		$staff->sex = $request['sex'];
 		$staff->qualification = $request['qualification'];
-		$staff->dob = $request['dob'];
 		$staff->address = $request['address'];
 		$staff->phone = $request['phone'];
-		$staff->doj = $request['doj'];
+		$staff->doj = date('Y-m-d',strtotime($request['doj']));
 		$staff->remark = $request['remark'];
 		$staff->save();
 		//Staff::create($request->except('_token'));
@@ -113,10 +112,9 @@ class StaffController extends Controller {
 		$staff->fathers_name = $request['fathers_name'];
 		$staff->sex = $request['sex'];
 		$staff->qualification = $request['qualification'];
-		$staff->dob = $request['dob'];
 		$staff->address = $request['address'];
 		$staff->phone = $request['phone'];
-		$staff->doj = $request['doj'];
+		$staff->doj = date('Y-m-d',strtotime($request['doj']));
 		$staff->remark = $request['remark'];
 		$staff->save();
 

@@ -1,6 +1,15 @@
 @extends('app')
 
 @section('content')
+<script language="javascript">
+	$(document).ready(function($) {
+	    $('#datetimepicker1').datetimepicker({
+	        step: 5,
+	        timepicker:false,
+ 			format:'d-m-Y',
+	    });
+	});
+</script>
 
 <div class="container">
 	<div class="row">
@@ -88,7 +97,7 @@
 						</div>
 						<div class="form-group">
 							{!! Form::label('Date of Joining','',['class'=>'control-label'])!!}
-							{!! Form::text('doj',null,['class'=>'form-control']) !!}
+							{!! Form::text('doj',date('d-m-Y',strtotime($postingById->doj)),['class'=>'form-control','id'=>'datetimepicker1']) !!}
 							@if($errors->has('doj'))
 								<span class="text-danger">{{$errors->first('doj')}}</span>
 							@endif
