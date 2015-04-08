@@ -69,7 +69,6 @@
                             <li><a href="{{ URL::to('list?id=10') }}">State PIP</a>
                             <li><a href="{{ URL::to('list?id=12') }}">Mandatory Disclosure</a></li>
                             <li><a href="{{ URL::to('galleryalbum') }}">Gallery</a>
-                            <li><a href="{{ URL::route('page.index','id=4') }}">Contacts</a>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">e-HRMIS <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
@@ -378,9 +377,9 @@
             <div class="container">
                 
                 <div class="social">
-                    <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-twitter fa-lg"></i></a>
-                    <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-google-plus fa-lg"></i></a>
-                    <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-facebook fa-lg"></i></a>
+                    <a href="{{ URL::route('page.index','id=4') }}" class="scrollpoint sp-effect3"><span class="glyphicon glyphicon-user"></span><br> Citizen Charter</a>
+                    <a href="{{ URL::route('page.index','id=4') }}" class="scrollpoint sp-effect3"><span class="glyphicon glyphicon-pencil"></span><br> Right to Information</a>
+                    <a href="{{ URL::route('page.index','id=4') }}" class="scrollpoint sp-effect3"><span class="glyphicon glyphicon-envelope"></span><br> Contacts</a>
                 </div>
                 <div class="rights">
                     <p>Copyright &copy; {{date('Y')}} National Health Mission</p>

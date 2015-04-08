@@ -772,6 +772,12 @@ header .navbar-default ul.navbar-nav li a {
   color: #ffffff;
   background: none;
 }
+
+header .navbar-default ul.navbar-nav li li a {
+  color: #666;
+  background: white;
+}
+
 header .navbar-default ul.navbar-nav li a.getApp {
   color: #3c79b4;
   background: #ffffff;
@@ -1008,13 +1014,15 @@ footer {
   /* IE6-9 fallback on horizontal gradient */
 }
 footer .social a {
-  border: 2px solid #ffffff;
+  color:#fff;
 }
 footer .social a i {
   color: #ffffff;
 }
 footer .social a:hover {
-  background: #ffffff;
+  background: rgba(0,0,0,0.2);
+  border: 0px solid #fff;
+  text-decoration: none;
 }
 footer .social a:hover i {
   color: #66cdcc;
