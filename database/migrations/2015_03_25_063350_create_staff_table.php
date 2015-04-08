@@ -19,7 +19,6 @@ class CreateStaffTable extends Migration {
 			$table->string('fathers_name');
 			$table->string('sex');
 			$table->string('qualification');
-			$table->date('dob');
 			$table->string('address');
 			$table->string('phone');
 			$table->date('doj');

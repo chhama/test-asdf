@@ -58,6 +58,7 @@ class PostingController extends Controller {
 		];
 		$this->validate($request, $rules);
 
+		$request['doj'] = date('Y-m-d',strtotime($request['doj']));
 		Posting::create($request->except('_token'));
 
 		return redirect("posting?staff_id=".$request['staff_id']);
@@ -112,6 +113,7 @@ class PostingController extends Controller {
 		];
 		
 		$this->validate($request, $rules);
+		$request['doj'] = date('Y-m-d',strtotime($request['doj']));
 
 		$posting = Posting::find($id);
 		$posting->update($request->except('_token'));

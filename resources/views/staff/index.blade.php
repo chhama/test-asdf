@@ -1,7 +1,15 @@
 @extends('app')
 
 @section('content')
-
+<script language="javascript">
+	$(document).ready(function($) {
+	    $('#datetimepicker1').datetimepicker({
+	        step: 5,
+	        timepicker:false,
+ 			format:'d-m-Y',
+	    });
+	});
+</script>
 <div class="container">
 	<div class="row">
 		<div class="col-md-9">
@@ -27,7 +35,7 @@
 					    <td height="25" align="left">{{ $staff->name }}&nbsp;</td>
 					    <td height="25" align="left">{{ $staff->fathers_name }}&nbsp;</td>
 					    <td height="25" align="left">{{ $staff->address }}&nbsp;</td>
-					    <td height="25" class="text-center">{{ $staff->doj }}&nbsp;</td>
+					    <td height="25" class="text-center">{{ date('d-m-Y',strtotime($staff->doj)) }}&nbsp;</td>
 					    <td height="25" class="text-center"><a href="{{route('posting.index', array('staff_id'=>$staff->id))}}" class="btn btn-xs btn-success tooltip-top" title="Entry Posting" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-plus"></i></a>&nbsp;</td>
 					    <td align="left" class="action text-center">
 					    	{!! Form::open(array('url'=>route('staffrecord.destroy', array($staff->id)),'method'=>'delete')) !!}
@@ -93,15 +101,8 @@
 							@endif
 						</div>
 						<div class="form-group">
-							{!! Form::label('Date of Birth','',['class'=>'control-label'])!!}
-							{!! Form::text('dob',null,['class'=>'form-control']) !!}
-							@if($errors->has('dob'))
-								<span class="text-danger">{{$errors->first('dob')}}</span>
-							@endif
-						</div>
-						<div class="form-group">
 							{!! Form::label('Date of Joining','',['class'=>'control-label'])!!}
-							{!! Form::text('doj',null,['class'=>'form-control']) !!}
+							{!! Form::text('doj',null,['class'=>'form-control','id'=>'datetimepicker1']) !!}
 							@if($errors->has('doj'))
 								<span class="text-danger">{{$errors->first('doj')}}</span>
 							@endif
@@ -132,5 +133,4 @@
 		</div>
 	</div>
 </div>
-
 @endsection

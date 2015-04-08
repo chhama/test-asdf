@@ -37,16 +37,12 @@
 				    	<td height="25" align="left"> : {{ $staffById->qualification }}&nbsp;</td>
 				    </tr>
 				    <tr>
-				    	<td height="25" align="left">Date of Birth&nbsp;</td>
-				    	<td height="25" align="left"> : {{ $staffById->dob }}&nbsp;</td>
-				    </tr>
-				    <tr>
 				    	<td height="25" align="left">Address&nbsp;</td>
 				    	<td height="25" align="left"> : {{ $staffById->address }}&nbsp;</td>
 				    </tr>
 				    <tr>
 				    	<td height="25" align="left">D.O.J&nbsp;</td>
-				    	<td height="25" align="left"> : {{ $staffById->doj }}&nbsp;</td>
+				    	<td height="25" align="left"> : {{ date('d-m-Y',strtotime($staffById->doj)) }}&nbsp;</td>
 				    </tr>
 				    <tr>
 				    	<td height="25" align="left">Remark&nbsp;</td>
@@ -67,7 +63,7 @@
 			    <th height="38" class="text-center">#</th>
 			    <th height="38" align="left">Posting</th>
 			    <th height="38" align="left">Designation</th>
-			    <th height="38" align="left">Date of Joining</th>
+			    <th height="38" align="left" class="text-center">Date of Joining</th>
 			    <th height="38" align="left">Salary</th>
 			    <th height="38" align="left">Type</th>
 			    <th height="38" align="left">Status</th>
@@ -79,7 +75,7 @@
 			    <td height="25" class="text-center">{{ $index++ }}</td>
 			    <td height="25" align="left">{{ $posting->hospital->name.', '.$posting->hospitalCategory->name.', '.$posting->district->name }}</a>&nbsp;</td>
 			    <td height="25" align="left">{{ $posting->designation->name }}&nbsp;</td>
-			    <td height="25" align="left">{{ $posting->doj }}&nbsp;</td>
+			    <td height="25" align="left" class="text-center">{{ date('d-m-Y',strtotime($posting->doj)) }}&nbsp;</td>
 			    <td height="25" align="left">{{ $posting->total_remuneration }}&nbsp;</td>
 			    <td height="25" align="left">{{ $posting->type }}&nbsp;</td>
 			    <td height="25" align="left">{{ $posting->status }}&nbsp;</td>
