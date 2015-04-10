@@ -36,13 +36,13 @@
 
                         
                         <div class="tp-caption mediumlarge_light_white sfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="-50" data-speed="1000" data-start="1000" data-easing="Power4.easeOut">
-                            Ambulance Service
+                            National Ambulance Service (NAS)
                         </div>
-                        <div class="tp-caption mediumlarge_light_white sft hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
-                           NHM hi khawtlang hriselna a ni
-                        </div>
+
                         <div class="tp-caption small_light_white sfb hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="80" data-speed="1000" data-start="1600" data-easing="Power4.easeOut">
-                           <p>National Health Mission hian India khua leh tuite lo hrisel zawk nan nasa takin a thawk thin.</p>
+                           <p>National Ambulance Service (102) hian nu nau nei tur leh nausen kumkhat tling lo tan Sorkar Damdawiin <br>
+                           ah a thlawn in lam (Pick) leh thlah (Drop) a theih. <p></p> 
+                           102 dial hian man chawi a ngai lova. 102 ah hian call executive darker 24 call chhang tur an awm reng a ni.</p>
                         </div>
 
                         <div class="tp-caption lfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="160" data-speed="1000" data-start="1800" data-easing="Power4.easeOut">
@@ -65,23 +65,17 @@
                             data-speed="1000"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="images/freeze/Slides/health.png" alt="">
+                            <img src="images/freeze/Slides/jsy.png" alt="">
                         </div>
 
-                        
-                        <div class="tp-caption lfb visible-xs" data-x="center" data-y="center" data-hoffset="0" data-voffset="400" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
-                            <a href="#" class="btn btn-primary inverse btn-lg">NHM</a>
-                        </div>
+                    
 
-                        
                         <div class="tp-caption mediumlarge_light_white sfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="-50" data-speed="1000" data-start="1000" data-easing="Power4.easeOut">
-                           Khawtlang hrisel nan
+                           Janani Suraksha Yojana (JSY)
                         </div>
-                        <div class="tp-caption mediumlarge_light_white sft hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
-                           NHM hi khawtlang hriselna a ni
-                        </div>
+                      
                         <div class="tp-caption small_light_white sfb hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="80" data-speed="1000" data-start="1600" data-easing="Power4.easeOut">
-                           <p>National Health Mission hian India khua leh tuite lo hrisel zawk nan nasa takin a thawk thin.</p>
+                           <p>Nu naupai ten nau an neihna atan senso tanpuina, JSY an dawn theih nan Sub-Centre ah in register in, checkup neih thin tur.</p>
                         </div>
 
                         <div class="tp-caption lfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="160" data-speed="1000" data-start="1800" data-easing="Power4.easeOut">
@@ -107,7 +101,7 @@
                             data-speed="1000"
                             data-start="700"
                             data-easing="Power4.easeOut">
-                            <img src="images/freeze/Slides/kids.png" alt="">
+                            <img src="images/freeze/Slides/jssk.png" alt="">
                         </div>
 
 
@@ -116,14 +110,12 @@
                         </div>
 
                         
-                        <div class="tp-caption mediumlarge_light_white sfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="-50" data-speed="1000" data-start="1000" data-easing="Power4.easeOut">
-                           Hriselna-mitin mawhphurhna
-                        </div>
                         <div class="tp-caption mediumlarge_light_white sft hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="0" data-speed="1000" data-start="1200" data-easing="Power4.easeOut">
-                           NHM hi khawtlang hriselna a ni
+                            JANANI-SHISHU SURAKSHA KARYAKRAM (JSSK)                        
                         </div>
                         <div class="tp-caption small_light_white sfb hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="80" data-speed="1000" data-start="1600" data-easing="Power4.easeOut">
-                           <p>National Health Mission hian India khua leh tuite lo hrisel zawk nan nasa takin a thawk thin.</p>
+                           <p>Naupai tan Sawrkar damdawiin (Hospital/CHC/PHC/SC) a a thlawna Nau neih theihna leh Nausen <br>
+                           Kum 1 hnuailam damlo admit ngai, a thlawna an senso phuhruk sakna .</p>
                         </div>
 
                         <div class="tp-caption lfl hidden-xs" data-x="left" data-y="center" data-hoffset="0" data-voffset="160" data-speed="1000" data-start="1800" data-easing="Power4.easeOut">
