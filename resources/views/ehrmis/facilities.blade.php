@@ -8,6 +8,29 @@
 <div class="col-md-12">
 	<div class="panel panel-default">
 		<div class="panel-body">
+			{!! Form::open(['URL'=>'facilities','method'=>'get','class'=>'form-inline']) !!}
+				<div class="form-group">
+					{!! Form::select('district',[''=>'District']+$districtAll,$district_id,['class'=>'']) !!}
+				</div>
+				<div class="form-group">
+					{!! Form::select('category',[''=>'Category']+$hospitalCategoryAll,$hospital_category_id,['class'=>'']) !!}
+				</div>
+				<div class="form-group">
+					{!! Form::select('type',$hosType,$type_view,['class'=>'']) !!}
+				</div>
+				<div class="form-group">
+					{!! Form::text('name',$name_view,['class'=>'','placeholder'=>'Name']) !!}
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-success">
+						Search
+					</button>
+				</div>
+			{!! Form::close() !!}
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-body">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-hover" style="margin-bottom:0px;">
 			<thead>
 			  <tr>
