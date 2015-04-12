@@ -22,6 +22,7 @@ class PostingController extends Controller {
 	{
 		$staff_id = $_GET['staff_id'];
 		$status = [''=>'','Current Post'=>'Current Post','Previous Post'=>'Previous Post'];
+		$type = [''=>'','Regular'=>'Regular','Contract'=>'Contract','Master Roll'=>'Master Roll'];
 		$postingAll	= Posting::where('staff_id','=',$staff_id)->orderBy('status')->paginate();
 		$districtAll	= District::orderBy('name')->lists('name','id');
 		$hospitalCategoryAll	= HospitalCategory::orderBy('name')->lists('name','id');
@@ -29,7 +30,7 @@ class PostingController extends Controller {
 		$designationAll	= Designation::orderBy('name')->lists('name','id');
 		$index = $postingAll->perPage() * ($postingAll->currentPage()-1) + 1;
 
-		return view('posting.index',compact('postingAll','index','status','staff_id','districtAll','hospitalCategoryAll','hospitalAll','designationAll')); 
+		return view('posting.index',compact('postingAll','index','status','staff_id','districtAll','hospitalCategoryAll','hospitalAll','designationAll','type')); 
 	}
 
 	/**
@@ -85,6 +86,7 @@ class PostingController extends Controller {
 	{
 		$staff_id = $_GET['staff_id'];
 		$status = [''=>'','Current Post'=>'Current Post','Previous Post'=>'Previous Post'];
+		$type = ['Regular'=>'Regular','Contract'=>'Contract','Master Roll'=>'Master Roll'];
 		$postingById	= Posting::find($id);
 		$postingAll		= Posting::where('staff_id','=',$staff_id)->orderBy('status')->paginate();
 		$districtAll	= District::orderBy('name')->lists('name','id');
@@ -93,7 +95,7 @@ class PostingController extends Controller {
 		$designationAll	= Designation::orderBy('name')->lists('name','id');
 		$index = $postingAll->perPage() * ($postingAll->currentPage()-1) + 1;
 
-		return view('posting.edit',compact('postingAll','postingById','index','status','staff_id','districtAll','hospitalCategoryAll','hospitalAll','designationAll'));  
+		return view('posting.edit',compact('postingAll','postingById','index','status','staff_id','districtAll','hospitalCategoryAll','hospitalAll','designationAll','type'));  
 	}
 
 	/**
