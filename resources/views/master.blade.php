@@ -377,7 +377,7 @@
             <div class="container">
                 
                 <div class="social">
-                    <a href="{{ URL::route('page.index','id=4') }}" class="scrollpoint sp-effect3"><span class="glyphicon glyphicon-user"></span><br> Citizen Charter</a>
+                    <a href="{{ URL::to('https://www.facebook.com/nhmmizoram') }}" target="_blank" class="scrollpoint sp-effect3"><span class="glyphicon glyphicon-user"></span><br> Citizen Charter</a>
                     <a href="{{ URL::route('page.index','id=4') }}" class="scrollpoint sp-effect3"><span class="glyphicon glyphicon-pencil"></span><br> Right to Information</a>
                     <a href="{{ URL::route('page.index','id=4') }}" class="scrollpoint sp-effect3"><span class="glyphicon glyphicon-envelope"></span><br> Contacts</a>
                 </div>

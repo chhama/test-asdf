@@ -57,10 +57,21 @@ class EhrmisController extends Controller {
 	 */
 	public function hr()
 	{
-		$staffAll	= Staff::orderBy('name')->paginate();
+		if(isset($_GET['name']) && $_GET['name'] != 'Name') { $name = "AND name LIKE '%".$_GET['name']."%' "; $name_view = $_GET['name']; } else { $name = ''; $name_view=''; } 
+		if(isset($_GET['fname']) && $_GET['fname'] != 'Fathers Name') { $fname = "AND fathers_name LIKE '%".$_GET['fname']."%' "; $fname_view = $_GET['fname']; } else { $fname = ''; $fname_view=''; } 
+		if(isset($_GET['type']) && $_GET['type'] != '') { 
+			$getType = $_GET['type']; $type_view = $_GET['type']; 
+			$postingByType = Posting::whereRaw("type = '$getType' AND status='Current Post'")->groupBy('staff_id')->lists('staff_id');
+			$type = $postingByType;
+
+		} else { $type = ''; $type_view=''; }
+
+		$staffAll	= Staff::orderBy('name')->whereRaw("id != '' $name $fname ")->whereIn('id',$type)->paginate();
+
+		$jobType = [''=>'Type','Regular'=>'Regular','Contract'=>'Contract','Master Roll'=>'Master Roll'];
 		$index = $staffAll->perPage() * ($staffAll->currentPage()-1) + 1;
 
-		return view('ehrmis.hr',compact('staffAll','index')); 
+		return view('ehrmis.hr',compact('staffAll','index','name_view','jobType','fname_view','type_view')); 
 	}
 
 	/**
