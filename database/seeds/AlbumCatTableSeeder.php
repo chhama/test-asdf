@@ -19,7 +19,7 @@ class AlbumCatTableSeeder extends Seeder {
         	'id'			=>'1',
             'user_id' 		=> 1,
 			'name' 			=> 'Static',
-			'directory'		=> '/upload/static/',
+			'directory'		=> 'upload/static/',
             'created_at' 	=> date('Y-m-d H:i:s'),
             'updated_at' 	=> date('Y-m-d H:i:s'),
         ];

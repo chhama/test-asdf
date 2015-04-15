@@ -6,6 +6,7 @@
 </div>
 
 @foreach($albums as $album)
+	<?php if($album->id == 1) continue; ?>
 	<div class="col-md-3 text-center">
 		<a href="{{ URL::to('galleryphoto?aid='.$album->id) }}"><img src="{{ $album->directory }}{{ $album->cover }}" class="img-thumbnail" ></a><br>
 		<strong>{{ $album->name }}</strong>

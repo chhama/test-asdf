@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Posting;
 use App\Hospital;
-use App\Hospitalcategory;
+use App\HospitalCategory;
 use App\District;
 use App\Designation;
 

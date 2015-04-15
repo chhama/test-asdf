@@ -31,8 +31,8 @@
 			  <tr>
 			    <th class="col-md-1 text-center">#</th>
 			    <th class="col-md-2">Name</th>
-			    <th class="col-md-2">Fathers</th>
-			    <th class="col-md-2">Address</th>
+			    <th class="col-md-2">Phone</th>
+			    <th class="col-md-2">Designation</th>
 			    <th class="col-md-2 text-center">D.O.J</th>
 			    <th class="col-md-1 text-center">Posting</th>
 			    <th class="col-md-2 text-center">Type</th>
@@ -43,8 +43,8 @@
 				<tr bgcolor="">
 			    <td height="25" class="text-center">{{ $index++ }}</td>
 			    <td height="25" align="left"><a href="{{ URL::to('hrdetail?id='.$staff->id) }}">{{ $staff->name }}</a>&nbsp;</td>
-			    <td height="25" align="left">{{ $staff->fathers_name }}&nbsp;</td>
-			    <td height="25" align="left">{{ $staff->address }}&nbsp;</td>
+			    <td height="25" align="left">{{ $staff->phone }}&nbsp;</td>
+			    <td height="25" align="left">{{ $staff->designation->name }}&nbsp;</td>
 			    <td height="25" align="left" class="text-center">{{ date('d-m-Y',strtotime($staff->doj)) }}&nbsp;</td>
 			    <td height="25" class="text-center">
 			    	<?php 
