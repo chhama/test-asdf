@@ -64,36 +64,33 @@ class EhrmisController extends Controller {
 		// District Wise
 		if(isset($_GET['district']) && $_GET['district'] != '') { 
 			$getDistrict = $_GET['district']; $district_view = $_GET['district']; 
-			$postingByDistrict = Posting::whereRaw("district_id = '$getDistrict' AND status='Current Post'")->groupBy('staff_id')->lists('staff_id');
-			$district = implode(',',$postingByDistrict).',';
+			$district = "AND district_id = '$getDistrict'";
 
 		} else { $district = ''; $district_view=''; }
 
 		// Hospital Category Wise
 		if(isset($_GET['hoscat']) && $_GET['hoscat'] != '') { 
 			$getHosCat = $_GET['hoscat']; $hoscat_view = $_GET['hoscat']; 
-			$postingByHosCat = Posting::whereRaw("hospital_category_id = '$getHosCat' AND status='Current Post'")->groupBy('staff_id')->lists('staff_id');
-			$hoscat = implode(',',$postingByHosCat).',';
+			$hosCat = "AND hospital_category_id = '$getHosCat'";
 
-		} else { $hoscat = ''; $hoscat_view=''; }
+		} else { $hosCat = ''; $hoscat_view=''; }
 
 		// Designation Wise
 		if(isset($_GET['designation']) && $_GET['designation'] != '') { 
 			$getDesignation = $_GET['designation']; $designation_view = $_GET['designation']; 
-			$postingByDesignation = Posting::whereRaw("designation_id = '$getDesignation' AND status='Current Post'")->groupBy('staff_id')->lists('staff_id');
-			$designation = implode(',',$postingByDesignation).',';
+			$designation = "AND designation_id = '$getDesignation'";
 
 		} else { $designation = ''; $designation_view=''; }
 
 		// Type
 		if(isset($_GET['type']) && $_GET['type'] != '') { 
 			$getType = $_GET['type']; $type_view = $_GET['type']; 
-			$postingByType = Posting::whereRaw("type = '$getType' AND status='Current Post'")->groupBy('staff_id')->lists('staff_id');
-			$type = implode(',',$postingByType).',';
+			$type = "AND type = '$getType'";
 		} else { $type = ''; $type_view=''; }
 
-		$ids = $district.$hoscat.$designation.$type;
-		$id =  array_unique(array_filter(explode(',',$ids)));
+		$posting = Posting::whereRaw("status='Current Post' $type $designation $hosCat $district")->groupBy('staff_id')->lists('staff_id');
+
+		$id =  array_unique(array_filter($posting));
 
 		//echo "<pre>"; print_r($id); exit;
 
