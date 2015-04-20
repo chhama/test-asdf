@@ -9,6 +9,7 @@ use App\Staff;
 use App\Posting;
 use App\District;
 use App\HospitalCategory;
+use App\Designation;
 
 class EhrmisController extends Controller {
 
@@ -57,21 +58,69 @@ class EhrmisController extends Controller {
 	 */
 	public function hr()
 	{
+		//Name
 		if(isset($_GET['name']) && $_GET['name'] != 'Name') { $name = "AND name LIKE '%".$_GET['name']."%' "; $name_view = $_GET['name']; } else { $name = ''; $name_view=''; } 
-		if(isset($_GET['fname']) && $_GET['fname'] != 'Fathers Name') { $fname = "AND fathers_name LIKE '%".$_GET['fname']."%' "; $fname_view = $_GET['fname']; } else { $fname = ''; $fname_view=''; } 
+		
+		// District Wise
+		if(isset($_GET['district']) && $_GET['district'] != '') { 
+			$getDistrict = $_GET['district']; $district_view = $_GET['district']; 
+			$postingByDistrict = Posting::whereRaw("district_id = '$getDistrict' AND status='Current Post'")->groupBy('staff_id')->lists('staff_id');
+			$district = implode(',',$postingByDistrict).',';
+
+		} else { $district = ''; $district_view=''; }
+
+		// Hospital Category Wise
+		if(isset($_GET['hoscat']) && $_GET['hoscat'] != '') { 
+			$getHosCat = $_GET['hoscat']; $hoscat_view = $_GET['hoscat']; 
+			$postingByHosCat = Posting::whereRaw("hospital_category_id = '$getHosCat' AND status='Current Post'")->groupBy('staff_id')->lists('staff_id');
+			$hoscat = implode(',',$postingByHosCat).',';
+
+		} else { $hoscat = ''; $hoscat_view=''; }
+
+		// Designation Wise
+		if(isset($_GET['designation']) && $_GET['designation'] != '') { 
+			$getDesignation = $_GET['designation']; $designation_view = $_GET['designation']; 
+			$postingByDesignation = Posting::whereRaw("designation_id = '$getDesignation' AND status='Current Post'")->groupBy('staff_id')->lists('staff_id');
+			$designation = implode(',',$postingByDesignation).',';
+
+		} else { $designation = ''; $designation_view=''; }
+
+		// Type
 		if(isset($_GET['type']) && $_GET['type'] != '') { 
 			$getType = $_GET['type']; $type_view = $_GET['type']; 
 			$postingByType = Posting::whereRaw("type = '$getType' AND status='Current Post'")->groupBy('staff_id')->lists('staff_id');
-			$type = $postingByType;
-
+			$type = implode(',',$postingByType).',';
 		} else { $type = ''; $type_view=''; }
 
-		$staffAll	= Staff::orderBy('name')->whereRaw("id != '' $name $fname ")->whereIn('id',$type)->paginate();
+		$ids = $district.$hoscat.$designation.$type;
+		$id =  array_unique(array_filter(explode(',',$ids)));
+
+		//echo "<pre>"; print_r($id); exit;
+
+		$designationAll 		= Designation::orderBy('name')->lists('name','id');
+		$hospitalCategoryAll 	= HospitalCategory::orderBy('name')->lists('name','id');
+		$districtAll 			= District::orderBy('name')->lists('name','id');
+		if(isset($_GET['name'])){
+			$staffAll				= Staff::orderBy('name')->whereRaw("id != '' $name")->whereIn('id',$id)->paginate();
+		} else {
+			$staffAll				= Staff::orderBy('name')->paginate();
+		}
 
 		$jobType = [''=>'Type','Regular'=>'Regular','Contract'=>'Contract','Master Roll'=>'Master Roll'];
 		$index = $staffAll->perPage() * ($staffAll->currentPage()-1) + 1;
 
-		return view('ehrmis.hr',compact('staffAll','index','name_view','jobType','fname_view','type_view')); 
+		return view('ehrmis.hr',compact('staffAll',
+										'index',
+										'name_view',
+										'jobType',
+										'type_view',
+										'districtAll',
+										'district_view',
+										'designation_view',
+										'hoscat_view',
+										'hospitalCategoryAll',
+										'designationAll'
+										)); 
 	}
 
 	/**

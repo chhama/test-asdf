@@ -8,10 +8,16 @@
 		<div class="panel-body">
 			{!! Form::open(['URL'=>'hr','method'=>'get','class'=>'form-inline']) !!}
 				<div class="form-group">
-					{!! Form::select('type',$jobType,$type_view,['class'=>'']) !!}
+					{!! Form::select('district',[''=>'District']+$districtAll,$district_view,['class'=>'']) !!}
 				</div>
 				<div class="form-group">
-					{!! Form::text('fname',$fname_view,['class'=>'','placeholder'=>'Fathers Name']) !!}
+					{!! Form::select('hoscat',[''=>'Hospital Category']+$hospitalCategoryAll,$hoscat_view,['class'=>'']) !!}
+				</div>
+				<div class="form-group">
+					{!! Form::select('designation',[''=>'Designation']+$designationAll,$designation_view,['class'=>'']) !!}
+				</div>
+				<div class="form-group">
+					{!! Form::select('type',$jobType,$type_view,['class'=>'']) !!}
 				</div>
 				<div class="form-group">
 					{!! Form::text('name',$name_view,['class'=>'','placeholder'=>'Name']) !!}
@@ -44,7 +50,13 @@
 			    <td height="25" class="text-center">{{ $index++ }}</td>
 			    <td height="25" align="left"><a href="{{ URL::to('hrdetail?id='.$staff->id) }}">{{ $staff->name }}</a>&nbsp;</td>
 			    <td height="25" align="left">{{ $staff->phone }}&nbsp;</td>
-			    <td height="25" align="left">{{ $staff->designation->name }}&nbsp;</td>
+			    <td height="25" align="left">
+			    	<?php 
+			    		$design_id = App\Posting::where('staff_id','=',$staff->id)->where('status','=','Current Post')->pluck('designation_id');
+			    		$design = App\Designation::find($design_id);
+			     		if(isset($design->name)) { echo $design->name; };	
+			    	?>
+			    </td>
 			    <td height="25" align="left" class="text-center">{{ date('d-m-Y',strtotime($staff->doj)) }}&nbsp;</td>
 			    <td height="25" class="text-center">
 			    	<?php 

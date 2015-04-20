@@ -14,7 +14,30 @@
 	<div class="row">
 		<div class="col-md-9">
 			<div class="panel panel-default">
-				<div class="panel-heading"><strong>List Staff</strong></div>
+				<div class="panel-heading"><strong>List Staff</strong>
+					{!! Form::open(['URL'=>'staff.index','method'=>'get','class'=>'form-inline']) !!}
+						<div class="form-group">
+							{!! Form::select('district',[''=>'District']+$districtAll,$district_view,['class'=>'']) !!}
+						</div>
+						<div class="form-group">
+							{!! Form::select('hoscat',[''=>'Hospital Category']+$hospitalCategoryAll,$hoscat_view,['class'=>'']) !!}
+						</div>
+						<div class="form-group">
+							{!! Form::select('designation',[''=>'Designation']+$designationAll,$designation_view,['class'=>'']) !!}
+						</div>
+						<div class="form-group">
+							{!! Form::select('type',$jobType,$type_view,['class'=>'']) !!}
+						</div>
+						<div class="form-group">
+							{!! Form::text('name',$name_view,['class'=>'','placeholder'=>'Name']) !!}
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-success">
+								Search
+							</button>
+						</div>
+					{!! Form::close() !!}
+				</div>
 				<div class="panel-body">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-hover" style="margin-bottom:0px;">
 					<thead>
