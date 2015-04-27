@@ -138,10 +138,23 @@
 </div>
 <script>
 $("#hospital_category_id").change(function(){
-	var catId = this.value;
+	var catId = hospital_category_id.value;
+	var distId = district_id.value;
     $.ajax({
         url: "{{ URL::to('hospitalByCat')}}",
-        data: {'catId': catId},
+        data: {'catId': catId, 'distId' : distId},
+        type: 'GET',
+    }).success(function(data){
+        $('#hospital_id').html(data);
+    });
+});
+
+$("#district_id").change(function(){
+	var catId = hospital_category_id.value;
+	var distId = district_id.value;
+    $.ajax({
+        url: "{{ URL::to('hospitalByCat')}}",
+        data: {'catId': catId, 'distId' : distId},
         type: 'GET',
     }).success(function(data){
         $('#hospital_id').html(data);

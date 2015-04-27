@@ -137,8 +137,13 @@ class PostingController extends Controller {
 
 	public function hospitalByCat(){
 		
+		$district_id = $_GET['distId'];
 		$hospital_category_id = $_GET['catId'];
-		$hospitalByCat = Hospital::where('hospital_category_id','=',$hospital_category_id)->lists('name','id');
+
+		$hospitalByCat = Hospital::where('district_id','=',$district_id)
+									->where('hospital_category_id','=',$hospital_category_id)
+									->orderBy('name')
+									->lists('name','id');
 		echo "<option></option>";
 		foreach ($hospitalByCat as $id => $name) {
 			echo "<option value='$id'>$name</option>";
