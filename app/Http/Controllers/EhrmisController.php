@@ -98,7 +98,11 @@ class EhrmisController extends Controller {
 		$hospitalCategoryAll 	= HospitalCategory::orderBy('name')->lists('name','id');
 		$districtAll 			= District::orderBy('name')->lists('name','id');
 		if(isset($_GET['name'])){
-			$staffAll				= Staff::orderBy('name')->whereRaw("id != '' $name")->whereIn('id',$id)->paginate();
+			if(empty($id)){
+				$staffAll		= Staff::orderBy('name')->whereRaw("id != '' $name")->whereIn('id',$id)->paginate();
+			} else {
+				$staffAll		= Staff::orderBy('name')->whereRaw("id != '' $name")->paginate();
+			}
 		} else {
 			$staffAll				= Staff::orderBy('name')->paginate();
 		}
