@@ -35,7 +35,11 @@ Route::group(['middleware' => 'auth'], function()
 	Route::resource('staffrecord','StaffController');
 	Route::resource('posting','PostingController');
 	Route::get('hospitalByCat', 'PostingController@hospitalByCat');
+
+	// Payroll
+	Route::resource('loanhead','LoanHeadController');
 });
+
 Route::resource('page','PageController');
 Route::resource('gallery','GalleryController');
 Route::get('family',function(){

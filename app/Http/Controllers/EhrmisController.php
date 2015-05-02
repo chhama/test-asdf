@@ -88,26 +88,22 @@ class EhrmisController extends Controller {
 			$type = "AND type = '$getType'";
 		} else { $type = ''; $type_view=''; }
 
-		$posting = Posting::whereRaw("status='Current Post' $type $designation $hosCat $district")->groupBy('staff_id')->lists('staff_id');
+		/*$posting = Posting::whereRaw("status='Current Post' $type $designation $hosCat $district")->groupBy('staff_id')->lists('staff_id');
 
-		$id =  array_unique(array_filter($posting));
+		$id =  array_unique(array_filter($posting));*/
 
 		//echo "<pre>"; print_r($id); exit;
 
 		$designationAll 		= Designation::orderBy('name')->lists('name','id');
 		$hospitalCategoryAll 	= HospitalCategory::orderBy('name')->lists('name','id');
 		$districtAll 			= District::orderBy('name')->lists('name','id');
-		if(isset($_GET['name'])){
-			if(empty($id)){
-				$staffAll		= Staff::orderBy('name')->whereRaw("id != '' $name")->whereIn('id',$id)->paginate();
-			} else {
-				$staffAll		= Staff::orderBy('name')->whereRaw("id != '' $name")->paginate();
-			}
+		if(isset($_GET['name']) ){
+			$staffAll		= Staff::orderBy('name')->whereRaw("id != '' $name $type $designation $hosCat $district")->paginate();
 		} else {
 			$staffAll				= Staff::orderBy('name')->paginate();
 		}
 
-		$jobType = [''=>'Type','Regular'=>'Regular','Contract'=>'Contract','Master Roll'=>'Master Roll'];
+		$jobType = [''=>'Type','Regular'=>'Regular','Contract'=>'Contract','Muster Roll'=>'Muster Roll'];
 		$index = $staffAll->perPage() * ($staffAll->currentPage()-1) + 1;
 
 		return view('ehrmis.hr',compact('staffAll',

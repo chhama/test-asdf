@@ -50,27 +50,18 @@ class StaffController extends Controller {
 			$type = "AND type = '$getType'";
 		} else { $type = ''; $type_view=''; }
 
-		$posting = Posting::whereRaw("status='Current Post' $type $designation $hosCat $district")->groupBy('staff_id')->lists('staff_id');
-
-		$id =  array_unique(array_filter($posting));
-
-		//echo "<pre>"; print_r($id); exit;
 
 		$designationAll 		= Designation::orderBy('name')->lists('name','id');
 		$hospitalCategoryAll 	= HospitalCategory::orderBy('name')->lists('name','id');
 		$districtAll 			= District::orderBy('name')->lists('name','id');
 		if(isset($_GET['name'])){
-			if(empty($id)){
-				$staffAll		= Staff::orderBy('name')->whereRaw("id != '' $name")->whereIn('id',$id)->paginate();
-			} else {
-				$staffAll		= Staff::orderBy('name')->whereRaw("id != '' $name")->paginate();
-			}
+			$staffAll		= Staff::orderBy('name')->whereRaw("id != '' $name $type $designation $hosCat $district")->paginate();
 		} else {
 			$staffAll				= Staff::orderBy('name')->paginate();
 		}
 
 		$sex = [''=>'','Male'=>'Male','Female'=>'Female'];
-		$jobType = [''=>'Type','Regular'=>'Regular','Contract'=>'Contract','Master Roll'=>'Master Roll'];
+		$jobType = [''=>'Type','Regular'=>'Regular','Contract'=>'Contract','Muster Roll'=>'Muster Roll'];
 		$index = $staffAll->perPage() * ($staffAll->currentPage()-1) + 1;
 
 		return view('staff.index',compact('staffAll',

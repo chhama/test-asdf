@@ -9,6 +9,7 @@ use App\Hospital;
 use App\HospitalCategory;
 use App\District;
 use App\Designation;
+use App\Staff;
 
 
 class PostingController extends Controller {
@@ -20,9 +21,21 @@ class PostingController extends Controller {
 	 */
 	public function index()
 	{
+		/*$post = Posting::where('status','=','Current Post')->get();
+		foreach($post as $pos){
+			$staff = Staff::find($pos->staff_id);
+			if(empty($staff)) { continue; }
+			$staff->designation_id 			= $pos->designation_id;
+			$staff->district_id 			= $pos->district_id;
+			$staff->hospital_category_id 	= $pos->hospital_category_id;
+			$staff->hospital_id 			= $pos->hospital_id;
+			$staff->type 					= $pos->type;
+			$staff->save();
+		}*/
+
 		$staff_id = $_GET['staff_id'];
 		$status = [''=>'','Current Post'=>'Current Post','Previous Post'=>'Previous Post'];
-		$type = [''=>'','Regular'=>'Regular','Contract'=>'Contract','Master Roll'=>'Master Roll'];
+		$type = [''=>'','Regular'=>'Regular','Contract'=>'Contract','Muster Roll'=>'Muster Roll'];
 		$postingAll	= Posting::where('staff_id','=',$staff_id)->orderBy('status')->paginate();
 		$districtAll	= District::orderBy('name')->lists('name','id');
 		$hospitalCategoryAll	= HospitalCategory::orderBy('name')->lists('name','id');
@@ -62,6 +75,16 @@ class PostingController extends Controller {
 		$request['doj'] = date('Y-m-d',strtotime($request['doj']));
 		Posting::create($request->except('_token'));
 
+		if($request['status'] == 'Current Post'){
+			$staff = Staff::find($request['staff_id']);
+			$staff->designation_id 			= $request['designation_id'];
+			$staff->district_id 			= $request['district_id'];
+			$staff->hospital_category_id 	= $request['hospital_category_id'];
+			$staff->hospital_id 			= $request['hospital_id'];
+			$staff->type 					= $request['type'];
+			$staff->save();
+		}
+
 		return redirect("posting?staff_id=".$request['staff_id']);
 	}
 
@@ -86,7 +109,7 @@ class PostingController extends Controller {
 	{
 		$staff_id = $_GET['staff_id'];
 		$status = [''=>'','Current Post'=>'Current Post','Previous Post'=>'Previous Post'];
-		$type = ['Regular'=>'Regular','Contract'=>'Contract','Master Roll'=>'Master Roll'];
+		$type = ['Regular'=>'Regular','Contract'=>'Contract','Muster Roll'=>'Muster Roll'];
 		$postingById	= Posting::find($id);
 		$postingAll		= Posting::where('staff_id','=',$staff_id)->orderBy('status')->paginate();
 		$districtAll	= District::orderBy('name')->lists('name','id');
@@ -119,6 +142,16 @@ class PostingController extends Controller {
 
 		$posting = Posting::find($id);
 		$posting->update($request->except('_token'));
+
+		if($request['status'] == 'Current Post'){
+			$staff = Staff::find($request['staff_id']);
+			$staff->designation_id 			= $request['designation_id'];
+			$staff->district_id 			= $request['district_id'];
+			$staff->hospital_category_id 	= $request['hospital_category_id'];
+			$staff->hospital_id 			= $request['hospital_id'];
+			$staff->type 					= $request['type'];
+			$staff->save();
+		}
 
 		return redirect("posting?staff_id=".$request['staff_id']);
 	}
