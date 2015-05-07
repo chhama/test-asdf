@@ -20,8 +20,8 @@ class EhrmisController extends Controller {
 	 */
 	public function facilities()
 	{
-		if(isset($_GET['district']) && $_GET['district'] != '') { $district_id = "AND district_id='".$_GET['district']."' "; $district_id=$_GET['district']; } else { $district_id = ''; } 
-		if(isset($_GET['category']) && $_GET['category']!= '') { $hospital_category_id = "AND hospital_category_id='".$_GET['category']."' "; $hospital_category_id=$_GET['category']; } else { $hospital_category_id = ''; } 
+		if(isset($_GET['district']) && $_GET['district'] != '') { $district = "AND district_id=".$_GET['district']; $district_id=$_GET['district']; } else { $district=''; $district_id = ''; } 
+		if(isset($_GET['category']) && $_GET['category']!= '') { $hospital_category = "AND hospital_category_id='".$_GET['category']."' "; $hospital_category_id=$_GET['category']; } else { $hospital_category = ''; $hospital_category_id = ''; } 
 		if(isset($_GET['type']) && $_GET['type'] != '') { $type = "AND type = '".$_GET['type']."' "; $type_view = $_GET['type']; } else { $type = ''; $type_view=''; } 
 		if(isset($_GET['name']) && $_GET['name'] != 'Name') { $name = "AND name LIKE '%".$_GET['name']."%' "; $name_view = $_GET['name']; } else { $name = ''; $name_view=''; } 
 
@@ -29,7 +29,7 @@ class EhrmisController extends Controller {
 		$hospitalCategoryAll 	= HospitalCategory::orderBy('name')->lists('name','id');
 		$hosType = [''=>'Type','Normal'=>'Normal','Difficult'=>'Difficult','Very Difficult'=>'Very Difficult','HPD Normal'=>'HPD Normal','HPD Difficult'=>'HPD Difficult','HPD Very Difficult'=>'HPD Very Difficult'];
 
-		$hospitalAll			= Hospital::orderBy('name')->whereRaw("id != '' $name $district_id $hospital_category_id $type")->paginate();
+		$hospitalAll			= Hospital::orderBy('name')->whereRaw("id != '' $district $hospital_category $name $type")->paginate();
 		$index = $hospitalAll->perPage() * ($hospitalAll->currentPage()-1) + 1;
 
 		return view('ehrmis.facilities',compact('hospitalAll','index','districtAll','hospitalCategoryAll','hosType','district_id','hospital_category_id','type_view','name_view'));
