@@ -13,8 +13,10 @@
 					    <th class="col-md-1 text-center">#</th>
 					    <th class="col-md-2">Loan Head</th>
 					    <th class="col-md-2">Amount</th>
-					    <th class="col-md-2">EMI</th>
+					    <th class="col-md-1">EMI</th>
+					    <th class="col-md-1">Balance</th>
 					    <th class="col-md-2 text-center">Date</th>
+					    <th class="col-md-1 text-center">Status</th>
 					    <th class="col-md-2 action text-center">Control</th>
 					  </tr>
 					  </thead>
@@ -22,10 +24,17 @@
 					@foreach($loanAll as $loan)
 						<tr bgcolor="">
 					    <td height="25" class="text-center">{{ $index++ }}</td>
-					    <td height="25" align="left">{{ $loan->loanhead->name }}&nbsp;</td>
+					    <td height="25" align="left"><a href="{{ route('loanpay.index','loan_id='.$loan->id) }}">{{ $loan->loanhead->name }}</a>&nbsp;</td>
 					    <td height="25" align="left">{{ $loan->amount }}&nbsp;</td>
 					    <td height="25" align="left">{{ $loan->emi }}&nbsp;</td>
+					    <td height="25" align="left">
+					    	<?php
+					    		$balance = App\LoanPay::where('loan_id','=',$loan->id)->sum('emi');
+					    		echo $loan->amount - $balance;
+					    	?>
+					    &nbsp;</td>
 					    <td height="25" class="text-center">{{  date('d-m-Y',strtotime($loan->created_at)) }}&nbsp;</td>
+					    <td height="25" align="left">{{ $loan->status }}&nbsp;</td>
 					    <td align="left" class="action text-center">
 					    	{!! Form::open(array('url'=>route('loan.destroy', array($loan->id)),'method'=>'delete')) !!}
 								<a href="{{route('loan.edit', array($loan->id,'staff_id'=>$loan->staff_id))}}" class="btn btn-xs btn-success tooltip-top" title="Edit loan" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;

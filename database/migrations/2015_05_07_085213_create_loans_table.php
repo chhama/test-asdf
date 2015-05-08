@@ -19,6 +19,7 @@ class CreateLoansTable extends Migration {
 			$table->integer('staff_id');
 			$table->string('amount');
 			$table->string('emi');
+			$table->string('status');
 			$table->timestamps();
 		});
 	}

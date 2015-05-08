@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function()
 	// Payroll
 	Route::resource('loanhead','LoanHeadController');
 	Route::resource('loan','LoanController');
+	Route::resource('loanpay','LoanPayController');
 	Route::resource('approvedpay','ApprovedPayController');
 	Route::resource('generatepay','GeneratePayController');
 });

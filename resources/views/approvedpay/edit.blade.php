@@ -67,6 +67,13 @@
 							@endif
 						</div>
 						<div class="form-group">
+							{!! Form::label('Status','',['class'=>'control-label'])!!}
+							{!! Form::select('status',[$status,'',['class'=>'form-control','id'=>'status']) !!}
+							@if($errors->has('status'))
+								<span class="text-danger">{{$errors->first('status')}}</span>
+							@endif
+						</div>
+						<div class="form-group">
 							<button type="submit" class="btn btn-success">
 								Save
 							</button>

@@ -74,7 +74,7 @@
 		                        @foreach($designationAll as $designId => $designation)
 		                            <optgroup label="{{ $designation }}">
 		                            <?php
-		                                $approvedPayByDesignationId = App\ApprovedPay::where('designation_id','=',$designId)->orderBy('hospital_type')->get(); 
+		                                $approvedPayByDesignationId = App\ApprovedPay::where('status','=','Active')->where('designation_id','=',$designId)->orderBy('hospital_type')->get(); 
 		                                foreach ($approvedPayByDesignationId as $approvedPayByDesignation) {
 		                                    echo "<option value='$approvedPayByDesignation->id'>$approvedPayByDesignation->hospital_type</option>";
 		                                }

@@ -106,6 +106,7 @@ class LoanController extends Controller {
 		$rules	= ['loan_head_id'=>'required','amount'=>'required', 'emi'=>'required'];
 		$this->validate($request, $rules);
 
+		$request['status'] = "Active";
 		Loan::create($request->except('_token'));
 
 		return redirect()->back();

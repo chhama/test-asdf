@@ -17,7 +17,7 @@ class GeneratePayController extends Controller {
 	 */
 	public function index()
 	{
-		$approvedPayAll	= ApprovedPay::orderBy('hospital_type')->get();
+		$approvedPayAll	= ApprovedPay::where('status','=','Active')->orderBy('hospital_type')->get();
 		$generatePayAll	= GeneratePay::orderBy('approved_pay_id')->paginate();
 		$designationAll	= Designation::orderBy('name')->lists('name','id');
 		$index = $generatePayAll->perPage() * ($generatePayAll->currentPage()-1) + 1;
@@ -73,7 +73,7 @@ class GeneratePayController extends Controller {
 	 */
 	public function edit($id, Request $request)
 	{
-		$approvedPayAll	= ApprovedPay::orderBy('hospital_type')->get();
+		$approvedPayAll	= ApprovedPay::where('status','=','Active')->orderBy('hospital_type')->get();
 		$generatePayAll	= GeneratePay::orderBy('approved_pay_id')->paginate();
 		$generatePayById	= GeneratePay::find($id);
 		$designationAll	= Designation::orderBy('name')->lists('name','id');

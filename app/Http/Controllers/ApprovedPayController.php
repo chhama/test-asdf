@@ -16,12 +16,13 @@ class ApprovedPayController extends Controller {
 	 */
 	public function index()
 	{
+		$status = ['Active'=>'Active','Inactive'=>'Inactive'];
 		$hospital_type = [''=>'','Normal'=>'Normal','Difficult'=>'Difficult','Very Difficult'=>'Very Difficult','HPD Normal'=>'HPD Normal','HPD Difficult'=>'HPD Difficult','HPD Very Difficult'=>'HPD Very Difficult'];
-		$approvedPayAll	= ApprovedPay::orderBy('designation_id')->paginate();
+		$approvedPayAll	= ApprovedPay::where('status','=','Active')->orderBy('designation_id')->paginate();
 		$designationAll	= Designation::orderBy('name')->lists('name','id');
 		$index = $approvedPayAll->perPage() * ($approvedPayAll->currentPage()-1) + 1;
 
-		return view('approvedpay.index',compact('approvedPayAll','index','hospital_type','designationAll'));
+		return view('approvedpay.index',compact('approvedPayAll','index','hospital_type','designationAll','status'));
 	}
 
 	/**
@@ -41,7 +42,7 @@ class ApprovedPayController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		$rules	= ['designation_id'=>'required','hospital_type'=>'required', 'amount'=>'required'];
+		$rules	= ['designation_id'=>'required','hospital_type'=>'required', 'amount'=>'required','status'=>'required'];
 		$this->validate($request, $rules);
 
 		ApprovedPay::create($request->except('_token'));
@@ -68,13 +69,14 @@ class ApprovedPayController extends Controller {
 	 */
 	public function edit($id, Request $request)
 	{
+		$status = ['Active'=>'Active','Inactive'=>'Inactive'];
 		$hospital_type = [''=>'','Normal'=>'Normal','Difficult'=>'Difficult','Very Difficult'=>'Very Difficult','HPD Normal'=>'HPD Normal','HPD Difficult'=>'HPD Difficult','HPD Very Difficult'=>'HPD Very Difficult'];
-		$approvedPayAll	= ApprovedPay::orderBy('designation_id')->paginate();
+		$approvedPayAll	= ApprovedPay::where('status','=','Active')->orderBy('designation_id')->paginate();
 		$approvedPayById	= ApprovedPay::find($id);
 		$designationAll	= Designation::orderBy('name')->lists('name','id');
 		$index = $approvedPayAll->perPage() * ($approvedPayAll->currentPage()-1) + 1;
 
-		return view('approvedpay.edit',compact('approvedPayAll','index','hospital_type','designationAll','approvedPayById'));
+		return view('approvedpay.edit',compact('approvedPayAll','index','hospital_type','designationAll','approvedPayById','status'));
 	}
 
 	/**
@@ -85,7 +87,7 @@ class ApprovedPayController extends Controller {
 	 */
 	public function update($id, Request $request)
 	{
-		$rules	= ['designation_id'=>'required','hospital_type'=>'required', 'amount'=>'required'];
+		$rules	= ['designation_id'=>'required','hospital_type'=>'required', 'amount'=>'required','status'=>'required'];
 		$this->validate($request, $rules);
 
 		$approvedPay = ApprovedPay::find($id);

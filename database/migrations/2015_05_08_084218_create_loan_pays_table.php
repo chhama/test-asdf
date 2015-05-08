@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateApprovedPaysTable extends Migration {
+class CreateLoanPaysTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,12 @@ class CreateApprovedPaysTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('approved_pays', function(Blueprint $table)
+		Schema::create('loan_pays', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('designation_id');
-			$table->string('hospital_type');
-			$table->string('amount');
-			$table->string('status');
+			$table->integer('loan_id');
+			$table->integer('staff_id');
+			$table->string('emi');
 			$table->timestamps();
 		});
 	}
@@ -30,7 +29,7 @@ class CreateApprovedPaysTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('approved_pays');
+		Schema::drop('loan_pays');
 	}
 
 }
