@@ -245,7 +245,7 @@
                 <div class="tab-pane " id='ads'>  
                     <?php $advertistments = App\Post::where('category_id','=',3)->orderBy('id','desc')->paginate(); ?>
                     <div class="scrollpoint sp-effect5">
-                        <h3>Advertisement List</h3>
+                        <h3>Schemes & Guideline under NHM</h3>
                     </div>
                     <ol start='1'>
                     @foreach($advertistments as $advertist)
@@ -350,11 +350,6 @@
                         <h3>IEC / BCC</h3>
                     </div>
                     @foreach($iecsPhotos as $photo)
-                        <!-- <div class="col-md-3 text-center">
-                            <a href="#"><img src="{{ $photo->directory }}{{ $photo->photo_file }}" class="img-thumbnail" ></a><br>
-                            <strong>{{ $photo->name }}</strong>
-                        </div> -->
-                        
                         <div class="col-md-3 text-center">
                             <a href="#" data-toggle="modal" data-target=".dapzar-{{$photo->id}}"><img src="{{ $photo->directory }}{{ $photo->photo_file }}" class="img-thumbnail" ></a><br>
                             <strong>{{ $photo->name }}</strong>

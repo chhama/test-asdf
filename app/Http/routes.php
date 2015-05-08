@@ -38,6 +38,9 @@ Route::group(['middleware' => 'auth'], function()
 
 	// Payroll
 	Route::resource('loanhead','LoanHeadController');
+	Route::resource('loan','LoanController');
+	Route::resource('approvedpay','ApprovedPayController');
+	Route::resource('generatepay','GeneratePayController');
 });
 
 Route::resource('page','PageController');
@@ -45,6 +48,7 @@ Route::resource('gallery','GalleryController');
 Route::get('family',function(){
 	return view('family');
 });
+
 Route::get('list', 'PageController@listByCat');
 Route::get('ehrmis', 'PageController@eHRMIS');
 Route::get('staff', 'PageController@staff');
