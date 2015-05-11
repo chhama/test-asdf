@@ -89,6 +89,7 @@
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="{{ url('approvedpay') }}">Approved Pay</a></li>
 							<li><a href="{{ url('generatepay') }}">Generate Pay</a></li>
+							<li><a href="{{ url('payroll') }}">Payroll</a></li>
 						</ul>
 					</li>
 				</ul>

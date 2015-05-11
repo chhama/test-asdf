@@ -15,7 +15,7 @@
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading"><strong>List Staff</strong>
-					{!! Form::open(['URL'=>'staff.index','method'=>'get','class'=>'form-inline']) !!}
+					{!! Form::open(['URL'=>'loan.index','method'=>'get','class'=>'form-inline']) !!}
 						<div class="form-group">
 							{!! Form::select('district',[''=>'District']+$districtAll,$district_view,['class'=>'']) !!}
 						</div>

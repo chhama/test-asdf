@@ -21,4 +21,5 @@ class Staff extends Model {
 							'type'
 							];
 
+
 }
