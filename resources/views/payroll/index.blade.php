@@ -46,9 +46,10 @@
 					    <th class="col-md-2">Name</th>
 					    <th class="col-md-2">Designation</th>
 					    <th class="col-md-2">Posting Place</th>
-					    <th class="col-md-2 text-center">Category</th>
-					    <th class="col-md-2 text-center">Approved Pay</th>
-					    <th class="col-md-2 text-center">Arrear</th>
+					    <th class="col-md-1 text-center">Category</th>
+					    <th class="col-md-1 text-center">Approved Pay</th>
+					    <th class="col-md-1 text-center">Arrear</th>
+					    <th class="col-md-1 text-center">Loan Deduct</th>
 					    <th class="col-md-1 text-center">TOTAL</th>
 					  </tr>
 					  </thead>
@@ -87,7 +88,18 @@
 					    			}
 					    		?>&nbsp;
 					    	</td>
-					    	<td height="25" class="text-center">{{ $approvedAmount + $generateArrear }}&nbsp;</td>
+					    	<td height="25" class="text-center">
+					    		<?php
+					    			$emi = 0;
+					    			$totalLoans = App\Loan::whereRaw("staff_id=$staff->id AND status='Active'")->get();
+					    			foreach ($totalLoans as $loan) {
+					    				$emi = $emi+$loan->emi;
+					    			}
+					    			echo $emi;
+					    		?>
+					    		&nbsp;
+					    	</td>
+					    	<td height="25" class="text-center">{{ ($approvedAmount + $generateArrear)-$emi }}&nbsp;</td>
 						</tr>
 					@endforeach
 					</tbody>

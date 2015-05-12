@@ -82,6 +82,7 @@
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="{{ url('loanhead') }}">Loan Head</a></li>
 							<li><a href="{{ url('loan') }}">Apply Loan</a></li>
+							<li><a href="{{ url('loanpay/create') }}">Generate Loan</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
