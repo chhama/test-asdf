@@ -22,7 +22,7 @@
 						<tr bgcolor="">
 					    <td height="25" class="text-center">{{ $index++ }}</td>
 					    <td height="25" align="left">{{ $loanPay->emi }}&nbsp;</td>
-					    <td height="25" class="text-center">{{  date('d-m-Y',strtotime($loanPay->created_at)) }}&nbsp;</td>
+					    <td height="25" class="text-center">{{  date('F Y',strtotime($loanPay->created_at)) }}&nbsp;</td>
 					    <td align="left" class="action text-center">
 					    	{!! Form::open(array('url'=>route('loanpay.destroy', array($loanPay->id)),'method'=>'delete')) !!}
 								<a href="{{route('loanpay.edit', array($loanPay->id,'loan_id'=>$loanPay->loan_id))}}" class="btn btn-xs btn-success tooltip-top" title="Edit loan" style="padding:5px 10px 5px 10px;"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;&nbsp;
@@ -52,6 +52,20 @@
 					<div class="col-md-12">
 					{!! Form::model($loanPayById, ['route'=>['loanpay.update',$loanPayById->id],'method'=>'patch','class'=>'form-horizontal']) !!}
 					{!! Form::hidden('loan_id',$loan_id) !!}
+						<div class="form-group">
+							{!! Form::label('Month','',['class'=>'control-label'])!!}
+							{!! Form::select('month',$month,date('m',strtotime($loanPayById->created_at)),['class'=>'form-control','required']) !!}
+							@if($errors->has('month'))
+								<span class="text-danger">{{$errors->first('month')}}</span>
+							@endif
+						</div>
+						<div class="form-group">
+							{!! Form::label('Year','',['class'=>'control-label'])!!}
+							{!! Form::select('year',$year,date('Y',strtotime($loanPayById->created_at)),['class'=>'form-control','required']) !!}
+							@if($errors->has('year'))
+								<span class="text-danger">{{$errors->first('year')}}</span>
+							@endif
+						</div>
 						<div class="form-group">
 							{!! Form::label('EMI','',['class'=>'control-label'])!!}
 							{!! Form::text('emi',null,['class'=>'form-control']) !!}

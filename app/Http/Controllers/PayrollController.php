@@ -12,6 +12,7 @@ use App\HospitalCategory;
 use App\Designation;
 use App\LoanHead;
 use App\Loan;
+use App\GeneratePay;
 
 class PayrollController extends Controller {
 
@@ -62,6 +63,8 @@ class PayrollController extends Controller {
 			$staffAll				= Staff::orderBy('name')->paginate();
 		}
 
+		$generatePay = GeneratePay::orderBy('id','desc')->groupBy('date')->lists('date','id');
+
 		$sex = [''=>'','Male'=>'Male','Female'=>'Female'];
 		$jobType = [''=>'Type','Regular'=>'Regular','Contract'=>'Contract','Muster Roll'=>'Muster Roll'];
 		$index = $staffAll->perPage() * ($staffAll->currentPage()-1) + 1;
@@ -77,7 +80,8 @@ class PayrollController extends Controller {
 										'designation_view',
 										'hoscat_view',
 										'hospitalCategoryAll',
-										'designationAll'
+										'designationAll',
+										'generatePay'
 										));  
 	}
 

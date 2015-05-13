@@ -2,8 +2,35 @@
 
 @section('content')
 <div class="container">
+	@if(Session::has('message'))
+      <p class="alert alert-success"><strong>{{ Session::get('message') }}</strong></p>
+  @endif
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading"><strong>List of Generated Loan</strong></div>
+				<div class="panel-body">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-hover" style="margin-bottom:0px;">
+					<thead>
+					  	<tr>
+					    	<th class="col-md-2 text-center">#</th>
+					    	<th class="col-md-10 text-center">Date</th>
+					  	</tr>
+					  	</thead>
+					  	<tbody>
+							@foreach($generateLoanAll as $generateLoan)
+							<tr bgcolor="">
+							    <td height="25" class="text-center">{{ $index++ }}</td>
+							    <td height="25" class="text-center">{{  date('F Y',strtotime($generateLoan->created_at)) }}&nbsp;</td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+				</div>
+			</div>
+			{!! $generateLoanAll !!}
+		</div>
+		<div class="col-md-6">
 			<div class="panel panel-default">
 				<div class="panel-heading"><strong>Generate Loan</strong></div>
 				<div class="panel-body">
@@ -24,7 +51,7 @@
 							@endif
 						</div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-success">
+							<button type="submit" class="btn btn-success" onclick="return confirm ('<?php echo ('Are you sure you want to GENERATE LOAN') ?>');">
 								Generate
 							</button>
 						</div>

@@ -44,9 +44,8 @@ class GeneratePayController extends Controller {
 	{
 		$rules	= ['date'=>'required','approved_pay_id'=>'required'];
 		$this->validate($request, $rules);
-
 		$approvedPayById			= ApprovedPay::find($request['approved_pay_id']);
-		$request['date'] 			= date('Y-m-d',strtotime($request['date']));
+		$request['date'] 			= date('Y-m-d',strtotime('15-'.$request['date']));
 		$request['designation_id'] 	= $approvedPayById->designation_id;
 		$request['hospital_type'] 	= $approvedPayById->hospital_type;
 		GeneratePay::create($request->except('_token'));
@@ -95,7 +94,7 @@ class GeneratePayController extends Controller {
 
 		$generatePay 				= GeneratePay::find($id);
 		$approvedPayById			= ApprovedPay::find($request['approved_pay_id']);
-		$request['date'] 			= date('Y-m-d',strtotime($request['date']));
+		$request['date'] 			= date('Y-m-d',strtotime('15-'.$request['date']));
 		$request['designation_id'] 	= $approvedPayById->designation_id;
 		$request['hospital_type'] 	= $approvedPayById->hospital_type;
 		$generatePay->update($request->except('_token'));

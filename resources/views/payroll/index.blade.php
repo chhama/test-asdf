@@ -29,6 +29,14 @@
 							{!! Form::select('type',$jobType,$type_view,['class'=>'']) !!}
 						</div>
 						<div class="form-group">
+							<select name="month" class="">
+								<option value="">Month</option>
+								@foreach($generatePay as $id => $value)
+									<option value="{{ $id }}">{{ date('F Y',strtotime($value)) }}</option>
+								@endforeach
+							</select>
+						</div>
+						<div class="form-group">
 							{!! Form::text('name',$name_view,['class'=>'','placeholder'=>'Name']) !!}
 						</div>
 						<div class="form-group">

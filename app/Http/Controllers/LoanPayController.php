@@ -16,11 +16,14 @@ class LoanPayController extends Controller {
 	 */
 	public function index(Request $request)
 	{
+		$month  = ['01'=>'January','02'=>'February','03'=>'March','04'=>'April','05'=>'May','06'=>'June','07'=>'July','08'=>'August','09'=>'September','10'=>'October','11'=>'November','12'=>'December'];
+		$year	= array_combine(range(date('Y')-1,date('Y')+1),range(date('Y')-1,date('Y')+1));
+
 		$loan_id 		= $request['loan_id'];
-		$loanPayAll		= LoanPay::where('loan_id','=',$loan_id)->orderBy('created_at')->paginate();
+		$loanPayAll		= LoanPay::where('loan_id','=',$loan_id)->orderBy('id','desc')->paginate();
 		$index 			= $loanPayAll->perPage() * ($loanPayAll->currentPage()-1) + 1;
 
-		return view('loanpay.index',compact('loanHeadAll','index','loanPayAll','loan_id'));
+		return view('loanpay.index',compact('loanHeadAll','index','loanPayAll','loan_id','month','year'));
 	}
 
 	/**
@@ -32,7 +35,11 @@ class LoanPayController extends Controller {
 	{
 		$month  = ['01'=>'January','02'=>'February','03'=>'March','04'=>'April','05'=>'May','06'=>'June','07'=>'July','08'=>'August','09'=>'September','10'=>'October','11'=>'November','12'=>'December'];
 		$year	= array_combine(range(date('Y')-1,date('Y')+1),range(date('Y')-1,date('Y')+1));
-		return view('loanpay.generateloan',compact('month','year'));
+		
+		$generateLoanAll = LoanPay::orderBy('id','desc')->groupBy('created_at')->paginate();
+		$index 	= $generateLoanAll->perPage() * ($generateLoanAll->currentPage()-1) + 1;
+
+		return view('loanpay.generateloan',compact('month','year','generateLoanAll','index'));
 	}
 
 	/**
@@ -45,8 +52,29 @@ class LoanPayController extends Controller {
 		$rules	= ['emi'=>'required'];
 		$this->validate($request, $rules);
 		
-		$request['staff_id'] = Loan::find($request['loan_id'])->staff_id;
-		LoanPay::create($request->except('_token'));
+		
+		$loan 		= Loan::find($request['loan_id']);
+		$loanPay 	= LoanPay::whereRaw("staff_id='$loan->staff_id' AND loan_id='$loan->id'")->sum('emi');
+		$balance	= $loan->amount - $loanPay;
+
+		if($balance < $loan->emi){
+			$request['emi'] = $balance;
+			$loan->status = 'Inactive';
+			$loan->update();
+		} 
+		if($balance < $request['emi']){
+			$request['emi'] = $balance;
+			$loan->status = 'Inactive';
+			$loan->update();	
+		}
+
+		$date 	= $request['year'].'-'.$request['month'].'-15';
+		$loanPaySave = new LoanPay();
+		$loanPaySave->loan_id = $request['loan_id'];
+		$loanPaySave->staff_id = $loan->staff_id;
+		$loanPaySave->emi = $request['emi'];
+		$loanPaySave->created_at = $date;
+		$loanPaySave->save();
 
 		return redirect()->back();
 	}
@@ -70,12 +98,15 @@ class LoanPayController extends Controller {
 	 */
 	public function edit($id, Request $request)
 	{
+		$month  = ['01'=>'January','02'=>'February','03'=>'March','04'=>'April','05'=>'May','06'=>'June','07'=>'July','08'=>'August','09'=>'September','10'=>'October','11'=>'November','12'=>'December'];
+		$year	= array_combine(range(date('Y')-1,date('Y')+1),range(date('Y')-1,date('Y')+1));
+
 		$loan_id 		= $request['loan_id'];
 		$loanPayById	= LoanPay::find($id);
-		$loanPayAll		= LoanPay::where('loan_id','=',$loan_id)->orderBy('created_at')->paginate();
+		$loanPayAll		= LoanPay::where('loan_id','=',$loan_id)->orderBy('id','desc')->paginate();
 		$index 			= $loanPayAll->perPage() * ($loanPayAll->currentPage()-1) + 1;
 
-		return view('loanpay.edit',compact('loanHeadAll','index','loanPayAll','loan_id','loanPayById'));
+		return view('loanpay.edit',compact('loanHeadAll','index','loanPayAll','loan_id','loanPayById','month','year'));
 	}
 
 	/**
@@ -90,6 +121,8 @@ class LoanPayController extends Controller {
 		$this->validate($request, $rules);
 
 		$loanPay = LoanPay::find($id);
+		$date 	= $request['year'].'-'.$request['month'].'-15';
+		$loanPay->created_at = $date;
 		$loanPay->update($request->except('_token'));
 
 		return redirect("loanpay?loan_id=".$request['loan_id']);
@@ -108,7 +141,31 @@ class LoanPayController extends Controller {
 	}
 
 	public function generateloan(Request $request){
-		echo $request['year'];
+		$date 		= $request['year'].'-'.$request['month'].'-15';
+		$loanPayCompare = LoanPay::where('created_at','=',$date)->count('id');
+		if($loanPayCompare>0){
+			return redirect()->back()->with(['message'=>date('F Y',strtotime($date)).' Loan is already Generated.']);
+		}
+		$loanAll 	= Loan::where('status','=','Active')->get();
+		foreach ($loanAll as $loan) {
+			$loanPay = LoanPay::whereRaw("loan_id='$loan->id' AND staff_id='$loan->staff_id'")->sum('emi');
+			$balance = $loan->amount - $loanPay;
+			
+			$loanPay = new LoanPay();
+			if($balance > $loan->emi){
+				$loanPay->emi 	= $loan->emi;
+			} else {
+				$loanPay->emi 	= $balance;
+				$loanStatus = Loan::find($loan->id)->status = 'Inactive';
+				$loanStatus->update();
+			}
+
+			$loanPay->loan_id	= $loan->id;
+			$loanPay->staff_id	= $loan->staff_id;
+			$loanPay->created_at= $date;
+			$loanPay->save();
+		}
+		return redirect()->back();
 	}
 
 }
