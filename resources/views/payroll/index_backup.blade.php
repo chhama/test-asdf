@@ -33,15 +33,13 @@
 								<option value="">Month</option>
 								@foreach($generatePay as $id => $value)
 									<?php
-										if(isset($_GET['month']) && $_GET['month']==$value){
-											$selected = "selected";
-										} elseif(date('F Y') == date('F Y',strtotime($value)) && !isset($_GET['month'])){
+										if(date('F Y') == date('F Y',strtotime($value))){
 											$selected = "selected";
 										} else {
 											$selected = "";
 										}
 									?>
-									<option value="{{ date('Y-m-15',strtotime($value)) }}" {{ $selected }} >{{ date('F Y',strtotime($value)) }}</option>
+									<option value="{{ $id }}" {{ $selected }} >{{ date('F Y',strtotime($value)) }}</option>
 								@endforeach
 							</select>
 						</div>
@@ -79,35 +77,44 @@
 					    	<td height="25" align="left"><?php $posting = App\Hospital::find($staff->hospital_id); echo $posting->name ?></td>
 					    	<td height="25" class="text-center">{{ $posting->type }}&nbsp;</td>
 					    	<td height="25" class="text-center">
-					    		<?php
-					    			if(isset($_GET['month'])){ $month = "AND date='".$_GET['month']."'"; } else { $month="AND date='".date('Y-m-d')."'"; }
-					    			$generatepay = App\GeneratePay::whereRaw("designation_id='$staff->designation_id' AND hospital_type='$posting->type' $month ORDER BY id DESC")->first();
-					    			$generateArrear = 0;
-					    			if(isset($generatepay)){
-					    				$generateArrear = $generatepay->arrear;
-					    				$approved_pay_id = $generatepay->approved_pay_id;
-						    			$approvedpay = App\ApprovedPay::find($approved_pay_id);
-						    			echo $approvedPay = $approvedpay->amount;
-					    			} else {
-					    				echo $approvedPay=0;
+					    		<?php 
+					    			$approvedpay = App\ApprovedPay::where('designation_id','=',$staff->designation_id)
+					    											->where('hospital_type','=', $posting->type)
+					    											->where('status','=','Active')
+					    											->orderBy('created_at','desc')
+					    											->limit(1)
+					    											->get();
+					    			$approvedPayId = 0;
+					    			$approvedAmount = 0;
+					    			foreach ($approvedpay as $approved) {
+					    				echo $approvedAmount = $approved->amount;
+					    				$approvedPayId = $approved->id; 
 					    			}
-					    			
-					    			
 					    		?>&nbsp; 
 					    	</td>
 					    	<td height="25" class="text-center">
-					    		{{ $generateArrear }}&nbsp;
+					    		<?php 
+					    			if($approvedPayId != 0) { $approvedPayId = "AND approved_pay_id='$approvedPayId'"; } else { $approvedPayId = ''; }
+					    			//echo "designation_id='$staff->designation_id' AND hospital_type='$posting->type' $approvedPayId ORDER BY created_at DESC LIMIT 1";
+					    			$generatepay = App\GeneratePay::whereRaw("designation_id='$staff->designation_id' AND hospital_type='$posting->type' $approvedPayId ORDER BY created_at DESC LIMIT 1")->get();
+					    			$generateArrear = 0;
+					    			foreach ($generatepay as $generate) {
+					    				echo $generateArrear = $generate->arrear;
+					    			}
+					    		?>&nbsp;
 					    	</td>
 					    	<td height="25" class="text-center">
 					    		<?php
-					    			if(isset($_GET['month'])){ $monthLoan = "AND created_at='".$_GET['month']."'"; } else { $monthLoan="AND created_at='".date('Y-m-d')."'"; }
-					    			$totalLoans = App\LoanPay::whereRaw("staff_id=$staff->id $monthLoan")->sum('emi');
-					    			if(isset($totalLoans)) { $emi = $totalLoans; } else { $emi=0; }
+					    			$emi = 0;
+					    			$totalLoans = App\Loan::whereRaw("staff_id=$staff->id AND status='Active'")->get();
+					    			foreach ($totalLoans as $loan) {
+					    				$emi = $emi+$loan->emi;
+					    			}
 					    			echo $emi;
 					    		?>
 					    		&nbsp;
 					    	</td>
-					    	<td height="25" class="text-center">{{ ($approvedPay + $generateArrear)-$totalLoans }}&nbsp;</td>
+					    	<td height="25" class="text-center">{{ ($approvedAmount + $generateArrear)-$emi }}&nbsp;</td>
 						</tr>
 					@endforeach
 					</tbody>

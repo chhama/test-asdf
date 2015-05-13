@@ -17,8 +17,7 @@ class DistrictController extends Controller {
 	{
 		$districtAll	= District::orderBy('name')->paginate();
 		$index = $districtAll->perPage() * ($districtAll->currentPage()-1) + 1;
-
-		return view('district.index',compact('districtAll','index')); 
+		return view('district.index',compact('districtAll','index','first')); 
 	}
 
 	/**
