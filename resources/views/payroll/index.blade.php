@@ -10,11 +10,22 @@
 	    });
 	});
 </script>
+<style type="text/css">
+@media print {
+    .form-inline { display:none; }
+    .printHide { display: none; }
+    title { display:none; }
+}
+
+@media screen {
+    .footerPrint { display:none; }
+}
+</style>
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="panel panel-default">
-				<div class="panel-heading"><strong>List Staff</strong>
+				<div class="panel-heading printHide"><strong>List Staff</strong>
 					{!! Form::open(['URL'=>'payroll.index','method'=>'get','class'=>'form-inline']) !!}
 						<div class="form-group">
 							{!! Form::select('district',[''=>'District']+$districtAll,$district_view,['class'=>'']) !!}
@@ -56,6 +67,18 @@
 					{!! Form::close() !!}
 				</div>
 				<div class="panel-body">
+					<?php
+						if(isset($_GET['month'])){
+							$dateMonth = $_GET['month'];
+						} else {
+							$dateMonth = date('d-m-Y');
+						}
+					?>
+					<table class="footerPrint" width="100%">
+						<tr>
+							<td class="text-center"><strong>ACQUAINTANCE ROLL OF RCH/NRHM STAFFS FOR {{ strtoupper(date('F Y',strtotime($dateMonth))) }}</strong></td>
+						</tr>
+					</table>
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-hover" style="margin-bottom:0px;">
 					<thead>
 					  <tr>
@@ -114,7 +137,14 @@
 					</table>
 				</div>
 			</div>
-			{!! $staffAll !!}
+			<table class="footerPrint" width="100%">
+				<tr>
+					<td class="text-center"><strong>Sd/-<br>(DR.T.LALHMANGAIHI)<br>Jt. Mission Director:NHM<br>Mizoram: Aizawl</strong></td>
+				</tr>
+			</table>
+			<div class="printHide">
+				{!! $staffAll !!}
+			</div>
 		</div>
 	</div>
 </div>
