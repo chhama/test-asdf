@@ -15,12 +15,42 @@
     .form-inline { display:none; }
     .printHide { display: none; }
     title { display:none; }
+    div { font-size: 10px; }
 }
 
 @media screen {
     .footerPrint { display:none; }
 }
 </style>
+<?php 
+ function no_to_words($no)
+ {   // global $words;
+ 	 $words = array('0'=> '' ,'1'=> 'one' ,'2'=> 'two' ,'3' => 'three','4' => 'four','5' => 'five','6' => 'six','7' => 'seven','8' => 'eight','9' => 'nine','10' => 'ten','11' => 'eleven','12' => 'twelve','13' => 'thirteen','14' => 'fouteen','15' => 'fifteen','16' => 'sixteen','17' => 'seventeen','18' => 'eighteen','19' => 'nineteen','20' => 'twenty','30' => 'thirty','40' => 'fourty','50' => 'fifty','60' => 'sixty','70' => 'seventy','80' => 'eighty','90' => 'ninty','100' => 'hundred &','1000' => 'thousand','100000' => 'lakh','10000000' => 'crore');
+     if($no == 0)
+         return ' ';
+     else {           $novalue='';$highno=$no;$remainno=0;$value=100;$value1=1000;        
+            while($no>=100)    {
+                 if(($value <= $no) &&($no  < $value1))    {
+                 $novalue=$words["$value"];
+                 $highno = (int)($no/$value);
+                 $remainno = $no % $value;
+                 break;
+                 }
+                 $value= $value1;
+                 $value1 = $value * 100;
+             }        
+          if(array_key_exists("$highno",$words))
+               return $words["$highno"]." ".$novalue." ".no_to_words($remainno);
+           else { 
+             $unit=$highno%10;
+              $ten =(int)($highno/10)*10;             
+             return $words["$ten"]." ".$words["$unit"]." ".$novalue." ".no_to_words($remainno);
+            }
+     }
+ }
+ //echo no_to_words(999978987);
+ 
+?> 
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
@@ -76,7 +106,16 @@
 					?>
 					<table class="footerPrint" width="100%">
 						<tr>
-							<td class="text-center"><strong>ACQUAINTANCE ROLL OF RCH/NRHM STAFFS FOR {{ strtoupper(date('F Y',strtotime($dateMonth))) }}</strong></td>
+							<td class="text-center">
+								<strong>
+									ACQUAINTANCE ROLL OF RCH/NRHM STAFFS FOR {{ strtoupper(date('F Y',strtotime($dateMonth))) }}<br>
+									<?php if(isset($_GET['district'])){
+										$dist = App\District::find($_GET['district'])->name . 'DISTRICT';
+										echo strtoupper($dist);
+									} 
+									?>
+								</strong>
+							</td>
 						</tr>
 					</table>
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-hover" style="margin-bottom:0px;">
@@ -94,6 +133,12 @@
 					  </tr>
 					  </thead>
 					  <tbody>
+					  	<?php
+					  		$approvedPayTotal=0;
+					  		$arrearTotal=0;
+						    $loanDeduct=0;
+						    $total=0;
+					  	?>
 					@foreach($staffAll as $staff)
 						<tr bgcolor="">
 					    	<td height="25" class="text-center">{{ $index++ }}</td>
@@ -132,7 +177,26 @@
 					    	</td>
 					    	<td height="25" class="text-center">{{ ($approvedPay + $generateArrear)-$totalLoans }}&nbsp;</td>
 						</tr>
+						<?php
+							$approvedPayTotal 	= $approvedPayTotal + $approvedPay;
+							$arrearTotal		= $arrearTotal + $generateArrear;
+							$loanDeduct			= $loanDeduct + $totalLoans;
+							$total 				= $total + ($approvedPay + $generateArrear)-$totalLoans;
+						?>
 					@endforeach
+						<tr>
+						    <td class="col-md-1 text-center">&nbsp;</td>
+						    <td class="col-md-2">&nbsp;</td>
+						    <td class="col-md-2">&nbsp;</td>
+						    <td class="col-md-1 text-right" colspan='2'><strong>SUB TOTAL</strong></td>
+						    <td class="col-md-1 text-center"><strong>{{ number_format($approvedPayTotal) }}</strong></td>
+						    <td class="col-md-1 text-center"><strong>{{ number_format($arrearTotal) }}</strong></td>
+						    <td class="col-md-1 text-center"><strong>{{ number_format($loanDeduct) }}</strong></td>
+						    <td class="col-md-1 text-center"><strong>{{ number_format($total) }}</strong></td>
+					  	</tr>
+					  	<tr>
+						    <td class="col-md-1 text-center" colspan='9'><strong>(Rupees {{ no_to_words($total) }} ) only</strong></td>
+					  	</tr>
 					</tbody>
 					</table>
 				</div>
