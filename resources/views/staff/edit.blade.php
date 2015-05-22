@@ -48,7 +48,11 @@
 					</table>
 				</div>
 			</div>
-			{!! $staffAll !!}
+			<?php 
+				if(isset($_GET['district'])){
+					echo $staffAll->appends(['district'=>$_GET['district'],'hoscat'=>$_GET['hoscat'],'designation'=>$_GET['designation'],'type'=>$_GET['type'],'name'=>$_GET['name'],]);
+				} else { echo $staffAll; }
+			?>
 		</div>
 		<div class="col-md-3">
 			<div class="panel panel-default">

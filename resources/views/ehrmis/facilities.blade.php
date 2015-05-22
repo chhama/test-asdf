@@ -56,7 +56,11 @@
 			</table>
 		</div>
 	</div>
-	{!! $hospitalAll !!}
+	<?php 
+		if(isset($_GET['district'])){
+			echo $hospitalAll->appends(['district'=>$_GET['district'],'category'=>$_GET['category'],'type'=>$_GET['type'],'name'=>$_GET['name']]);
+		} else { echo $hospitalAll; }
+	?>
 </div>
 
 @endsection
